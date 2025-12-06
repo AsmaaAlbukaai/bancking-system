@@ -9,28 +9,29 @@ use Illuminate\Support\Facades\Mail;
 class EmailVerificationService
 {
     public function verifyCode(string $email, string $code): void
-    {
-        $user = User::where('email', $email)->firstOrFail();
+{
+    $user = User::where('email', $email)->firstOrFail();
 
-        if ($user->email_verified_at) {
-            return;
-        }
-
-        if (! $user->email_verification_code ||
-            $user->email_verification_code !== $code) {
-            throw new \InvalidArgumentException('رمز التفعيل غير صحيح.');
-        }
-
-        if ($user->email_verification_expires_at?->isPast()) {
-            throw new \RuntimeException('انتهت صلاحية رمز التفعيل، الرجاء طلب رمز جديد.');
-        }
-
-        $user->forceFill([
-            'email_verified_at' => now(),
-            'email_verification_code' => null,
-            'email_verification_expires_at' => null,
-        ])->save();
+    if ($user->email_verified_at) {
+        return;
     }
+
+    if (! $user->email_verification_code ||
+        (string) $user->email_verification_code !== (string) $code) {
+        throw new \InvalidArgumentException('رمز التفعيل غير صحيح.');
+    }
+
+    if ($user->email_verification_expires_at?->isPast()) {
+        throw new \RuntimeException('انتهت صلاحية رمز التفعيل، الرجاء طلب رمز جديد.');
+    }
+
+    $user->forceFill([
+        'email_verified_at' => now(),
+        'email_verification_code' => null,
+        'email_verification_expires_at' => null,
+    ])->save();
+}
+
 
     public function resendCode(string $email): void
     {

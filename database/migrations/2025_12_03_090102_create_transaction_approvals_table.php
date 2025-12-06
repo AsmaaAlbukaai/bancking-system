@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('transaction_approvals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('transaction_id')->constrained()->onDelete('cascade');
-            $table->foreignId('approver_id')->constrained('users');
+            $table->foreignId('approver_id')->nullable()->constrained('users')->nullOnDelete();
             $table->enum('action', ['approve', 'reject', 'hold', 'review']);
             $table->text('comments')->nullable();
             $table->enum('level', ['teller', 'supervisor', 'manager', 'director'])->default('teller');

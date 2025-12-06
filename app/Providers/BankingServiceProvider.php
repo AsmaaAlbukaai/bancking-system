@@ -52,11 +52,13 @@ class BankingServiceProvider extends ServiceProvider
             return new InterestCalculatorService($strategy);
         });
 
-        $this->app->singleton(TransactionService::class, function ($app) {
-            $chain = $app->make(BaseApprovalHandler::class);
-            $notifier = $app->make(NotificationDispatcher::class);
-            return new TransactionService($chain, $notifier);
-        });
+    $this->app->singleton(TransactionService::class, function ($app) {
+    $chain = $app->make(BaseApprovalHandler::class);
+    $notifier = $app->make(NotificationDispatcher::class);
+    $ops = $app->make(\App\Services\Account\AccountOperationsService::class);
+
+    return new TransactionService($chain, $notifier, $ops);
+});
 
         // Facade service
         $this->app->singleton(BankFacade::class, function ($app) {

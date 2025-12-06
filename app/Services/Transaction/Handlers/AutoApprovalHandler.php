@@ -30,7 +30,7 @@ class AutoApprovalHandler extends BaseApprovalHandler
             'approver_id' => null,
             'action' => 'approve',
             'comments' => 'Auto-approved by system',
-            'level' => 'auto',
+            'level' => 'teller',
             'is_required' => false,
             'action_taken_at' => now()
         ]);

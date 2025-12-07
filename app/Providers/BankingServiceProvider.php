@@ -3,21 +3,23 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Services\Transaction\Handlers\AutoApprovalHandler;
-use App\Services\Transaction\Handlers\ManagerApprovalHandler;
-use App\Services\Transaction\Handlers\BaseApprovalHandler;
-use App\Services\Transaction\TransactionService;
-use App\Services\Notification\NotificationDispatcher;
-use App\Services\Notification\EmailNotifier;
-use App\Services\Notification\SMSNotifier;
-use App\Services\Notification\InAppNotifier;
-use App\Services\Account\AccountCompositeService;
-use App\Services\Interest\InterestCalculatorService;
-use App\Services\Interest\Strategies\SimpleInterestStrategy;
-use App\Services\Interest\Strategies\CompoundInterestStrategy;
-use App\Services\Banking\BankFacade;
-use App\Services\Interest\Strategies\InterestStrategyInterface;
-use App\Services\Notification\NotifierInterface;
+use App\Modules\Transaction\Handlers\AutoApprovalHandler;
+use App\Modules\Transaction\Handlers\ManagerApprovalHandler;
+use App\Modules\Transaction\Handlers\BaseApprovalHandler;
+use App\Modules\Transaction\TransactionService;
+use App\Modules\Notification\NotificationDispatcher;
+use App\Modules\Notification\EmailNotifier;
+use App\Modules\Notification\SMSNotifier;
+use App\Modules\Notification\InAppNotifier;
+use App\Modules\Account\AccountCompositeService;
+use App\Modules\Account\AccountOperationsService;
+use App\Modules\Interest\InterestCalculatorService;
+use App\Modules\Interest\Strategies\SimpleInterestStrategy;
+use App\Modules\Interest\Strategies\CompoundInterestStrategy;
+use App\Modules\Banking\BankFacade;
+use App\Modules\Interest\Strategies\InterestStrategyInterface;
+use App\Modules\Notification\NotifierInterface;
+use App\Modules\Transaction\Handlers\TellerApprovalHandler;
 
 class BankingServiceProvider extends ServiceProvider
 {
@@ -38,7 +40,8 @@ class BankingServiceProvider extends ServiceProvider
 
         // Approval chain
         $this->app->singleton(BaseApprovalHandler::class, function ($app) {
-            $auto = new AutoApprovalHandler(1000.0);
+            $auto = new AutoApprovalHandler(100.0);
+            $teller = new TellerApprovalHandler(999.9);
             $manager = new ManagerApprovalHandler(1000.01);
             $auto->setNext($manager);
             // يمكنك إضافة مزيد من السلسلة
@@ -52,13 +55,15 @@ class BankingServiceProvider extends ServiceProvider
             return new InterestCalculatorService($strategy);
         });
 
+
     $this->app->singleton(TransactionService::class, function ($app) {
     $chain = $app->make(BaseApprovalHandler::class);
     $notifier = $app->make(NotificationDispatcher::class);
-    $ops = $app->make(\App\Services\Account\AccountOperationsService::class);
+    $ops = $app->make(AccountOperationsService::class);
 
     return new TransactionService($chain, $notifier, $ops);
 });
+
 
         // Facade service
         $this->app->singleton(BankFacade::class, function ($app) {

@@ -1,15 +1,17 @@
+
 <?php
+use App\Modules\Account\AccountController;
+use App\Modules\Auth\InvitationController;
+use App\Modules\Auth\LoginController;
+use App\Modules\Auth\RegisterController;
+use App\Modules\Auth\VerifyCodeController;
+use App\Modules\Banking\BankingController;
+use App\Modules\Interest\InterestController;
+use App\Modules\Notification\NotificationController;
+use App\Modules\Transaction\TransactionController;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\InterestController;
-use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\BankingController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\InvitationController;
-use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\Auth\VerifyCodeController;
+use App\Modules\Account\AccountStatusController;
 
 // Auth: register + login (بدون توكن مسبق)
 Route::post('register', [RegisterController::class, 'register'])->name('api.register');
@@ -22,6 +24,21 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Logout
     Route::post('/logout', [LoginController::class, 'logout'])->name('api.logout');
+    
+    Route::prefix('accounts')->group(function () {
+
+    // تقديم طلب تغيير حالة الحساب
+    Route::post('request-status-change/{accountId}', [AccountStatusController::class, 'requestChange']);
+     
+    // إلغاء
+    Route::post('cancel/{id}', [AccountStatusController::class, 'cancel']); 
+
+    // جميع طلبات الزبون
+    Route::get('my-status-change-requests', [AccountStatusController::class, 'myRequests']);
+
+    // الطلبات حسب حساب معين
+    Route::get('status-change-requests/{accountId}', [AccountStatusController::class, 'accountRequests']);
+    });
 
     // دعوات الموظفين والمديرين (فقط للأدمن)
     Route::middleware('isAdmin')->group(function () {
@@ -52,5 +69,38 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/banking/{accountId}/summary', [BankingController::class, 'summary']);
 });
 
+    
+
+// طلبات الحالة
+    Route::prefix('status-change-requests')->group(function () {
+
+    Route::get('/', [AccountStatusController::class, 'index']);       // كل الطلبات
+    Route::get('{id}', [AccountStatusController::class, 'show']);     // طلب واحد
+   
+    Route::middleware('auth:sanctum')->group(function () {
+    Route::post('approve/{id}', [AccountStatusController::class, 'approve']);  // موافقة
+    Route::post('reject/{id}', [AccountStatusController::class, 'reject']);    // رفض
+});
+    });
 // قبول الدعوة عبر رابط الإيميل (لا يحتاج توكن مسبق)
 Route::post('/invitations/accept/{token}', [InvitationController::class, 'accept'])->name('api.invitations.accept');
+Route::get('/test', [AccountController::class, 'testSwagger']);
+
+Route::middleware('auth:sanctum')->group(function () {
+
+    // سحب / إيداع للزبون
+    Route::post('transaction/{accountId}', [TransactionController::class, 'customerTransaction']);
+
+    // موافقة teller
+    Route::post('transactions/approve/{transactionId}', [TransactionController::class, 'approveCustomerTransaction']);
+
+    // رفض teller
+    Route::post('transactions/reject/{transactionId}', [TransactionController::class, 'rejectCustomerTransaction']);
+
+    Route::post('/transactions/approve/manager/{id}',  [TransactionController::class, 'approveByManager']);
+
+    Route::post('/transactions/reject/manager/{id}', [TransactionController::class, 'rejectByManager']);
+
+    Route::get('customer-transactions/requests', [TransactionController::class, 'customerRequests']);
+
+});

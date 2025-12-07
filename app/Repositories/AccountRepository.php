@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
 
-use App\Models\Account;
+use App\Modules\Account\Account;
 
 class AccountRepository
 {

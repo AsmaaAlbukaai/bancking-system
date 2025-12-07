@@ -1,0 +1,1171 @@
+{
+	"info": {
+		"_postman_id": "30a4c773-c588-4491-80ff-23f8902ae9f5",
+		"name": "Banking System",
+		"description": "Organized API collection for Banking System (Customer, Admin, Staff)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30812816"
+	},
+	"item": [
+		{
+			"name": "1 - Customer APIs",
+			"item": [
+				{
+					"name": "Accounts & Transactions",
+					"item": [
+						{
+							"name": "Accounts - List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/accounts",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"accounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Accounts - Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"account_name\": \"second Account\",\n  \"type\":\"savings\",\n  \"balance\": 1000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update-account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"account_name\": \"second Account\",\n  \"type\":\"checking\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/update-account/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"update-account",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/account/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"account",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-account-total-balance",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/account/total-balance/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"account",
+										"total-balance",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete-account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/account/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"account",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Transactions - Transfer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"from_account_id\": 2,\n  \"to_account_id\": 4,\n  \"amount\": 100\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/transactions/transfer",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"transactions",
+										"transfer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "request-status-change",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"requested_status\": \"frozen\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/accounts/request-status-change/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"accounts",
+										"request-status-change",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cancel/request-status-change",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/accounts/cancel/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"accounts",
+										"cancel",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "my-status-change-requests",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/accounts/my-status-change-requests",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"accounts",
+										"my-status-change-requests"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "accounts/status-change-requests/id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/accounts/status-change-requests/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"accounts",
+										"status-change-requests",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "withdraw",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"withdrawal\",\r\n    \"amount\": 100\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/transaction/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"transaction",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deposit",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"deposit\",\r\n    \"amount\": 600\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/transaction/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"transaction",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register (Customer)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Customer One\",\n  \"email\": \"asmaaalbukaai54@gmail.com\",\n  \"phone\": \"0911111111\",\n  \"password\": \"Password123\",\n  \"password_confirmation\": \"Password123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify Email by Code",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"asmaaalbukaai54@gmail.com\",\n  \"code\": \"450121\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/email/verify-code",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"email",
+										"verify-code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Resend Verification Code",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"asmaaalbukaai54@gmail.com\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/email/resend-code",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"email",
+										"resend-code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login (Any User)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"asmaaalbukaai54@gmail.com\",\n  \"password\": \"Password123\"\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout (Any User)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/logout",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "2 - Admin APIs",
+			"item": [
+				{
+					"name": "Admin - Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@bank.local\",\n  \"password\": \"Admin@12345\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin - Create Staff Invitation (teller/manager)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"employee1@example.com\",\n  \"role\": \"teller\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/invitations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"invitations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3 - Staff (Teller / Manager) APIs",
+			"item": [
+				{
+					"name": "teller",
+					"item": [
+						{
+							"name": "approve/status-change-request",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/status-change-requests/approve/1\n",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"status-change-requests",
+										"approve",
+										"1\n"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reject/status-change-request",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/status-change-requests/reject/1\n",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"status-change-requests",
+										"reject",
+										"1\n"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-All-status-change-requests",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/status-change-requests",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"status-change-requests"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-status-request",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/status-change-requests/2\n",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"status-change-requests",
+										"2\n"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "approve/transaction",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/status-change-requests/reject/1\n",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"status-change-requests",
+										"reject",
+										"1\n"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reject/transaction",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/status-change-requests/reject/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"status-change-requests",
+										"reject",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "manager",
+					"item": [
+						{
+							"name": "transactions/approve",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "10|JVekhyLRczY02rF9iRi9GYFpwzbaNfb6rAdYpDm7727ccc1f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/transactions/approve/manager/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"transactions",
+										"approve",
+										"manager",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "transactions/reject",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "9|T2Caegr5ryGftNxZ9rs5zxrRRndmWPF7jP2YVMc0bece6957",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "aplplication/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "POST http://localhost:8000/api/transactions/reject/manager/1",
+									"protocol": "POST http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"transactions",
+										"reject",
+										"manager",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Staff - Accept Invitation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Employee One\",\n  \"phone\": \"0912222222\",\n  \"password\": \"Password123\",\n  \"password_confirmation\": \"Password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/invitations/accept/:token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"invitations",
+								"accept",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "paste-token-here"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Staff - Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"employee1@example.com\",\n  \"password\": \"Password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer-transactions/requests",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "10|JVekhyLRczY02rF9iRi9GYFpwzbaNfb6rAdYpDm7727ccc1f",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/customer-transactions/requests",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customer-transactions",
+								"requests"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000"
+		},
+		{
+			"key": "auth_token",
+			"value": ""
+		}
+	]
+}

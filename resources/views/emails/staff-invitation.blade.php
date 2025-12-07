@@ -10,5 +10,7 @@
 </x-mail::button>
 
 شكراً لك،<br>
+
 النظام البنكي
+
 </x-mail::message>

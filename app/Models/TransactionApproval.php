@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Modules\Transaction\Transaction;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,4 +38,6 @@ class TransactionApproval extends Model
     {
         return $this->belongsTo(User::class, 'approver_id');
     }
+
 }
+

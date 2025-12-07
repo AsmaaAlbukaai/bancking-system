@@ -60,5 +60,9 @@ class BankFacade
 {
     return $this->composite->getTotalBalance($account);
 }
+public function calculateInterest(Account $account, int $days)
+{
+    return $this->interestService->calculateForAccount($account, $days);
+}
 }
 

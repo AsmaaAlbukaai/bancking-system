@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 /**
  * @OA\Info(
  *     title="Banking System API",
@@ -15,6 +16,7 @@ namespace App\Http\Controllers;
  *     bearerFormat="JWT"
  * )
  */
+
 
 
 abstract class Controller

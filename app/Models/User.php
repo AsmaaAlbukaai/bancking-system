@@ -2,6 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\AccountGroup;
+use App\Models\AccountStatusChangeRequest;
+use App\Models\AuditLog;
+use App\Models\NotificationPreference;
+use App\Models\TransactionApproval;
 use App\Modules\Account\Account;
 use App\Modules\Notification\Notification;
 use App\Modules\Transaction\Transaction;
@@ -11,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -24,6 +30,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'role',
         'email_verification_code',
         'email_verification_expires_at',
+
     ];
 
     protected $hidden = [
@@ -72,4 +79,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(AuditLog::class);
     }
+    public function approvedStatusChanges()
+    {
+        return $this->hasMany(AccountStatusChangeRequest::class, 'approved_by');
+    }
+    public function requestedStatusChanges()
+    {
+        return $this->hasMany(AccountStatusChangeRequest::class, 'requested_by');
+    }
 }
+
+

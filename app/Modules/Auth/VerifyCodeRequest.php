@@ -4,6 +4,7 @@ namespace App\Modules\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class VerifyCodeRequest extends FormRequest
 {
     public function authorize(): bool

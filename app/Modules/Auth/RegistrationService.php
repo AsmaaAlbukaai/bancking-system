@@ -6,7 +6,6 @@ use App\Mail\VerificationCodeMail;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-
 class RegistrationService
 {
     public function registerCustomer(array $data): User

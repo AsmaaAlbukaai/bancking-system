@@ -4,7 +4,8 @@ namespace App\Modules\Transaction\Handlers;
 
 use App\Modules\Transaction\Transaction;
 
-abstract class BaseApprovalHandler
+
+abstract  class BaseApprovalHandler
 {
     protected ?BaseApprovalHandler $next = null;
 

@@ -1,14 +1,16 @@
 <?php
 
+
 namespace App\Modules\Transaction\Handlers;
 
 use App\Modules\Transaction\Transaction;
+
 
 class AutoApprovalHandler extends BaseApprovalHandler
 {
     protected float $limit;
 
-    public function __construct(float $limit = 1000.0)
+    public function __construct(float $limit = 100.0)
     {
         $this->limit = $limit;
     }
@@ -30,7 +32,7 @@ class AutoApprovalHandler extends BaseApprovalHandler
             'approver_id' => null,
             'action' => 'approve',
             'comments' => 'Auto-approved by system',
-            'level' => 'auto',
+            'level' => 'director',
             'is_required' => false,
             'action_taken_at' => now()
         ]);

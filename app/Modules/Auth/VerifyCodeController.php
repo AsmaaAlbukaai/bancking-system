@@ -4,6 +4,7 @@ namespace App\Modules\Auth;
 
 use App\Http\Controllers\Controller;
 
+
 class VerifyCodeController extends Controller
 {
     public function __construct(

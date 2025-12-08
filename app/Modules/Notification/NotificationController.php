@@ -23,7 +23,7 @@ class NotificationController extends Controller
 
     public function markAsRead($id)
     {
-        $n = \App\Modules\Notification\Notification::findOrFail($id);
+        $n = Notification::findOrFail($id);
         $n->markAsRead();
 
         return response()->json(['message' => 'Marked as read']);

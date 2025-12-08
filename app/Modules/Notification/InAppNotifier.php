@@ -2,13 +2,13 @@
 
 namespace App\Modules\Notification;
 
-use App\Modules\Notification\Notification as NotificationModel;
+use App\Modules\Notification\Notification ;
 
 class InAppNotifier implements NotifierInterface
 {
     public function notify($user, string $title, string $message, array $data = []): void
     {
-        NotificationModel::create([
+        Notification::create([
             'user_id' => $user->id,
             'type' => 'system',
             'title' => $title,

@@ -37,7 +37,7 @@ class EmailVerificationService
         }
 
         if (! $user->email_verification_code ||
-            $user->email_verification_code !== $code) {
+          (string)  $user->email_verification_code !== (string) $code) {
             throw new \InvalidArgumentException('رمز التفعيل غير صحيح.');
         }
 
@@ -89,5 +89,4 @@ class EmailVerificationService
     }
 
 }
-
 

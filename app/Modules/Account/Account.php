@@ -1,15 +1,18 @@
 <?php
-
 namespace App\Modules\Account;
 
 use App\Models\AccountFeature;
 use App\Models\AccountGroup;
+use App\Models\AccountStatusChangeRequest;
 use App\Models\InterestCalculation;
 use App\Models\User;
+use App\Modules\Account\States\AccountStateFactory;
+use App\Modules\Account\States\AccountStateInterface;
 use App\Modules\Transaction\Transaction;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Account extends Model
 {
@@ -71,22 +74,18 @@ class Account extends Model
     {
         return $this->hasMany(Transaction::class, 'to_account_id');
     }
-
     public function transactions()
-    {
-        return Transaction::where(function($query) {
-            $query->where('from_account_id', $this->id)
-                  ->orWhere('to_account_id', $this->id);
-        });
-    }
-
+{
+    return $this->hasMany(Transaction::class, 'from_account_id')
+        ->orWhere('to_account_id', $this->id);
+}
     public function features()
     {
         return $this->belongsToMany(AccountFeature::class, 'account_feature_pivot')
             ->withPivot([
-                'is_active',
-                'custom_fee',
-                'activated_at',
+                'is_active', 
+                'custom_fee', 
+                'activated_at', 
                 'deactivated_at',
                 'next_billing_date',
                 'settings'
@@ -103,4 +102,12 @@ class Account extends Model
     {
         return $this->hasMany(InterestCalculation::class);
     }
+    public function statusChangeRequests()
+{
+    return $this->hasMany(AccountStatusChangeRequest::class, 'account_id');
+}
+   public function getState(): AccountStateInterface
+   {
+    return (new AccountStateFactory())->make($this);
+   }
 }

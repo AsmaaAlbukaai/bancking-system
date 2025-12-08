@@ -25,14 +25,14 @@ class ManagerApprovalHandler extends BaseApprovalHandler
         // سجل طلب موافقة
         $transaction->approvals()->create([
             'approver_id' => null, // لاحقًا يربط بالمدير
-            'action' => 'request',
+            'action' => 'review',
             'comments' => 'Requires manager approval',
             'level' => 'manager',
             'is_required' => true
         ]);
 
         // نترك الحالة كما هي (pending) أو set to 'awaiting_approval'
-        $transaction->status = 'awaiting_approval';
+        $transaction->status = 'pending';
         $transaction->save();
 
         return false;

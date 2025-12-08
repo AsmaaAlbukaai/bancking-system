@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Models;
-
+use App\Modules\User\User;
 use Illuminate\Database\Eloquent\Model;
 use App\Modules\Account\Account;
-use App\Models\User;
 
 class AccountStatusChangeRequest extends Model
 {

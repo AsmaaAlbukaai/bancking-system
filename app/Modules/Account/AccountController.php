@@ -3,6 +3,7 @@
 namespace App\Modules\Account;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Modules\Banking\BankFacade;
 use Illuminate\Http\Request;
 
@@ -227,4 +228,76 @@ class AccountController extends Controller
 
         return response()->json(['total_balance' => $total]);
     }
+
+
+    public function getCustomerAccountsByUserId($userId)
+{
+    $auth = auth()->user();
+
+    // منع العملاء من الوصول
+    if ($auth->role === 'customer') {
+        return response()->json(['error' => 'Unauthorized'], 403);
+    }
+
+    // السماح لـ admin - manager - teller
+    if (!in_array($auth->role, ['admin', 'manager', 'teller'])) {
+        return response()->json(['error' => 'Unauthorized'], 403);
+    }
+
+    // جلب العميل
+    $user = User::where('role', 'customer')->findOrFail($userId);
+
+    // جلب حساباته
+    $accounts = Account::with(['transactions'])
+        ->where('user_id', $user->id)
+        ->latest()
+        ->get();
+
+    return response()->json([
+        'user' => $user,
+        'accounts' => $accounts
+    ]);
+}
+
+    public function deactivateAccount($accountId)
+{
+    $admin = auth()->user();
+
+    $account = Account::findOrFail($accountId);
+
+    $state = $account->getState();
+
+    if ($state->name() === 'closed') {
+        return response()->json(['error' => 'Account already closed'], 400);
+    }
+
+    $account->update([
+        'status' => 'closed',
+        'closed_at' => now(),
+        'closure_reason' => request('reason', 'Closed by admin'),
+    ]);
+
+    return response()->json(['message' => 'Account closed successfully']);
+}
+
+    public function activateAccount($accountId)
+{
+    $admin = auth()->user();
+
+    $account = Account::findOrFail($accountId);
+
+    $state = $account->getState();
+    
+    if ($state->name() === 'active') {
+        return response()->json(['error' => 'Account already active'], 400);
+    }
+    $account->update([
+        'status' => 'active',
+        'closed_at' => null,
+        'closure_reason' => null,
+    ]);
+
+    return response()->json(['message' => 'Account activated successfully']);
+     }
+
 }

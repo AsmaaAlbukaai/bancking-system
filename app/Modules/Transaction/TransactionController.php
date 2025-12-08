@@ -156,4 +156,20 @@ public function customerRequests(Request $request)
     return response()->json($query->get());
 }
 
+     public function allTransactions()
+{
+    $user = auth()->user();
+
+    // 🔹 فقط الادمن له حق رؤية جميع المعاملات
+    if ($user->role !== 'admin') {
+        return response()->json(['error' => 'Unauthorized'], 403);
+    }
+
+    $txns = Transaction::with(['fromAccount', 'toAccount', 'approvals'])
+        ->latest()
+        ->get();
+
+    return response()->json($txns);
+    }
+
 }

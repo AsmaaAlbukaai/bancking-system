@@ -1,6 +1,12 @@
 <?php
 
 namespace App\Models;
+
+use App\Models\AccountGroup;
+use App\Models\AccountStatusChangeRequest;
+use App\Models\AuditLog;
+use App\Models\NotificationPreference;
+use App\Models\TransactionApproval;
 use App\Modules\Account\Account;
 use App\Modules\Transaction\Transaction;
 use App\Modules\Notification\Notification;

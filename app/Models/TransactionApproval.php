@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Modules\User\User;
 
 use App\Modules\Transaction\Transaction;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

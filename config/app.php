@@ -123,5 +123,6 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
    App\Providers\BankingServiceProvider::class,
+   App\Providers\TransactionMacroServiceProvider::class,
 
 ];

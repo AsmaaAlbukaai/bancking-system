@@ -57,3 +57,4 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::post('/invitations/accept/{token}', [InvitationController::class, 'accept'])->name('api.invitations.accept');
 Route::get('/test', [AccountController::class, 'testSwagger']);
 
+

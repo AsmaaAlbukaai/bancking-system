@@ -87,6 +87,7 @@ class EmailVerificationService
 
         Mail::to($user->email)->send(new VerificationCodeMail($code));
     }
+
 }
 
 

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Modules\Account\Account;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Modules\Transaction\Recurring\RecurringStrategyFactory;
 
 
 class Transaction extends Model
@@ -74,4 +75,8 @@ class Transaction extends Model
         return $this->hasMany(GatewayTransaction::class);
     }
 
+public function getRecurringStrategy()
+{
+     return RecurringStrategyFactory::make($this->recurring_frequency);
+}
 }

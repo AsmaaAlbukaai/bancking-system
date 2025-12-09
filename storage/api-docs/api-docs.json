@@ -408,6 +408,348 @@
                     }
                 }
             }
+        },
+        "/api/transactions/transfer": {
+            "post": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Transfer money between two accounts",
+                "operationId": "24a1709344619090b21437bb51933764",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "from_account_id",
+                                    "to_account_id",
+                                    "amount"
+                                ],
+                                "properties": {
+                                    "from_account_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "to_account_id": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "amount": {
+                                        "type": "number",
+                                        "example": 1500
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Transfer successful"
+                    },
+                    "400": {
+                        "description": "Insufficient balance"
+                    },
+                    "404": {
+                        "description": "Account not found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/transactions/history/{accountId}": {
+            "get": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Get transaction history for a specific account",
+                "operationId": "c398c81668e30232dcab14c1d9af0eef",
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "in": "path",
+                        "description": "Account ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transaction history"
+                    },
+                    "404": {
+                        "description": "Account not found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/transaction/{accountId}": {
+            "post": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Send customer transaction request (deposit or withdraw)",
+                "operationId": "99ee1fc5b64d9a522974b7c56a62c2bf",
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "in": "path",
+                        "description": "Customer account ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "type",
+                                    "amount"
+                                ],
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "example": "withdraw"
+                                    },
+                                    "amount": {
+                                        "type": "number",
+                                        "example": 500
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "ATM withdrawal"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Transaction request created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/transactions/approve/{transactionId}": {
+            "post": {
+                "tags": [
+                    "Transactions - Teller"
+                ],
+                "summary": "Approve customer transaction by teller",
+                "operationId": "d669db5078c32e00fc423e37ff3456c3",
+                "parameters": [
+                    {
+                        "name": "transactionId",
+                        "in": "path",
+                        "description": "Transaction ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transaction approved"
+                    },
+                    "404": {
+                        "description": "Transaction not found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/transactions/reject/{transactionId}": {
+            "post": {
+                "tags": [
+                    "Transactions - Teller"
+                ],
+                "summary": "Reject customer transaction by teller",
+                "operationId": "ccb0856ab8db3cca0661c24d317d3d56",
+                "parameters": [
+                    {
+                        "name": "transactionId",
+                        "in": "path",
+                        "description": "Transaction ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "reason": {
+                                        "type": "string",
+                                        "example": "Invalid request"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Transaction rejected"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/transactions/approve/manager/{id}": {
+            "post": {
+                "tags": [
+                    "Transactions - Manager"
+                ],
+                "summary": "Approve transaction by bank manager",
+                "operationId": "f10880669dd1b008b83dedb03a9990d6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Transaction ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transaction approved by manager"
+                    },
+                    "404": {
+                        "description": "Transaction not found"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/transactions/reject/manager/{id}": {
+            "post": {
+                "tags": [
+                    "Transactions - Manager"
+                ],
+                "summary": "Reject transaction by bank manager",
+                "operationId": "2552bdac3bab91e50fc0d9974ef41210",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Transaction ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "reason": {
+                                        "type": "string",
+                                        "example": "Suspicious activity detected"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Transaction rejected by manager"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/customer-transactions/requests": {
+            "get": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Get all pending customer transaction requests",
+                "operationId": "79950fe8d2b09cce4473913158553c64",
+                "responses": {
+                    "200": {
+                        "description": "Pending requests list"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/transactions/all": {
+            "get": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Get all transactions in the system",
+                "operationId": "57ec066f3e90c4fa24303941772287f6",
+                "responses": {
+                    "200": {
+                        "description": "All transactions data"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -431,6 +773,18 @@
         {
             "name": "Auth",
             "description": "Auth"
+        },
+        {
+            "name": "Transactions",
+            "description": "Transactions"
+        },
+        {
+            "name": "Transactions - Teller",
+            "description": "Transactions - Teller"
+        },
+        {
+            "name": "Transactions - Manager",
+            "description": "Transactions - Manager"
         }
     ]
 }

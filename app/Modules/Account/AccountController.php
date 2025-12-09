@@ -11,9 +11,12 @@ class AccountController extends Controller
 {
     protected BankFacade $bank;
 
-    public function __construct(BankFacade $bank)
+    protected AccountService $accountService;
+
+    public function __construct(BankFacade $bank, AccountService $accountService)
     {
         $this->bank = $bank;
+        $this->accountService = $accountService;
     }
 
     /**
@@ -122,11 +125,11 @@ class AccountController extends Controller
 
         $data['user_id'] = $request->user()->id;
 
-        $acc = Account::create($data);
+        // استخدم الـService وليس المودل مباشرة
+        $acc = $this->accountService->createAccount($data);
 
         return response()->json($acc, 201);
     }
-
     // تحديث حساب
     /**
      * @OA\Put(
@@ -287,7 +290,7 @@ class AccountController extends Controller
     $account = Account::findOrFail($accountId);
 
     $state = $account->getState();
-    
+
     if ($state->name() === 'active') {
         return response()->json(['error' => 'Account already active'], 400);
     }

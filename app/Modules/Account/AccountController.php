@@ -8,11 +8,12 @@ use App\Modules\Banking\BankFacade;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
-{
+{     
+    protected AccountService $service;
     protected BankFacade $bank;
-
-    public function __construct(BankFacade $bank)
+     public function __construct(AccountService $service, BankFacade $bank)
     {
+        $this->service = $service;
         $this->bank = $bank;
     }
 
@@ -107,8 +108,7 @@ class AccountController extends Controller
      *     )
      * )
      */
-
-    public function store(Request $request)
+  public function store(Request $request)
     {
         $data = $request->validate([
             'type' => 'required|string',
@@ -122,9 +122,9 @@ class AccountController extends Controller
 
         $data['user_id'] = $request->user()->id;
 
-        $acc = Account::create($data);
+        $account = $this->service->createAccount($data);
 
-        return response()->json($acc, 201);
+        return response()->json($account, 201);
     }
 
     // تحديث حساب
@@ -163,10 +163,14 @@ class AccountController extends Controller
 
     public function update(Request $request, $id)
     {
-        $acc = Account::findOrFail($id);
-        $acc->update($request->all());
+        $data = $request->only([
+            'type', 'account_name', 'balance', 'interest_rate',
+            'credit_limit', 'minimum_balance'
+        ]);
 
-        return response()->json($acc);
+        $account = $this->service->updateAccount($id, $data);
+
+        return response()->json($account);
     }
 
     // حذف حساب
@@ -221,83 +225,38 @@ class AccountController extends Controller
      * )
      */
 
-    public function totalBalance($id)
+  public function totalBalance($id)
     {
-        $acc = Account::findOrFail($id);
-        $total = $this->bank->getTotalBalance($acc);
+        $account = $this->service->getAccountById($id);
+        $total = $this->bank->getTotalBalance($account);
 
         return response()->json(['total_balance' => $total]);
     }
 
-
+    /**
+     * 🔹 جلب حسابات عميل محدد عبر user_id
+     */
     public function getCustomerAccountsByUserId($userId)
-{
-    $auth = auth()->user();
-
-    // منع العملاء من الوصول
-    if ($auth->role === 'customer') {
-        return response()->json(['error' => 'Unauthorized'], 403);
+    {
+        $result = $this->service->getCustomerAccountsByUserId($userId);
+        return response()->json($result);
     }
 
-    // السماح لـ admin - manager - teller
-    if (!in_array($auth->role, ['admin', 'manager', 'teller'])) {
-        return response()->json(['error' => 'Unauthorized'], 403);
-    }
-
-    // جلب العميل
-    $user = User::where('role', 'customer')->findOrFail($userId);
-
-    // جلب حساباته
-    $accounts = Account::with(['transactions'])
-        ->where('user_id', $user->id)
-        ->latest()
-        ->get();
-
-    return response()->json([
-        'user' => $user,
-        'accounts' => $accounts
-    ]);
-}
-
+    /**
+     * 🔹 إغلاق حساب باستخدام الـ State Pattern
+     */
     public function deactivateAccount($accountId)
-{
-    $admin = auth()->user();
-
-    $account = Account::findOrFail($accountId);
-
-    $state = $account->getState();
-
-    if ($state->name() === 'closed') {
-        return response()->json(['error' => 'Account already closed'], 400);
+    {
+        $result = $this->service->closeAccount($accountId, request('reason'));
+        return response()->json($result);
     }
 
-    $account->update([
-        'status' => 'closed',
-        'closed_at' => now(),
-        'closure_reason' => request('reason', 'Closed by admin'),
-    ]);
-
-    return response()->json(['message' => 'Account closed successfully']);
-}
-
+    /**
+     * 🔹 إعادة تفعيل حساب باستخدام الـ State Pattern
+     */
     public function activateAccount($accountId)
-{
-    $admin = auth()->user();
-
-    $account = Account::findOrFail($accountId);
-
-    $state = $account->getState();
-    
-    if ($state->name() === 'active') {
-        return response()->json(['error' => 'Account already active'], 400);
+    {
+        $result = $this->service->activateAccount($accountId);
+        return response()->json($result);
     }
-    $account->update([
-        'status' => 'active',
-        'closed_at' => null,
-        'closure_reason' => null,
-    ]);
-
-    return response()->json(['message' => 'Account activated successfully']);
-     }
-
 }

@@ -12,6 +12,7 @@ use App\Modules\Transaction\TransactionController;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Modules\Account\AccountStatusController;
+use App\Modules\Transaction\Recurring\RecurringController;
 use App\Modules\User\UserController;
 
 // Auth: register + login (بدون توكن مسبق)
@@ -122,5 +123,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('customer-transactions/requests', [TransactionController::class, 'customerRequests']);
 
     Route::get('customers/accounts/{userId}', [AccountController::class, 'getCustomerAccountsByUserId']);
+     
+    
+    Route::post('request', [RecurringController::class, 'requestRecurring']); // customer
+    Route::get('requests',  [RecurringController::class, 'listRequests']);   // teller/manager/admin
+    Route::post('/approve/{id}', [RecurringController::class, 'approve']);    // teller
+    Route::post('/reject/{id}', [RecurringController::class, 'reject']);      // teller
+
 });
 

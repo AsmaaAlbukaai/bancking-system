@@ -297,13 +297,10 @@ public function customerRequests(Request $request)
         ->with(['fromAccount', 'toAccount', 'approvals'])
         ->latest();
 
-<<<<<<< HEAD
     /**********************************
      *  فلترة حسب دور المستخدم
      **********************************/
 
-=======
->>>>>>> 9f64c40 (new commit)
     if ($user->role === 'teller') {
         $query->whereHas('approvals', function($q) {
             $q->where('level', 'teller')->where('action','review'); // لم يتم اتخاذ إجراء بعد
@@ -316,13 +313,10 @@ public function customerRequests(Request $request)
         });
     }
 
-<<<<<<< HEAD
+
     /**********************************
      *  فلترة إضافية حسب الطلب
      **********************************/
-
-=======
->>>>>>> 9f64c40 (new commit)
     if ($request->has('status')) {
         $query->where('status', $request->status);
     }

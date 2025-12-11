@@ -1,10 +1,8 @@
 <?php
 
-
 namespace App\Modules\Transaction\Handlers;
 
 use App\Modules\Transaction\Transaction;
-
 
 class AutoApprovalHandler extends BaseApprovalHandler
 {
@@ -17,8 +15,9 @@ class AutoApprovalHandler extends BaseApprovalHandler
 
     protected function canHandle(Transaction $transaction): bool
     {
-        // إذا المبلغ أقل من الحد الافتراضي ونوع المعاملة يسمح بالموافقة التلقائية
-        return $transaction->amount <= $this->limit && $transaction->status === 'pending';
+        return in_array($transaction->type, ['deposit', 'withdrawal', 'transfer'])
+            && $transaction->amount <= $this->limit
+            && $transaction->status === 'pending';
     }
 
     protected function process(Transaction $transaction): bool
@@ -27,12 +26,11 @@ class AutoApprovalHandler extends BaseApprovalHandler
         $transaction->approved_at = now();
         $transaction->save();
 
-        // تسجيل موافقة أو إنشاء سجل اعتماد
         $transaction->approvals()->create([
             'approver_id' => null,
             'action' => 'approve',
             'comments' => 'Auto-approved by system',
-            'level' => 'director',
+            'level' => 'system',
             'is_required' => false,
             'action_taken_at' => now()
         ]);

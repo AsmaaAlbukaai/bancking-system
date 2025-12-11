@@ -122,7 +122,10 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
-   App\Providers\BankingServiceProvider::class,
-   App\Providers\TransactionMacroServiceProvider::class,
+    App\Providers\BankingServiceProvider::class,
+    App\Providers\TransactionMacroServiceProvider::class,
+    App\Modules\Support\SupportModuleServiceProvider::class,
+    App\Modules\Recommendations\RecommendationModuleServiceProvider::class,
+    App\Modules\Reports\ReportsModuleServiceProvider::class,
 
 ];

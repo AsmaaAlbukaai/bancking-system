@@ -151,7 +151,15 @@ class TransactionService
             'approved_at' => now(),
             'processed_at' => now(),
         ]);
-
+        $approval = $txn->approvals()->first(); // أو اختر حسب ترتيب الموافقة
+        if ($approval) {
+        $approval->update([
+            'action' => 'approve',
+            'action_taken_at' => now(),
+            'approver_id' => $user->id,
+            'comments' => 'Approved by manager',
+        ]);
+    }
         return $txn;
     }
 
@@ -165,7 +173,15 @@ class TransactionService
             'approved_by' => $user->id,
             'approved_at' => now(),
         ]);
+         $approval = $txn->approvals()->first();
+        if ($approval) {
 
+          $approval->update([
+        'action' => 'reject',
+        'action_taken_at' => now(),
+        'approver_id' => $user->id,
+        'comments' => 'Rejected by manager',
+    ]);}
         return $txn;
     }
 
@@ -213,15 +229,15 @@ class TransactionService
     ]);
 
     // 5) تسجيل موافقة المدير
-    $txn->approvals()->create([
-        'approver_id' => $manager->id,
-        'action' => 'approve',
-        'level' => 'manager',
-        'comments' => 'Approved by manager',
-        'is_required' => true,
-        'action_taken_at' => now()
-    ]);
-
+    $approval = $txn->approvals()->first(); // أو اختر حسب ترتيب الموافقة
+    if ($approval) {
+        $approval->update([
+            'action' => 'approve',
+            'action_taken_at' => now(),
+            'approver_id' => $manager->id,
+            'comments' => 'Approved by manager',
+        ]);
+    }
     return $txn;
 }
 public function rejectByManager(Transaction $txn, $manager): Transaction
@@ -244,14 +260,15 @@ public function rejectByManager(Transaction $txn, $manager): Transaction
     ]);
 
     // 4) تسجيل الرفض في جدول approvals
-    $txn->approvals()->create([
-        'approver_id' => $manager->id,
+   $approval = $txn->approvals()->first();
+if ($approval) {
+    $approval->update([
         'action' => 'reject',
-        'level' => 'manager',
-        'comments' => 'Rejected by manager',
-        'is_required' => true,
         'action_taken_at' => now(),
+        'approver_id' => $manager->id,
+        'comments' => 'Rejected by manager',
     ]);
+}
 
     return $txn;
 }

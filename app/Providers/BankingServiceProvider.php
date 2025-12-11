@@ -39,14 +39,23 @@ class BankingServiceProvider extends ServiceProvider
         });
 
         // Approval chain
-        $this->app->singleton(BaseApprovalHandler::class, function ($app) {
-            $auto = new AutoApprovalHandler(100.0);
-            $teller = new TellerApprovalHandler(999.9);
-            $manager = new ManagerApprovalHandler(1000.01);
-            $auto->setNext($manager);
-            // يمكنك إضافة مزيد من السلسلة
-            return $auto;
-        });
+        // Approval chain
+$this->app->singleton(BaseApprovalHandler::class, function ($app) {
+
+    // من 0 إلى 100
+    $auto = new AutoApprovalHandler(100.0);
+
+    // من 101 إلى 1000
+    $teller = new TellerApprovalHandler(100.01, 1000.0);
+
+    // من 1001 وفوق
+    $manager = new ManagerApprovalHandler(1000.01);
+
+    // ترتيب السلسلة الصحيح:
+    $auto->setNext($teller)->setNext($manager);
+
+    return $auto;
+});
 
         // الخدمات الأساسية
         $this->app->singleton(AccountCompositeService::class);

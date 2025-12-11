@@ -21,6 +21,7 @@ class AccountStatusService
 
     public function approve(AccountStatusChangeRequest $req, $user)
     {
+        
         $req->status = 'approved';
         $req->approved_by = $user->id;
         $req->save();

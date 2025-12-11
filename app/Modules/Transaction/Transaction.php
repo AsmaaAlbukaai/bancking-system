@@ -79,4 +79,6 @@ public function getRecurringStrategy()
 {
      return RecurringStrategyFactory::make($this->recurring_frequency);
 }
+
+
 }

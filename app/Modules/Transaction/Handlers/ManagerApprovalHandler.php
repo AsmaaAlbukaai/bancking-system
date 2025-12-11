@@ -15,23 +15,22 @@ class ManagerApprovalHandler extends BaseApprovalHandler
 
     protected function canHandle(Transaction $transaction): bool
     {
-        // مثال: كل المعاملات التي فوق الحد تحتاج لموافقة مدير.
-        return $transaction->amount >= $this->minAmount && $transaction->status === 'pending';
+        return in_array($transaction->type, ['deposit', 'withdrawal', 'transfer'])
+            && $transaction->amount >= $this->minAmount
+            && $transaction->status === 'pending';
     }
 
     protected function process(Transaction $transaction): bool
     {
-        // هنا لا نكمل التنفيذ فعلياً — نضعها كقيد انتظار موافقة المدير
-        // سجل طلب موافقة
         $transaction->approvals()->create([
-            'approver_id' => null, // لاحقًا يربط بالمدير
+            'approver_id' => null,
             'action' => 'review',
             'comments' => 'Requires manager approval',
             'level' => 'manager',
-            'is_required' => true
+            'is_required' => true,
+            'action_taken_at' => now()
         ]);
 
-        // نترك الحالة كما هي (pending) أو set to 'awaiting_approval'
         $transaction->status = 'pending';
         $transaction->save();
 

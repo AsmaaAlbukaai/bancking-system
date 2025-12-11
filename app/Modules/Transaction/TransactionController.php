@@ -297,24 +297,32 @@ public function customerRequests(Request $request)
         ->with(['fromAccount', 'toAccount', 'approvals'])
         ->latest();
 
+<<<<<<< HEAD
     /**********************************
      *  فلترة حسب دور المستخدم
      **********************************/
 
+=======
+>>>>>>> 9f64c40 (new commit)
     if ($user->role === 'teller') {
-        // 🔹 الطلبات التي تحتاج موافقة Teller
-        $query->where('status', 'pending');
+        $query->whereHas('approvals', function($q) {
+            $q->where('level', 'teller')->where('action','review'); // لم يتم اتخاذ إجراء بعد
+        });
     }
 
     if ($user->role === 'manager') {
-        // 🔹 الطلبات التي تحتاج موافقة Manager
-        $query->where('status', 'pending');
+        $query->whereHas('approvals', function($q) {
+            $q->where('level', 'manager')->where('action','review');// لم يتم اتخاذ إجراء بعد
+        });
     }
 
+<<<<<<< HEAD
     /**********************************
      *  فلترة إضافية حسب الطلب
      **********************************/
 
+=======
+>>>>>>> 9f64c40 (new commit)
     if ($request->has('status')) {
         $query->where('status', $request->status);
     }

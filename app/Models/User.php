@@ -9,6 +9,7 @@ use App\Models\NotificationPreference;
 use App\Models\TransactionApproval;
 use App\Modules\Account\Account;
 use App\Modules\Notification\Notification;
+use App\Modules\Support\SupportTicket;
 use App\Modules\Transaction\Transaction;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -86,6 +87,25 @@ class User extends Authenticatable implements MustVerifyEmail
     public function requestedStatusChanges()
     {
         return $this->hasMany(AccountStatusChangeRequest::class, 'requested_by');
+    }
+     public function tickets()
+    {
+        return $this->hasMany(SupportTicket::class); // Ticket هو الموديل الخاص بالتذاكر
+    }
+    public function ticketReplies()
+{
+    return $this->hasMany(\App\Modules\Support\SupportTicket::class, 'user_id');
+}
+
+    
+
+    /**
+     * علاقة العمليات التي نفذها الموظف
+     */
+    public function transactions()
+    {
+        // استبدل 'handled_by' بالعمود الذي يربط المستخدم بالعمليات في جدول Transactions
+        return $this->hasMany(Transaction::class, 'approved_by');
     }
 }
 

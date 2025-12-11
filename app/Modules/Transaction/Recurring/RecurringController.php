@@ -2,7 +2,7 @@
 namespace App\Modules\Transaction\Recurring;
 use App\Http\Controllers\Controller;
 use App\Modules\Transaction\Recurring\RecurringRequest; // أو حسب مكان الملف الحقيقي
-use App\Modules\Transactions\ScheduledTransactionService; // مثال على مكانه
+use App\Modules\Transaction\Recurring\ScheduledTransactionService; // مثال على مكانه
 
 use Illuminate\Http\Request;
 

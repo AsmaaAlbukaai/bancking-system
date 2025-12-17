@@ -1,9 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Modules\Account;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Modules\Account\Account;
 
 class AccountFactory extends Factory
 {
@@ -17,7 +16,6 @@ class AccountFactory extends Factory
             'balance' => $this->faker->numberBetween(1000, 10000),
             'type' => 'savings',
             'status' => 'active',
-            'currency' => 'USD',
         ];
     }
 

@@ -409,6 +409,131 @@
                 }
             }
         },
+        "/api/interest/{accountId}/calculate": {
+            "get": {
+                "tags": [
+                    "Interest"
+                ],
+                "summary": "حساب الفائدة لحساب معين",
+                "description": "يقوم بحساب الفائدة بناءً على نوع الحساب والإستراتيجية المحددة",
+                "operationId": "56a0ae057398fd1c3ead890870a86577",
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "in": "path",
+                        "description": "معرف الحساب",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "days",
+                        "in": "query",
+                        "description": "عدد الأيام لحساب الفائدة (اختياري - الافتراضي 30)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 30
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "حساب الفائدة الناجح",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "account_id": {
+                                                    "type": "integer",
+                                                    "example": 123
+                                                },
+                                                "interest_amount": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 150.75
+                                                },
+                                                "total_amount": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 10150.75
+                                                },
+                                                "calculation_date": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                },
+                                                "calculation_method": {
+                                                    "type": "string",
+                                                    "example": "App\\\\Modules\\\\Interest\\\\Strategies\\\\CompoundInterestStrategy"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "الحساب غير موجود",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Account not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "خطأ في الخادم",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Internal server error"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/transactions/transfer": {
             "post": {
                 "tags": [
@@ -762,6 +887,10 @@
         }
     },
     "tags": [
+        {
+            "name": "Interest",
+            "description": "عمليات حساب الفوائد"
+        },
         {
             "name": "Test",
             "description": "Test"

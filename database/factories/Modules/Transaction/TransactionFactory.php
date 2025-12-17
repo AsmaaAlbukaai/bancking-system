@@ -1,16 +1,18 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Modules\Transaction;
 
 use App\Modules\Account\Account;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use function Database\Factories\rand;
+use function Database\Factories\time;
 
 class TransactionFactory extends Factory
 {
     public function definition()
     {
         return [
-            'reference' => 'TRX-' . time() . '-' . rand(1000, 9999),
+            'reference' => 'TRX-' . now()->timestamp . '-' . rand(1000, 9999),
             'from_account_id' => Account::factory(),
             'to_account_id' => Account::factory(),
             'amount' => 100,

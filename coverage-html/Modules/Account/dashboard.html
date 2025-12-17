@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/html/app/Modules/Account</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../_css/bootstrap.min.css?v=11.0.11" rel="stylesheet" type="text/css">
+  <link href="../../_css/nv.d3.min.css?v=11.0.11" rel="stylesheet" type="text/css">
+  <link href="../../_css/style.css?v=11.0.11" rel="stylesheet" type="text/css">
+  <link href="../../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../../index.html">/var/www/html/app</a></li>
+         <li class="breadcrumb-item"><a href="../index.html">Modules</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Account</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Account.php.html#17">App\Modules\Account\Account</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountCompositeService.php.html#5">App\Modules\Account\AccountCompositeService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountController.php.html#10">App\Modules\Account\AccountController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountNumberGeneratorService.php.html#6">App\Modules\Account\AccountNumberGeneratorService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusController.php.html#12">App\Modules\Account\AccountStatusController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusService.php.html#6">App\Modules\Account\AccountStatusService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStrategyFactory.php.html#15">App\Modules\Account\AccountStrategyFactory</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/AccountStateFactory.php.html#5">App\Modules\Account\States\AccountStateFactory</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/ActiveState.php.html#6">App\Modules\Account\States\ActiveState</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/ClosedState.php.html#6">App\Modules\Account\States\ClosedState</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/FrozenState.php.html#6">App\Modules\Account\States\FrozenState</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/SuspendedState.php.html#6">App\Modules\Account\States\SuspendedState</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountService.php.html#10">App\Modules\Account\AccountService</a></td><td class="text-right">14%</td></tr>
+       <tr><td><a href="AccountOperationsService.php.html#7">App\Modules\Account\AccountOperationsService</a></td><td class="text-right">25%</td></tr>
+       <tr><td><a href="Strategies/BusinessStrategy.php.html#7">App\modules\Account\Strategies\BusinessStrategy</a></td><td class="text-right">60%</td></tr>
+       <tr><td><a href="Strategies/CheckingStrategy.php.html#7">App\modules\Account\Strategies\CheckingStrategy</a></td><td class="text-right">60%</td></tr>
+       <tr><td><a href="Strategies/SavingsStrategy.php.html#7">App\modules\Account\Strategies\SavingsStrategy</a></td><td class="text-right">60%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="AccountStatusController.php.html#12">App\Modules\Account\AccountStatusController</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="AccountService.php.html#10">App\Modules\Account\AccountService</a></td><td class="text-right">86</td></tr>
+       <tr><td><a href="AccountStrategyFactory.php.html#15">App\Modules\Account\AccountStrategyFactory</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="states/AccountStateFactory.php.html#5">App\Modules\Account\States\AccountStateFactory</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="AccountCompositeService.php.html#5">App\Modules\Account\AccountCompositeService</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Strategies/BusinessStrategy.php.html#7">App\modules\Account\Strategies\BusinessStrategy</a></td><td class="text-right">5</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Account.php.html#48"><abbr title="App\Modules\Account\Account::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Account.php.html#53"><abbr title="App\Modules\Account\Account::parent">parent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Account.php.html#58"><abbr title="App\Modules\Account\Account::children">children</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Account.php.html#63"><abbr title="App\Modules\Account\Account::group">group</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Account.php.html#68"><abbr title="App\Modules\Account\Account::fromTransactions">fromTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Account.php.html#73"><abbr title="App\Modules\Account\Account::toTransactions">toTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Account.php.html#77"><abbr title="App\Modules\Account\Account::transactions">transactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Account.php.html#82"><abbr title="App\Modules\Account\Account::features">features</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Account.php.html#96"><abbr title="App\Modules\Account\Account::activeFeatures">activeFeatures</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Account.php.html#101"><abbr title="App\Modules\Account\Account::interestCalculations">interestCalculations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Account.php.html#105"><abbr title="App\Modules\Account\Account::statusChangeRequests">statusChangeRequests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Account.php.html#109"><abbr title="App\Modules\Account\Account::getState">getState</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountCompositeService.php.html#10"><abbr title="App\Modules\Account\AccountCompositeService::getTotalBalance">getTotalBalance</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountCompositeService.php.html#25"><abbr title="App\Modules\Account\AccountCompositeService::loadTree">loadTree</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountController.php.html#14"><abbr title="App\Modules\Account\AccountController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountController.php.html#31"><abbr title="App\Modules\Account\AccountController::testSwagger">testSwagger</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountController.php.html#48"><abbr title="App\Modules\Account\AccountController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountController.php.html#77"><abbr title="App\Modules\Account\AccountController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountController.php.html#112"><abbr title="App\Modules\Account\AccountController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountController.php.html#165"><abbr title="App\Modules\Account\AccountController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountController.php.html#199"><abbr title="App\Modules\Account\AccountController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountController.php.html#229"><abbr title="App\Modules\Account\AccountController::totalBalance">totalBalance</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountController.php.html#240"><abbr title="App\Modules\Account\AccountController::getCustomerAccountsByUserId">getCustomerAccountsByUserId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountController.php.html#249"><abbr title="App\Modules\Account\AccountController::deactivateAccount">deactivateAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountController.php.html#258"><abbr title="App\Modules\Account\AccountController::activateAccount">activateAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountNumberGeneratorService.php.html#8"><abbr title="App\Modules\Account\AccountNumberGeneratorService::generate">generate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountOperationsService.php.html#13"><abbr title="App\Modules\Account\AccountOperationsService::canWithdraw">canWithdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountOperationsService.php.html#18"><abbr title="App\Modules\Account\AccountOperationsService::withdraw">withdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountOperationsService.php.html#23"><abbr title="App\Modules\Account\AccountOperationsService::deposit">deposit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountService.php.html#26"><abbr title="App\Modules\Account\AccountService::getUserAccounts">getUserAccounts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountService.php.html#31"><abbr title="App\Modules\Account\AccountService::getAccountById">getAccountById</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountService.php.html#42"><abbr title="App\Modules\Account\AccountService::updateAccount">updateAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountService.php.html#47"><abbr title="App\Modules\Account\AccountService::deleteAccount">deleteAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountService.php.html#52"><abbr title="App\Modules\Account\AccountService::getCustomerAccountsByUserId">getCustomerAccountsByUserId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountService.php.html#62"><abbr title="App\Modules\Account\AccountService::closeAccount">closeAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountService.php.html#81"><abbr title="App\Modules\Account\AccountService::activateAccount">activateAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusController.php.html#16"><abbr title="App\Modules\Account\AccountStatusController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusController.php.html#22"><abbr title="App\Modules\Account\AccountStatusController::requestChange">requestChange</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusController.php.html#36"><abbr title="App\Modules\Account\AccountStatusController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusController.php.html#46"><abbr title="App\Modules\Account\AccountStatusController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusController.php.html#52"><abbr title="App\Modules\Account\AccountStatusController::approve">approve</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusController.php.html#63"><abbr title="App\Modules\Account\AccountStatusController::reject">reject</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusController.php.html#74"><abbr title="App\Modules\Account\AccountStatusController::cancel">cancel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusController.php.html#88"><abbr title="App\Modules\Account\AccountStatusController::myRequests">myRequests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusController.php.html#99"><abbr title="App\Modules\Account\AccountStatusController::accountRequests">accountRequests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusService.php.html#8"><abbr title="App\Modules\Account\AccountStatusService::requestStatusChange">requestStatusChange</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStatusService.php.html#22"><abbr title="App\Modules\Account\AccountStatusService::approve">approve</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="AccountStrategyFactory.php.html#17"><abbr title="App\Modules\Account\AccountStrategyFactory::make">make</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Strategies/BusinessStrategy.php.html#14"><abbr title="App\modules\Account\Strategies\BusinessStrategy::withdraw">withdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Strategies/CheckingStrategy.php.html#14"><abbr title="App\modules\Account\Strategies\CheckingStrategy::withdraw">withdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Strategies/SavingsStrategy.php.html#14"><abbr title="App\modules\Account\Strategies\SavingsStrategy::withdraw">withdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/AccountStateFactory.php.html#7"><abbr title="App\Modules\Account\States\AccountStateFactory::make">make</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/ActiveState.php.html#8"><abbr title="App\Modules\Account\States\ActiveState::name">name</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/ActiveState.php.html#10"><abbr title="App\Modules\Account\States\ActiveState::canWithdraw">canWithdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/ActiveState.php.html#11"><abbr title="App\Modules\Account\States\ActiveState::canDeposit">canDeposit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/ActiveState.php.html#12"><abbr title="App\Modules\Account\States\ActiveState::canTransfer">canTransfer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/ClosedState.php.html#8"><abbr title="App\Modules\Account\States\ClosedState::name">name</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/ClosedState.php.html#10"><abbr title="App\Modules\Account\States\ClosedState::canWithdraw">canWithdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/ClosedState.php.html#11"><abbr title="App\Modules\Account\States\ClosedState::canDeposit">canDeposit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/ClosedState.php.html#12"><abbr title="App\Modules\Account\States\ClosedState::canTransfer">canTransfer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/FrozenState.php.html#8"><abbr title="App\Modules\Account\States\FrozenState::name">name</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/FrozenState.php.html#10"><abbr title="App\Modules\Account\States\FrozenState::canWithdraw">canWithdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/FrozenState.php.html#11"><abbr title="App\Modules\Account\States\FrozenState::canDeposit">canDeposit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/FrozenState.php.html#12"><abbr title="App\Modules\Account\States\FrozenState::canTransfer">canTransfer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/SuspendedState.php.html#8"><abbr title="App\Modules\Account\States\SuspendedState::name">name</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/SuspendedState.php.html#10"><abbr title="App\Modules\Account\States\SuspendedState::canWithdraw">canWithdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/SuspendedState.php.html#11"><abbr title="App\Modules\Account\States\SuspendedState::canDeposit">canDeposit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="states/SuspendedState.php.html#12"><abbr title="App\Modules\Account\States\SuspendedState::canTransfer">canTransfer</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="AccountStrategyFactory.php.html#17"><abbr title="App\Modules\Account\AccountStrategyFactory::make">make</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="states/AccountStateFactory.php.html#7"><abbr title="App\Modules\Account\States\AccountStateFactory::make">make</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="AccountCompositeService.php.html#25"><abbr title="App\Modules\Account\AccountCompositeService::loadTree">loadTree</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="AccountCompositeService.php.html#10"><abbr title="App\Modules\Account\AccountCompositeService::getTotalBalance">getTotalBalance</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AccountService.php.html#62"><abbr title="App\Modules\Account\AccountService::closeAccount">closeAccount</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AccountService.php.html#81"><abbr title="App\Modules\Account\AccountService::activateAccount">activateAccount</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="AccountStatusController.php.html#74"><abbr title="App\Modules\Account\AccountStatusController::cancel">cancel</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 11.0.11</a> using <a href="https://www.php.net/" target="_top">PHP 8.2.29</a> and <a href="https://phpunit.de/">PHPUnit 11.5.45</a> at Wed Dec 17 21:04:13 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../_js/jquery.min.js?v=11.0.11" type="text/javascript"></script>
+  <script src="../../_js/d3.min.js?v=11.0.11" type="text/javascript"></script>
+  <script src="../../_js/nv.d3.min.js?v=11.0.11" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([12,0,1,1,0,0,0,3,0,0,0,1], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([68,0,0,0,0,0,0,0,0,0,0,12], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,12,"<a href=\"Account.php.html#17\">App\\Modules\\Account\\Account<\/a>"],[0,5,"<a href=\"AccountCompositeService.php.html#5\">App\\Modules\\Account\\AccountCompositeService<\/a>"],[0,11,"<a href=\"AccountController.php.html#10\">App\\Modules\\Account\\AccountController<\/a>"],[0,1,"<a href=\"AccountNumberGeneratorService.php.html#6\">App\\Modules\\Account\\AccountNumberGeneratorService<\/a>"],[25,4,"<a href=\"AccountOperationsService.php.html#7\">App\\Modules\\Account\\AccountOperationsService<\/a>"],[14.705882352941178,11,"<a href=\"AccountService.php.html#10\">App\\Modules\\Account\\AccountService<\/a>"],[0,10,"<a href=\"AccountStatusController.php.html#12\">App\\Modules\\Account\\AccountStatusController<\/a>"],[0,2,"<a href=\"AccountStatusService.php.html#6\">App\\Modules\\Account\\AccountStatusService<\/a>"],[0,6,"<a href=\"AccountStrategyFactory.php.html#15\">App\\Modules\\Account\\AccountStrategyFactory<\/a>"],[60,4,"<a href=\"Strategies\/BusinessStrategy.php.html#7\">App\\modules\\Account\\Strategies\\BusinessStrategy<\/a>"],[60,3,"<a href=\"Strategies\/CheckingStrategy.php.html#7\">App\\modules\\Account\\Strategies\\CheckingStrategy<\/a>"],[100,3,"<a href=\"Strategies\/LoanStrategy.php.html#7\">App\\modules\\Account\\Strategies\\LoanStrategy<\/a>"],[60,3,"<a href=\"Strategies\/SavingsStrategy.php.html#7\">App\\modules\\Account\\Strategies\\SavingsStrategy<\/a>"],[0,6,"<a href=\"states\/AccountStateFactory.php.html#5\">App\\Modules\\Account\\States\\AccountStateFactory<\/a>"],[0,4,"<a href=\"states\/ActiveState.php.html#6\">App\\Modules\\Account\\States\\ActiveState<\/a>"],[0,4,"<a href=\"states\/ClosedState.php.html#6\">App\\Modules\\Account\\States\\ClosedState<\/a>"],[0,4,"<a href=\"states\/FrozenState.php.html#6\">App\\Modules\\Account\\States\\FrozenState<\/a>"],[0,4,"<a href=\"states\/SuspendedState.php.html#6\">App\\Modules\\Account\\States\\SuspendedState<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Account.php.html#48\">App\\Modules\\Account\\Account::user<\/a>"],[0,1,"<a href=\"Account.php.html#53\">App\\Modules\\Account\\Account::parent<\/a>"],[0,1,"<a href=\"Account.php.html#58\">App\\Modules\\Account\\Account::children<\/a>"],[0,1,"<a href=\"Account.php.html#63\">App\\Modules\\Account\\Account::group<\/a>"],[0,1,"<a href=\"Account.php.html#68\">App\\Modules\\Account\\Account::fromTransactions<\/a>"],[0,1,"<a href=\"Account.php.html#73\">App\\Modules\\Account\\Account::toTransactions<\/a>"],[0,1,"<a href=\"Account.php.html#77\">App\\Modules\\Account\\Account::transactions<\/a>"],[0,1,"<a href=\"Account.php.html#82\">App\\Modules\\Account\\Account::features<\/a>"],[0,1,"<a href=\"Account.php.html#96\">App\\Modules\\Account\\Account::activeFeatures<\/a>"],[0,1,"<a href=\"Account.php.html#101\">App\\Modules\\Account\\Account::interestCalculations<\/a>"],[0,1,"<a href=\"Account.php.html#105\">App\\Modules\\Account\\Account::statusChangeRequests<\/a>"],[0,1,"<a href=\"Account.php.html#109\">App\\Modules\\Account\\Account::getState<\/a>"],[0,2,"<a href=\"AccountCompositeService.php.html#10\">App\\Modules\\Account\\AccountCompositeService::getTotalBalance<\/a>"],[0,3,"<a href=\"AccountCompositeService.php.html#25\">App\\Modules\\Account\\AccountCompositeService::loadTree<\/a>"],[0,1,"<a href=\"AccountController.php.html#14\">App\\Modules\\Account\\AccountController::__construct<\/a>"],[0,1,"<a href=\"AccountController.php.html#31\">App\\Modules\\Account\\AccountController::testSwagger<\/a>"],[0,1,"<a href=\"AccountController.php.html#48\">App\\Modules\\Account\\AccountController::index<\/a>"],[0,1,"<a href=\"AccountController.php.html#77\">App\\Modules\\Account\\AccountController::show<\/a>"],[0,1,"<a href=\"AccountController.php.html#112\">App\\Modules\\Account\\AccountController::store<\/a>"],[0,1,"<a href=\"AccountController.php.html#165\">App\\Modules\\Account\\AccountController::update<\/a>"],[0,1,"<a href=\"AccountController.php.html#199\">App\\Modules\\Account\\AccountController::destroy<\/a>"],[0,1,"<a href=\"AccountController.php.html#229\">App\\Modules\\Account\\AccountController::totalBalance<\/a>"],[0,1,"<a href=\"AccountController.php.html#240\">App\\Modules\\Account\\AccountController::getCustomerAccountsByUserId<\/a>"],[0,1,"<a href=\"AccountController.php.html#249\">App\\Modules\\Account\\AccountController::deactivateAccount<\/a>"],[0,1,"<a href=\"AccountController.php.html#258\">App\\Modules\\Account\\AccountController::activateAccount<\/a>"],[0,1,"<a href=\"AccountNumberGeneratorService.php.html#8\">App\\Modules\\Account\\AccountNumberGeneratorService::generate<\/a>"],[100,1,"<a href=\"AccountOperationsService.php.html#9\">App\\Modules\\Account\\AccountOperationsService::__construct<\/a>"],[0,1,"<a href=\"AccountOperationsService.php.html#13\">App\\Modules\\Account\\AccountOperationsService::canWithdraw<\/a>"],[0,1,"<a href=\"AccountOperationsService.php.html#18\">App\\Modules\\Account\\AccountOperationsService::withdraw<\/a>"],[0,1,"<a href=\"AccountOperationsService.php.html#23\">App\\Modules\\Account\\AccountOperationsService::deposit<\/a>"],[100,1,"<a href=\"AccountService.php.html#16\">App\\Modules\\Account\\AccountService::__construct<\/a>"],[0,1,"<a href=\"AccountService.php.html#26\">App\\Modules\\Account\\AccountService::getUserAccounts<\/a>"],[0,1,"<a href=\"AccountService.php.html#31\">App\\Modules\\Account\\AccountService::getAccountById<\/a>"],[100,1,"<a href=\"AccountService.php.html#36\">App\\Modules\\Account\\AccountService::createAccount<\/a>"],[0,1,"<a href=\"AccountService.php.html#42\">App\\Modules\\Account\\AccountService::updateAccount<\/a>"],[0,1,"<a href=\"AccountService.php.html#47\">App\\Modules\\Account\\AccountService::deleteAccount<\/a>"],[0,1,"<a href=\"AccountService.php.html#52\">App\\Modules\\Account\\AccountService::getCustomerAccountsByUserId<\/a>"],[0,2,"<a href=\"AccountService.php.html#62\">App\\Modules\\Account\\AccountService::closeAccount<\/a>"],[0,2,"<a href=\"AccountService.php.html#81\">App\\Modules\\Account\\AccountService::activateAccount<\/a>"],[0,1,"<a href=\"AccountStatusController.php.html#16\">App\\Modules\\Account\\AccountStatusController::__construct<\/a>"],[0,1,"<a href=\"AccountStatusController.php.html#22\">App\\Modules\\Account\\AccountStatusController::requestChange<\/a>"],[0,1,"<a href=\"AccountStatusController.php.html#36\">App\\Modules\\Account\\AccountStatusController::index<\/a>"],[0,1,"<a href=\"AccountStatusController.php.html#46\">App\\Modules\\Account\\AccountStatusController::show<\/a>"],[0,1,"<a href=\"AccountStatusController.php.html#52\">App\\Modules\\Account\\AccountStatusController::approve<\/a>"],[0,1,"<a href=\"AccountStatusController.php.html#63\">App\\Modules\\Account\\AccountStatusController::reject<\/a>"],[0,2,"<a href=\"AccountStatusController.php.html#74\">App\\Modules\\Account\\AccountStatusController::cancel<\/a>"],[0,1,"<a href=\"AccountStatusController.php.html#88\">App\\Modules\\Account\\AccountStatusController::myRequests<\/a>"],[0,1,"<a href=\"AccountStatusController.php.html#99\">App\\Modules\\Account\\AccountStatusController::accountRequests<\/a>"],[0,1,"<a href=\"AccountStatusService.php.html#8\">App\\Modules\\Account\\AccountStatusService::requestStatusChange<\/a>"],[0,1,"<a href=\"AccountStatusService.php.html#22\">App\\Modules\\Account\\AccountStatusService::approve<\/a>"],[0,6,"<a href=\"AccountStrategyFactory.php.html#17\">App\\Modules\\Account\\AccountStrategyFactory::make<\/a>"],[100,2,"<a href=\"Strategies\/BusinessStrategy.php.html#9\">App\\modules\\Account\\Strategies\\BusinessStrategy::canWithdraw<\/a>"],[0,1,"<a href=\"Strategies\/BusinessStrategy.php.html#14\">App\\modules\\Account\\Strategies\\BusinessStrategy::withdraw<\/a>"],[100,1,"<a href=\"Strategies\/BusinessStrategy.php.html#20\">App\\modules\\Account\\Strategies\\BusinessStrategy::deposit<\/a>"],[100,1,"<a href=\"Strategies\/CheckingStrategy.php.html#9\">App\\modules\\Account\\Strategies\\CheckingStrategy::canWithdraw<\/a>"],[0,1,"<a href=\"Strategies\/CheckingStrategy.php.html#14\">App\\modules\\Account\\Strategies\\CheckingStrategy::withdraw<\/a>"],[100,1,"<a href=\"Strategies\/CheckingStrategy.php.html#20\">App\\modules\\Account\\Strategies\\CheckingStrategy::deposit<\/a>"],[100,1,"<a href=\"Strategies\/LoanStrategy.php.html#9\">App\\modules\\Account\\Strategies\\LoanStrategy::canWithdraw<\/a>"],[100,1,"<a href=\"Strategies\/LoanStrategy.php.html#14\">App\\modules\\Account\\Strategies\\LoanStrategy::withdraw<\/a>"],[100,1,"<a href=\"Strategies\/LoanStrategy.php.html#19\">App\\modules\\Account\\Strategies\\LoanStrategy::deposit<\/a>"],[100,1,"<a href=\"Strategies\/SavingsStrategy.php.html#9\">App\\modules\\Account\\Strategies\\SavingsStrategy::canWithdraw<\/a>"],[0,1,"<a href=\"Strategies\/SavingsStrategy.php.html#14\">App\\modules\\Account\\Strategies\\SavingsStrategy::withdraw<\/a>"],[100,1,"<a href=\"Strategies\/SavingsStrategy.php.html#20\">App\\modules\\Account\\Strategies\\SavingsStrategy::deposit<\/a>"],[0,6,"<a href=\"states\/AccountStateFactory.php.html#7\">App\\Modules\\Account\\States\\AccountStateFactory::make<\/a>"],[0,1,"<a href=\"states\/ActiveState.php.html#8\">App\\Modules\\Account\\States\\ActiveState::name<\/a>"],[0,1,"<a href=\"states\/ActiveState.php.html#10\">App\\Modules\\Account\\States\\ActiveState::canWithdraw<\/a>"],[0,1,"<a href=\"states\/ActiveState.php.html#11\">App\\Modules\\Account\\States\\ActiveState::canDeposit<\/a>"],[0,1,"<a href=\"states\/ActiveState.php.html#12\">App\\Modules\\Account\\States\\ActiveState::canTransfer<\/a>"],[0,1,"<a href=\"states\/ClosedState.php.html#8\">App\\Modules\\Account\\States\\ClosedState::name<\/a>"],[0,1,"<a href=\"states\/ClosedState.php.html#10\">App\\Modules\\Account\\States\\ClosedState::canWithdraw<\/a>"],[0,1,"<a href=\"states\/ClosedState.php.html#11\">App\\Modules\\Account\\States\\ClosedState::canDeposit<\/a>"],[0,1,"<a href=\"states\/ClosedState.php.html#12\">App\\Modules\\Account\\States\\ClosedState::canTransfer<\/a>"],[0,1,"<a href=\"states\/FrozenState.php.html#8\">App\\Modules\\Account\\States\\FrozenState::name<\/a>"],[0,1,"<a href=\"states\/FrozenState.php.html#10\">App\\Modules\\Account\\States\\FrozenState::canWithdraw<\/a>"],[0,1,"<a href=\"states\/FrozenState.php.html#11\">App\\Modules\\Account\\States\\FrozenState::canDeposit<\/a>"],[0,1,"<a href=\"states\/FrozenState.php.html#12\">App\\Modules\\Account\\States\\FrozenState::canTransfer<\/a>"],[0,1,"<a href=\"states\/SuspendedState.php.html#8\">App\\Modules\\Account\\States\\SuspendedState::name<\/a>"],[0,1,"<a href=\"states\/SuspendedState.php.html#10\">App\\Modules\\Account\\States\\SuspendedState::canWithdraw<\/a>"],[0,1,"<a href=\"states\/SuspendedState.php.html#11\">App\\Modules\\Account\\States\\SuspendedState::canDeposit<\/a>"],[0,1,"<a href=\"states\/SuspendedState.php.html#12\">App\\Modules\\Account\\States\\SuspendedState::canTransfer<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

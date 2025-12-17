@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/html/app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=11.0.11" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=11.0.11" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=11.0.11" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/var/www/html/app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Mail/StaffInvitationMail.php.html#12">App\Mail\StaffInvitationMail</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mail/VerificationCodeMail.php.html#11">App\Mail\VerificationCodeMail</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AccountFeature.php.html#10">App\Models\AccountFeature</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AccountGroup.php.html#11">App\Models\AccountGroup</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AccountStatusChangeRequest.php.html#8">App\Models\AccountStatusChangeRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AuditLog.php.html#8">App\Models\AuditLog</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/GatewayTransaction.php.html#10">App\Models\GatewayTransaction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/InterestCalculation.php.html#10">App\Models\InterestCalculation</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/NotificationPreference.php.html#9">App\Models\NotificationPreference</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/PaymentGateway.php.html#8">App\Models\PaymentGateway</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/TransactionApproval.php.html#10">App\Models\TransactionApproval</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#21">App\Models\User</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#17">App\Modules\Account\Account</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountCompositeService.php.html#5">App\Modules\Account\AccountCompositeService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountController.php.html#10">App\Modules\Account\AccountController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountNumberGeneratorService.php.html#6">App\Modules\Account\AccountNumberGeneratorService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusController.php.html#12">App\Modules\Account\AccountStatusController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusService.php.html#6">App\Modules\Account\AccountStatusService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStrategyFactory.php.html#15">App\Modules\Account\AccountStrategyFactory</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/AccountStateFactory.php.html#5">App\Modules\Account\States\AccountStateFactory</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/ActiveState.php.html#6">App\Modules\Account\States\ActiveState</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/ClosedState.php.html#6">App\Modules\Account\States\ClosedState</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/FrozenState.php.html#6">App\Modules\Account\States\FrozenState</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/SuspendedState.php.html#6">App\Modules\Account\States\SuspendedState</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/EmailVerificationService.php.html#9">App\Modules\Auth\EmailVerificationService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/InvitationController.php.html#16">App\Modules\Auth\InvitationController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/RegisterController.php.html#7">App\Modules\Auth\RegisterController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/RegisterRequest.php.html#7">App\Modules\Auth\RegisterRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/RegistrationService.php.html#9">App\Modules\Auth\RegistrationService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/ResendCodeRequest.php.html#8">App\Modules\Auth\ResendCodeRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/VerifyCodeController.php.html#8">App\Modules\Auth\VerifyCodeController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/VerifyCodeRequest.php.html#8">App\Modules\Auth\VerifyCodeRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Banking/BankingController.php.html#8">App\Modules\Banking\BankingController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Interest/InterestController.php.html#15">App\Modules\Interest\InterestController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/EmailNotifier.php.html#6">App\Modules\Notification\EmailNotifier</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/InAppNotifier.php.html#7">App\Modules\Notification\InAppNotifier</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/Notification.php.html#9">App\Modules\Notification\Notification</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/NotificationController.php.html#8">App\Modules\Notification\NotificationController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/SMSNotifier.php.html#6">App\Modules\Notification\SMSNotifier</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/DailyStrategy.php.html#5">App\Modules\Transaction\Recurring\DailyStrategy</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/MonthlyStrategy.php.html#5">App\Modules\Transaction\Recurring\MonthlyStrategy</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringController.php.html#9">App\Modules\Transaction\Recurring\RecurringController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringRequest.php.html#8">App\Modules\Transaction\Recurring\RecurringRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringStrategyFactory.php.html#5">App\Modules\Transaction\Recurring\RecurringStrategyFactory</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/ScheduledTransactionService.php.html#7">App\Modules\Transaction\Recurring\ScheduledTransactionService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/WeeklyStrategy.php.html#5">App\Modules\Transaction\Recurring\WeeklyStrategy</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Transaction.php.html#14">App\Modules\Transaction\Transaction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/User/UserController.php.html#9">App\Modules\User\UserController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/AccountRepository.php.html#6">App\Repositories\AccountRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#12">App\Modules\Transaction\TransactionService</a></td><td class="text-right">2%</td></tr>
+       <tr><td><a href="Modules/Interest/InterestCalculatorService.php.html#11">App\Modules\Interest\InterestCalculatorService</a></td><td class="text-right">2%</td></tr>
+       <tr><td><a href="Jobs/ProcessRecurringTransactionsJob.php.html#14">App\Jobs\ProcessRecurringTransactionsJob</a></td><td class="text-right">3%</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/AutoApprovalHandler.php.html#9">App\Modules\Transaction\Handlers\AutoApprovalHandler</a></td><td class="text-right">7%</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/TellerApprovalHandler.php.html#7">App\Modules\Transaction\Handlers\TellerApprovalHandler</a></td><td class="text-right">7%</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/ManagerApprovalHandler.php.html#7">App\Modules\Transaction\Handlers\ManagerApprovalHandler</a></td><td class="text-right">8%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#10">App\Modules\Transaction\TransactionController</a></td><td class="text-right">9%</td></tr>
+       <tr><td><a href="Modules/Account/AccountService.php.html#10">App\Modules\Account\AccountService</a></td><td class="text-right">14%</td></tr>
+       <tr><td><a href="Modules/Auth/LoginController.php.html#9">App\Modules\Auth\LoginController</a></td><td class="text-right">15%</td></tr>
+       <tr><td><a href="Modules/Notification/NotificationDispatcher.php.html#6">App\Modules\Notification\NotificationDispatcher</a></td><td class="text-right">20%</td></tr>
+       <tr><td><a href="Modules/Account/AccountOperationsService.php.html#7">App\Modules\Account\AccountOperationsService</a></td><td class="text-right">25%</td></tr>
+       <tr><td><a href="Modules/Banking/BankFacade.php.html#11">App\Modules\Banking\BankFacade</a></td><td class="text-right">25%</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/BaseApprovalHandler.php.html#8">App\Modules\Transaction\Handlers\BaseApprovalHandler</a></td><td class="text-right">28%</td></tr>
+       <tr><td><a href="Providers/TransactionMacroServiceProvider.php.html#8">App\Providers\TransactionMacroServiceProvider</a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Modules/Account/Strategies/BusinessStrategy.php.html#7">App\modules\Account\Strategies\BusinessStrategy</a></td><td class="text-right">60%</td></tr>
+       <tr><td><a href="Modules/Account/Strategies/CheckingStrategy.php.html#7">App\modules\Account\Strategies\CheckingStrategy</a></td><td class="text-right">60%</td></tr>
+       <tr><td><a href="Modules/Account/Strategies/SavingsStrategy.php.html#7">App\modules\Account\Strategies\SavingsStrategy</a></td><td class="text-right">60%</td></tr>
+       <tr><td><a href="Http/Middleware/AdminMiddleware.php.html#8">App\Http\Middleware\AdminMiddleware</a></td><td class="text-right">66%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#12">App\Modules\Transaction\TransactionService</a></td><td class="text-right">868</td></tr>
+       <tr><td><a href="Jobs/ProcessRecurringTransactionsJob.php.html#14">App\Jobs\ProcessRecurringTransactionsJob</a></td><td class="text-right">244</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#10">App\Modules\Transaction\TransactionController</a></td><td class="text-right">233</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusController.php.html#12">App\Modules\Account\AccountStatusController</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Modules/Account/AccountService.php.html#10">App\Modules\Account\AccountService</a></td><td class="text-right">86</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringController.php.html#9">App\Modules\Transaction\Recurring\RecurringController</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Modules/User/UserController.php.html#9">App\Modules\User\UserController</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Modules/Auth/EmailVerificationService.php.html#9">App\Modules\Auth\EmailVerificationService</a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Modules/Account/AccountStrategyFactory.php.html#15">App\Modules\Account\AccountStrategyFactory</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Modules/Account/states/AccountStateFactory.php.html#5">App\Modules\Account\States\AccountStateFactory</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Modules/Interest/InterestCalculatorService.php.html#11">App\Modules\Interest\InterestCalculatorService</a></td><td class="text-right">38</td></tr>
+       <tr><td><a href="Modules/Auth/LoginController.php.html#9">App\Modules\Auth\LoginController</a></td><td class="text-right">36</td></tr>
+       <tr><td><a href="Modules/Account/AccountCompositeService.php.html#5">App\Modules\Account\AccountCompositeService</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Modules/Auth/VerifyCodeController.php.html#8">App\Modules\Auth\VerifyCodeController</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringStrategyFactory.php.html#5">App\Modules\Transaction\Recurring\RecurringStrategyFactory</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/ScheduledTransactionService.php.html#7">App\Modules\Transaction\Recurring\ScheduledTransactionService</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/TellerApprovalHandler.php.html#7">App\Modules\Transaction\Handlers\TellerApprovalHandler</a></td><td class="text-right">25</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/AutoApprovalHandler.php.html#9">App\Modules\Transaction\Handlers\AutoApprovalHandler</a></td><td class="text-right">16</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/ManagerApprovalHandler.php.html#7">App\Modules\Transaction\Handlers\ManagerApprovalHandler</a></td><td class="text-right">16</td></tr>
+       <tr><td><a href="Modules/Notification/NotificationDispatcher.php.html#6">App\Modules\Notification\NotificationDispatcher</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Modules/Account/Strategies/BusinessStrategy.php.html#7">App\modules\Account\Strategies\BusinessStrategy</a></td><td class="text-right">5</td></tr>
+       <tr><td><a href="Http/Middleware/AdminMiddleware.php.html#8">App\Http\Middleware\AdminMiddleware</a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Jobs/ProcessRecurringTransactionsJob.php.html#25"><abbr title="App\Jobs\ProcessRecurringTransactionsJob::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Jobs/ProcessRecurringTransactionsJob.php.html#71"><abbr title="App\Jobs\ProcessRecurringTransactionsJob::nextDate">nextDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mail/StaffInvitationMail.php.html#18"><abbr title="App\Mail\StaffInvitationMail::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mail/StaffInvitationMail.php.html#26"><abbr title="App\Mail\StaffInvitationMail::envelope">envelope</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mail/StaffInvitationMail.php.html#36"><abbr title="App\Mail\StaffInvitationMail::content">content</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mail/StaffInvitationMail.php.html#52"><abbr title="App\Mail\StaffInvitationMail::attachments">attachments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mail/VerificationCodeMail.php.html#17"><abbr title="App\Mail\VerificationCodeMail::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mail/VerificationCodeMail.php.html#22"><abbr title="App\Mail\VerificationCodeMail::envelope">envelope</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mail/VerificationCodeMail.php.html#29"><abbr title="App\Mail\VerificationCodeMail::content">content</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mail/VerificationCodeMail.php.html#39"><abbr title="App\Mail\VerificationCodeMail::attachments">attachments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AccountFeature.php.html#37"><abbr title="App\Models\AccountFeature::accounts">accounts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AccountFeature.php.html#51"><abbr title="App\Models\AccountFeature::activeAccounts">activeAccounts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AccountGroup.php.html#31"><abbr title="App\Models\AccountGroup::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AccountGroup.php.html#36"><abbr title="App\Models\AccountGroup::accounts">accounts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AccountGroup.php.html#41"><abbr title="App\Models\AccountGroup::activeAccounts">activeAccounts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AccountStatusChangeRequest.php.html#27"><abbr title="App\Models\AccountStatusChangeRequest::account">account</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AccountStatusChangeRequest.php.html#33"><abbr title="App\Models\AccountStatusChangeRequest::approver">approver</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AccountStatusChangeRequest.php.html#37"><abbr title="App\Models\AccountStatusChangeRequest::requester">requester</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AuditLog.php.html#41"><abbr title="App\Models\AuditLog::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/AuditLog.php.html#46"><abbr title="App\Models\AuditLog::model">model</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/GatewayTransaction.php.html#40"><abbr title="App\Models\GatewayTransaction::transaction">transaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/GatewayTransaction.php.html#45"><abbr title="App\Models\GatewayTransaction::gateway">gateway</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/InterestCalculation.php.html#50"><abbr title="App\Models\InterestCalculation::account">account</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/InterestCalculation.php.html#55"><abbr title="App\Models\InterestCalculation::applier">applier</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/NotificationPreference.php.html#37"><abbr title="App\Models\NotificationPreference::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/PaymentGateway.php.html#48"><abbr title="App\Models\PaymentGateway::gatewayTransactions">gatewayTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/TransactionApproval.php.html#33"><abbr title="App\Models\TransactionApproval::transaction">transaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/TransactionApproval.php.html#38"><abbr title="App\Models\TransactionApproval::approver">approver</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#48"><abbr title="App\Models\User::accounts">accounts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#53"><abbr title="App\Models\User::accountGroups">accountGroups</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#58"><abbr title="App\Models\User::notifications">notifications</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#63"><abbr title="App\Models\User::notificationPreference">notificationPreference</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#68"><abbr title="App\Models\User::transactionApprovals">transactionApprovals</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#73"><abbr title="App\Models\User::approvedTransactions">approvedTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#78"><abbr title="App\Models\User::auditLogs">auditLogs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#82"><abbr title="App\Models\User::approvedStatusChanges">approvedStatusChanges</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#86"><abbr title="App\Models\User::requestedStatusChanges">requestedStatusChanges</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#48"><abbr title="App\Modules\Account\Account::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#53"><abbr title="App\Modules\Account\Account::parent">parent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#58"><abbr title="App\Modules\Account\Account::children">children</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#63"><abbr title="App\Modules\Account\Account::group">group</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#68"><abbr title="App\Modules\Account\Account::fromTransactions">fromTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#73"><abbr title="App\Modules\Account\Account::toTransactions">toTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#77"><abbr title="App\Modules\Account\Account::transactions">transactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#82"><abbr title="App\Modules\Account\Account::features">features</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#96"><abbr title="App\Modules\Account\Account::activeFeatures">activeFeatures</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#101"><abbr title="App\Modules\Account\Account::interestCalculations">interestCalculations</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#105"><abbr title="App\Modules\Account\Account::statusChangeRequests">statusChangeRequests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Account.php.html#109"><abbr title="App\Modules\Account\Account::getState">getState</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountCompositeService.php.html#10"><abbr title="App\Modules\Account\AccountCompositeService::getTotalBalance">getTotalBalance</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountCompositeService.php.html#25"><abbr title="App\Modules\Account\AccountCompositeService::loadTree">loadTree</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountController.php.html#14"><abbr title="App\Modules\Account\AccountController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountController.php.html#31"><abbr title="App\Modules\Account\AccountController::testSwagger">testSwagger</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountController.php.html#48"><abbr title="App\Modules\Account\AccountController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountController.php.html#77"><abbr title="App\Modules\Account\AccountController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountController.php.html#112"><abbr title="App\Modules\Account\AccountController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountController.php.html#165"><abbr title="App\Modules\Account\AccountController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountController.php.html#199"><abbr title="App\Modules\Account\AccountController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountController.php.html#229"><abbr title="App\Modules\Account\AccountController::totalBalance">totalBalance</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountController.php.html#240"><abbr title="App\Modules\Account\AccountController::getCustomerAccountsByUserId">getCustomerAccountsByUserId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountController.php.html#249"><abbr title="App\Modules\Account\AccountController::deactivateAccount">deactivateAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountController.php.html#258"><abbr title="App\Modules\Account\AccountController::activateAccount">activateAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountNumberGeneratorService.php.html#8"><abbr title="App\Modules\Account\AccountNumberGeneratorService::generate">generate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountOperationsService.php.html#13"><abbr title="App\Modules\Account\AccountOperationsService::canWithdraw">canWithdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountOperationsService.php.html#18"><abbr title="App\Modules\Account\AccountOperationsService::withdraw">withdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountOperationsService.php.html#23"><abbr title="App\Modules\Account\AccountOperationsService::deposit">deposit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountService.php.html#26"><abbr title="App\Modules\Account\AccountService::getUserAccounts">getUserAccounts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountService.php.html#31"><abbr title="App\Modules\Account\AccountService::getAccountById">getAccountById</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountService.php.html#42"><abbr title="App\Modules\Account\AccountService::updateAccount">updateAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountService.php.html#47"><abbr title="App\Modules\Account\AccountService::deleteAccount">deleteAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountService.php.html#52"><abbr title="App\Modules\Account\AccountService::getCustomerAccountsByUserId">getCustomerAccountsByUserId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountService.php.html#62"><abbr title="App\Modules\Account\AccountService::closeAccount">closeAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountService.php.html#81"><abbr title="App\Modules\Account\AccountService::activateAccount">activateAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusController.php.html#16"><abbr title="App\Modules\Account\AccountStatusController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusController.php.html#22"><abbr title="App\Modules\Account\AccountStatusController::requestChange">requestChange</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusController.php.html#36"><abbr title="App\Modules\Account\AccountStatusController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusController.php.html#46"><abbr title="App\Modules\Account\AccountStatusController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusController.php.html#52"><abbr title="App\Modules\Account\AccountStatusController::approve">approve</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusController.php.html#63"><abbr title="App\Modules\Account\AccountStatusController::reject">reject</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusController.php.html#74"><abbr title="App\Modules\Account\AccountStatusController::cancel">cancel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusController.php.html#88"><abbr title="App\Modules\Account\AccountStatusController::myRequests">myRequests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusController.php.html#99"><abbr title="App\Modules\Account\AccountStatusController::accountRequests">accountRequests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusService.php.html#8"><abbr title="App\Modules\Account\AccountStatusService::requestStatusChange">requestStatusChange</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusService.php.html#22"><abbr title="App\Modules\Account\AccountStatusService::approve">approve</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/AccountStrategyFactory.php.html#17"><abbr title="App\Modules\Account\AccountStrategyFactory::make">make</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Strategies/BusinessStrategy.php.html#14"><abbr title="App\modules\Account\Strategies\BusinessStrategy::withdraw">withdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Strategies/CheckingStrategy.php.html#14"><abbr title="App\modules\Account\Strategies\CheckingStrategy::withdraw">withdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/Strategies/SavingsStrategy.php.html#14"><abbr title="App\modules\Account\Strategies\SavingsStrategy::withdraw">withdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/AccountStateFactory.php.html#7"><abbr title="App\Modules\Account\States\AccountStateFactory::make">make</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/ActiveState.php.html#8"><abbr title="App\Modules\Account\States\ActiveState::name">name</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/ActiveState.php.html#10"><abbr title="App\Modules\Account\States\ActiveState::canWithdraw">canWithdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/ActiveState.php.html#11"><abbr title="App\Modules\Account\States\ActiveState::canDeposit">canDeposit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/ActiveState.php.html#12"><abbr title="App\Modules\Account\States\ActiveState::canTransfer">canTransfer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/ClosedState.php.html#8"><abbr title="App\Modules\Account\States\ClosedState::name">name</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/ClosedState.php.html#10"><abbr title="App\Modules\Account\States\ClosedState::canWithdraw">canWithdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/ClosedState.php.html#11"><abbr title="App\Modules\Account\States\ClosedState::canDeposit">canDeposit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/ClosedState.php.html#12"><abbr title="App\Modules\Account\States\ClosedState::canTransfer">canTransfer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/FrozenState.php.html#8"><abbr title="App\Modules\Account\States\FrozenState::name">name</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/FrozenState.php.html#10"><abbr title="App\Modules\Account\States\FrozenState::canWithdraw">canWithdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/FrozenState.php.html#11"><abbr title="App\Modules\Account\States\FrozenState::canDeposit">canDeposit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/FrozenState.php.html#12"><abbr title="App\Modules\Account\States\FrozenState::canTransfer">canTransfer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/SuspendedState.php.html#8"><abbr title="App\Modules\Account\States\SuspendedState::name">name</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/SuspendedState.php.html#10"><abbr title="App\Modules\Account\States\SuspendedState::canWithdraw">canWithdraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/SuspendedState.php.html#11"><abbr title="App\Modules\Account\States\SuspendedState::canDeposit">canDeposit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Account/states/SuspendedState.php.html#12"><abbr title="App\Modules\Account\States\SuspendedState::canTransfer">canTransfer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/EmailVerificationService.php.html#31"><abbr title="App\Modules\Auth\EmailVerificationService::verifyCode">verifyCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/EmailVerificationService.php.html#73"><abbr title="App\Modules\Auth\EmailVerificationService::resendCode">resendCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/InvitationController.php.html#18"><abbr title="App\Modules\Auth\InvitationController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/InvitationController.php.html#42"><abbr title="App\Modules\Auth\InvitationController::accept">accept</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/LoginController.php.html#85"><abbr title="App\Modules\Auth\LoginController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/RegisterController.php.html#9"><abbr title="App\Modules\Auth\RegisterController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/RegisterController.php.html#37"><abbr title="App\Modules\Auth\RegisterController::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/RegisterRequest.php.html#9"><abbr title="App\Modules\Auth\RegisterRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/RegisterRequest.php.html#14"><abbr title="App\Modules\Auth\RegisterRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/RegistrationService.php.html#11"><abbr title="App\Modules\Auth\RegistrationService::registerCustomer">registerCustomer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/ResendCodeRequest.php.html#10"><abbr title="App\Modules\Auth\ResendCodeRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/ResendCodeRequest.php.html#15"><abbr title="App\Modules\Auth\ResendCodeRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/VerifyCodeController.php.html#10"><abbr title="App\Modules\Auth\VerifyCodeController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/VerifyCodeController.php.html#15"><abbr title="App\Modules\Auth\VerifyCodeController::verify">verify</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/VerifyCodeController.php.html#33"><abbr title="App\Modules\Auth\VerifyCodeController::resend">resend</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/VerifyCodeRequest.php.html#10"><abbr title="App\Modules\Auth\VerifyCodeRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/VerifyCodeRequest.php.html#15"><abbr title="App\Modules\Auth\VerifyCodeRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Banking/BankFacade.php.html#27"><abbr title="App\Modules\Banking\BankFacade::transfer">transfer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Banking/BankFacade.php.html#32"><abbr title="App\Modules\Banking\BankFacade::customerTransaction">customerTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Banking/BankFacade.php.html#37"><abbr title="App\Modules\Banking\BankFacade::approveTransaction">approveTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Banking/BankFacade.php.html#42"><abbr title="App\Modules\Banking\BankFacade::rejectTransaction">rejectTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Banking/BankFacade.php.html#47"><abbr title="App\Modules\Banking\BankFacade::getPendingCustomerTransactions">getPendingCustomerTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Banking/BankFacade.php.html#51"><abbr title="App\Modules\Banking\BankFacade::approveByManager">approveByManager</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Banking/BankFacade.php.html#55"><abbr title="App\Modules\Banking\BankFacade::rejectByManager">rejectByManager</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Banking/BankFacade.php.html#59"><abbr title="App\Modules\Banking\BankFacade::getTotalBalance">getTotalBalance</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Banking/BankFacade.php.html#63"><abbr title="App\Modules\Banking\BankFacade::calculateInterest">calculateInterest</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Banking/BankingController.php.html#10"><abbr title="App\Modules\Banking\BankingController::summary">summary</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Interest/InterestCalculatorService.php.html#20"><abbr title="App\Modules\Interest\InterestCalculatorService::calculateForAccount">calculateForAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Interest/InterestCalculatorService.php.html#65"><abbr title="App\Modules\Interest\InterestCalculatorService::invalidateCacheForAccount">invalidateCacheForAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Interest/InterestController.php.html#19"><abbr title="App\Modules\Interest\InterestController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Interest/InterestController.php.html#80"><abbr title="App\Modules\Interest\InterestController::calculate">calculate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/EmailNotifier.php.html#8"><abbr title="App\Modules\Notification\EmailNotifier::notify">notify</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/InAppNotifier.php.html#9"><abbr title="App\Modules\Notification\InAppNotifier::notify">notify</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/Notification.php.html#35"><abbr title="App\Modules\Notification\Notification::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/NotificationController.php.html#10"><abbr title="App\Modules\Notification\NotificationController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/NotificationController.php.html#17"><abbr title="App\Modules\Notification\NotificationController::unread">unread</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/NotificationController.php.html#24"><abbr title="App\Modules\Notification\NotificationController::markAsRead">markAsRead</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/NotificationDispatcher.php.html#16"><abbr title="App\Modules\Notification\NotificationDispatcher::dispatch">dispatch</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Notification/SMSNotifier.php.html#8"><abbr title="App\Modules\Notification\SMSNotifier::notify">notify</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/AutoApprovalHandler.php.html#18"><abbr title="App\Modules\Transaction\Handlers\AutoApprovalHandler::canHandle">canHandle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/AutoApprovalHandler.php.html#24"><abbr title="App\Modules\Transaction\Handlers\AutoApprovalHandler::process">process</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/BaseApprovalHandler.php.html#21"><abbr title="App\Modules\Transaction\Handlers\BaseApprovalHandler::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/ManagerApprovalHandler.php.html#16"><abbr title="App\Modules\Transaction\Handlers\ManagerApprovalHandler::canHandle">canHandle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/ManagerApprovalHandler.php.html#22"><abbr title="App\Modules\Transaction\Handlers\ManagerApprovalHandler::process">process</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/TellerApprovalHandler.php.html#16"><abbr title="App\Modules\Transaction\Handlers\TellerApprovalHandler::canHandle">canHandle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/TellerApprovalHandler.php.html#24"><abbr title="App\Modules\Transaction\Handlers\TellerApprovalHandler::process">process</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/DailyStrategy.php.html#7"><abbr title="App\Modules\Transaction\Recurring\DailyStrategy::getNextRunDate">getNextRunDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/MonthlyStrategy.php.html#7"><abbr title="App\Modules\Transaction\Recurring\MonthlyStrategy::getNextRunDate">getNextRunDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringController.php.html#12"><abbr title="App\Modules\Transaction\Recurring\RecurringController::requestRecurring">requestRecurring</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringController.php.html#41"><abbr title="App\Modules\Transaction\Recurring\RecurringController::listRequests">listRequests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringController.php.html#53"><abbr title="App\Modules\Transaction\Recurring\RecurringController::approve">approve</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringController.php.html#74"><abbr title="App\Modules\Transaction\Recurring\RecurringController::reject">reject</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringRequest.php.html#21"><abbr title="App\Modules\Transaction\Recurring\RecurringRequest::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringRequest.php.html#26"><abbr title="App\Modules\Transaction\Recurring\RecurringRequest::fromAccount">fromAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringRequest.php.html#31"><abbr title="App\Modules\Transaction\Recurring\RecurringRequest::toAccount">toAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringStrategyFactory.php.html#7"><abbr title="App\Modules\Transaction\Recurring\RecurringStrategyFactory::make">make</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/ScheduledTransactionService.php.html#9"><abbr title="App\Modules\Transaction\Recurring\ScheduledTransactionService::createRecurring">createRecurring</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/ScheduledTransactionService.php.html#24"><abbr title="App\Modules\Transaction\Recurring\ScheduledTransactionService::nextDate">nextDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/WeeklyStrategy.php.html#7"><abbr title="App\Modules\Transaction\Recurring\WeeklyStrategy::getNextRunDate">getNextRunDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Transaction.php.html#53"><abbr title="App\Modules\Transaction\Transaction::fromAccount">fromAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Transaction.php.html#58"><abbr title="App\Modules\Transaction\Transaction::toAccount">toAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Transaction.php.html#63"><abbr title="App\Modules\Transaction\Transaction::approver">approver</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Transaction.php.html#68"><abbr title="App\Modules\Transaction\Transaction::approvals">approvals</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Transaction.php.html#73"><abbr title="App\Modules\Transaction\Transaction::gatewayTransactions">gatewayTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/Transaction.php.html#78"><abbr title="App\Modules\Transaction\Transaction::getRecurringStrategy">getRecurringStrategy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#79"><abbr title="App\Modules\Transaction\TransactionController::history">history</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#120"><abbr title="App\Modules\Transaction\TransactionController::customerTransaction">customerTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#163"><abbr title="App\Modules\Transaction\TransactionController::approveCustomerTransaction">approveCustomerTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#205"><abbr title="App\Modules\Transaction\TransactionController::rejectCustomerTransaction">rejectCustomerTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#240"><abbr title="App\Modules\Transaction\TransactionController::approveByManager">approveByManager</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#272"><abbr title="App\Modules\Transaction\TransactionController::rejectByManager">rejectByManager</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#291"><abbr title="App\Modules\Transaction\TransactionController::customerRequests">customerRequests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#339"><abbr title="App\Modules\Transaction\TransactionController::allTransactions">allTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#31"><abbr title="App\Modules\Transaction\TransactionService::transfer">transfer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#78"><abbr title="App\Modules\Transaction\TransactionService::customerTransaction">customerTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#133"><abbr title="App\Modules\Transaction\TransactionService::approveTransaction">approveTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#161"><abbr title="App\Modules\Transaction\TransactionService::rejectTransaction">rejectTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#175"><abbr title="App\Modules\Transaction\TransactionService::customerPendingTransactions">customerPendingTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#181"><abbr title="App\Modules\Transaction\TransactionService::approveByManager">approveByManager</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#227"><abbr title="App\Modules\Transaction\TransactionService::rejectByManager">rejectByManager</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/User/UserController.php.html#12"><abbr title="App\Modules\User\UserController::myProfile">myProfile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/User/UserController.php.html#27"><abbr title="App\Modules\User\UserController::allCustomers">allCustomers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/User/UserController.php.html#57"><abbr title="App\Modules\User\UserController::deleteEmployee">deleteEmployee</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/AccountRepository.php.html#8"><abbr title="App\Repositories\AccountRepository::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Modules/Auth/LoginController.php.html#38"><abbr title="App\Modules\Auth\LoginController::login">login</abbr></a></td><td class="text-right">20%</td></tr>
+       <tr><td><a href="Providers/TransactionMacroServiceProvider.php.html#10"><abbr title="App\Providers\TransactionMacroServiceProvider::boot">boot</abbr></a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#43"><abbr title="App\Modules\Transaction\TransactionController::transfer">transfer</abbr></a></td><td class="text-right">55%</td></tr>
+       <tr><td><a href="Http/Middleware/AdminMiddleware.php.html#10"><abbr title="App\Http\Middleware\AdminMiddleware::handle">handle</abbr></a></td><td class="text-right">66%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Jobs/ProcessRecurringTransactionsJob.php.html#25"><abbr title="App\Jobs\ProcessRecurringTransactionsJob::handle">handle</abbr></a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#78"><abbr title="App\Modules\Transaction\TransactionService::customerTransaction">customerTransaction</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Modules/Account/AccountStrategyFactory.php.html#17"><abbr title="App\Modules\Account\AccountStrategyFactory::make">make</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Modules/Account/states/AccountStateFactory.php.html#7"><abbr title="App\Modules\Account\States\AccountStateFactory::make">make</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#181"><abbr title="App\Modules\Transaction\TransactionService::approveByManager">approveByManager</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Modules/Auth/EmailVerificationService.php.html#31"><abbr title="App\Modules\Auth\EmailVerificationService::verifyCode">verifyCode</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringStrategyFactory.php.html#7"><abbr title="App\Modules\Transaction\Recurring\RecurringStrategyFactory::make">make</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#291"><abbr title="App\Modules\Transaction\TransactionController::customerRequests">customerRequests</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#133"><abbr title="App\Modules\Transaction\TransactionService::approveTransaction">approveTransaction</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Jobs/ProcessRecurringTransactionsJob.php.html#71"><abbr title="App\Jobs\ProcessRecurringTransactionsJob::nextDate">nextDate</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/ScheduledTransactionService.php.html#24"><abbr title="App\Modules\Transaction\Recurring\ScheduledTransactionService::nextDate">nextDate</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#31"><abbr title="App\Modules\Transaction\TransactionService::transfer">transfer</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Modules/User/UserController.php.html#27"><abbr title="App\Modules\User\UserController::allCustomers">allCustomers</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Modules/Auth/LoginController.php.html#38"><abbr title="App\Modules\Auth\LoginController::login">login</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Modules/Account/AccountCompositeService.php.html#25"><abbr title="App\Modules\Account\AccountCompositeService::loadTree">loadTree</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Modules/Auth/LoginController.php.html#85"><abbr title="App\Modules\Auth\LoginController::logout">logout</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Modules/Auth/VerifyCodeController.php.html#15"><abbr title="App\Modules\Auth\VerifyCodeController::verify">verify</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Modules/Interest/InterestCalculatorService.php.html#65"><abbr title="App\Modules\Interest\InterestCalculatorService::invalidateCacheForAccount">invalidateCacheForAccount</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Modules/Notification/NotificationDispatcher.php.html#16"><abbr title="App\Modules\Notification\NotificationDispatcher::dispatch">dispatch</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/BaseApprovalHandler.php.html#21"><abbr title="App\Modules\Transaction\Handlers\BaseApprovalHandler::handle">handle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/TellerApprovalHandler.php.html#16"><abbr title="App\Modules\Transaction\Handlers\TellerApprovalHandler::canHandle">canHandle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionService.php.html#227"><abbr title="App\Modules\Transaction\TransactionService::rejectByManager">rejectByManager</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Modules/Account/AccountCompositeService.php.html#10"><abbr title="App\Modules\Account\AccountCompositeService::getTotalBalance">getTotalBalance</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Account/AccountService.php.html#62"><abbr title="App\Modules\Account\AccountService::closeAccount">closeAccount</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Account/AccountService.php.html#81"><abbr title="App\Modules\Account\AccountService::activateAccount">activateAccount</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Account/AccountStatusController.php.html#74"><abbr title="App\Modules\Account\AccountStatusController::cancel">cancel</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Auth/EmailVerificationService.php.html#73"><abbr title="App\Modules\Auth\EmailVerificationService::resendCode">resendCode</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Interest/InterestCalculatorService.php.html#20"><abbr title="App\Modules\Interest\InterestCalculatorService::calculateForAccount">calculateForAccount</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/AutoApprovalHandler.php.html#18"><abbr title="App\Modules\Transaction\Handlers\AutoApprovalHandler::canHandle">canHandle</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Transaction/Handlers/ManagerApprovalHandler.php.html#16"><abbr title="App\Modules\Transaction\Handlers\ManagerApprovalHandler::canHandle">canHandle</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringController.php.html#12"><abbr title="App\Modules\Transaction\Recurring\RecurringController::requestRecurring">requestRecurring</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringController.php.html#41"><abbr title="App\Modules\Transaction\Recurring\RecurringController::listRequests">listRequests</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringController.php.html#53"><abbr title="App\Modules\Transaction\Recurring\RecurringController::approve">approve</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Transaction/Recurring/RecurringController.php.html#74"><abbr title="App\Modules\Transaction\Recurring\RecurringController::reject">reject</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#163"><abbr title="App\Modules\Transaction\TransactionController::approveCustomerTransaction">approveCustomerTransaction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#205"><abbr title="App\Modules\Transaction\TransactionController::rejectCustomerTransaction">rejectCustomerTransaction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/Transaction/TransactionController.php.html#339"><abbr title="App\Modules\Transaction\TransactionController::allTransactions">allTransactions</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/User/UserController.php.html#12"><abbr title="App\Modules\User\UserController::myProfile">myProfile</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Modules/User/UserController.php.html#57"><abbr title="App\Modules\User\UserController::deleteEmployee">deleteEmployee</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Middleware/AdminMiddleware.php.html#10"><abbr title="App\Http\Middleware\AdminMiddleware::handle">handle</abbr></a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 11.0.11</a> using <a href="https://www.php.net/" target="_top">PHP 8.2.29</a> and <a href="https://phpunit.de/">PHPUnit 11.5.45</a> at Wed Dec 17 21:04:13 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=11.0.11" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=11.0.11" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=11.0.11" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([49,7,2,4,1,0,0,4,0,0,0,7], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([189,0,0,1,1,0,1,1,0,0,0,31], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,0,"<a href=\"Http\/Controllers\/Controller.php.html#22\">App\\Http\\Controllers\\Controller<\/a>"],[66.66666666666666,3,"<a href=\"Http\/Middleware\/AdminMiddleware.php.html#8\">App\\Http\\Middleware\\AdminMiddleware<\/a>"],[3.7037037037037033,16,"<a href=\"Jobs\/ProcessRecurringTransactionsJob.php.html#14\">App\\Jobs\\ProcessRecurringTransactionsJob<\/a>"],[0,4,"<a href=\"Mail\/StaffInvitationMail.php.html#12\">App\\Mail\\StaffInvitationMail<\/a>"],[0,4,"<a href=\"Mail\/VerificationCodeMail.php.html#11\">App\\Mail\\VerificationCodeMail<\/a>"],[0,2,"<a href=\"Models\/AccountFeature.php.html#10\">App\\Models\\AccountFeature<\/a>"],[0,3,"<a href=\"Models\/AccountGroup.php.html#11\">App\\Models\\AccountGroup<\/a>"],[0,3,"<a href=\"Models\/AccountStatusChangeRequest.php.html#8\">App\\Models\\AccountStatusChangeRequest<\/a>"],[0,2,"<a href=\"Models\/AuditLog.php.html#8\">App\\Models\\AuditLog<\/a>"],[0,2,"<a href=\"Models\/GatewayTransaction.php.html#10\">App\\Models\\GatewayTransaction<\/a>"],[0,2,"<a href=\"Models\/InterestCalculation.php.html#10\">App\\Models\\InterestCalculation<\/a>"],[100,0,"<a href=\"Models\/Invitation.php.html#7\">App\\Models\\Invitation<\/a>"],[0,1,"<a href=\"Models\/NotificationPreference.php.html#9\">App\\Models\\NotificationPreference<\/a>"],[0,1,"<a href=\"Models\/PaymentGateway.php.html#8\">App\\Models\\PaymentGateway<\/a>"],[0,2,"<a href=\"Models\/TransactionApproval.php.html#10\">App\\Models\\TransactionApproval<\/a>"],[0,9,"<a href=\"Models\/User.php.html#21\">App\\Models\\User<\/a>"],[0,12,"<a href=\"Modules\/Account\/Account.php.html#17\">App\\Modules\\Account\\Account<\/a>"],[0,5,"<a href=\"Modules\/Account\/AccountCompositeService.php.html#5\">App\\Modules\\Account\\AccountCompositeService<\/a>"],[0,11,"<a href=\"Modules\/Account\/AccountController.php.html#10\">App\\Modules\\Account\\AccountController<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountNumberGeneratorService.php.html#6\">App\\Modules\\Account\\AccountNumberGeneratorService<\/a>"],[25,4,"<a href=\"Modules\/Account\/AccountOperationsService.php.html#7\">App\\Modules\\Account\\AccountOperationsService<\/a>"],[14.705882352941178,11,"<a href=\"Modules\/Account\/AccountService.php.html#10\">App\\Modules\\Account\\AccountService<\/a>"],[0,10,"<a href=\"Modules\/Account\/AccountStatusController.php.html#12\">App\\Modules\\Account\\AccountStatusController<\/a>"],[0,2,"<a href=\"Modules\/Account\/AccountStatusService.php.html#6\">App\\Modules\\Account\\AccountStatusService<\/a>"],[0,6,"<a href=\"Modules\/Account\/AccountStrategyFactory.php.html#15\">App\\Modules\\Account\\AccountStrategyFactory<\/a>"],[60,4,"<a href=\"Modules\/Account\/Strategies\/BusinessStrategy.php.html#7\">App\\modules\\Account\\Strategies\\BusinessStrategy<\/a>"],[60,3,"<a href=\"Modules\/Account\/Strategies\/CheckingStrategy.php.html#7\">App\\modules\\Account\\Strategies\\CheckingStrategy<\/a>"],[100,3,"<a href=\"Modules\/Account\/Strategies\/LoanStrategy.php.html#7\">App\\modules\\Account\\Strategies\\LoanStrategy<\/a>"],[60,3,"<a href=\"Modules\/Account\/Strategies\/SavingsStrategy.php.html#7\">App\\modules\\Account\\Strategies\\SavingsStrategy<\/a>"],[0,6,"<a href=\"Modules\/Account\/states\/AccountStateFactory.php.html#5\">App\\Modules\\Account\\States\\AccountStateFactory<\/a>"],[0,4,"<a href=\"Modules\/Account\/states\/ActiveState.php.html#6\">App\\Modules\\Account\\States\\ActiveState<\/a>"],[0,4,"<a href=\"Modules\/Account\/states\/ClosedState.php.html#6\">App\\Modules\\Account\\States\\ClosedState<\/a>"],[0,4,"<a href=\"Modules\/Account\/states\/FrozenState.php.html#6\">App\\Modules\\Account\\States\\FrozenState<\/a>"],[0,4,"<a href=\"Modules\/Account\/states\/SuspendedState.php.html#6\">App\\Modules\\Account\\States\\SuspendedState<\/a>"],[0,7,"<a href=\"Modules\/Auth\/EmailVerificationService.php.html#9\">App\\Modules\\Auth\\EmailVerificationService<\/a>"],[0,2,"<a href=\"Modules\/Auth\/InvitationController.php.html#16\">App\\Modules\\Auth\\InvitationController<\/a>"],[15.384615384615385,7,"<a href=\"Modules\/Auth\/LoginController.php.html#9\">App\\Modules\\Auth\\LoginController<\/a>"],[0,2,"<a href=\"Modules\/Auth\/RegisterController.php.html#7\">App\\Modules\\Auth\\RegisterController<\/a>"],[0,2,"<a href=\"Modules\/Auth\/RegisterRequest.php.html#7\">App\\Modules\\Auth\\RegisterRequest<\/a>"],[0,1,"<a href=\"Modules\/Auth\/RegistrationService.php.html#9\">App\\Modules\\Auth\\RegistrationService<\/a>"],[0,2,"<a href=\"Modules\/Auth\/ResendCodeRequest.php.html#8\">App\\Modules\\Auth\\ResendCodeRequest<\/a>"],[0,5,"<a href=\"Modules\/Auth\/VerifyCodeController.php.html#8\">App\\Modules\\Auth\\VerifyCodeController<\/a>"],[0,2,"<a href=\"Modules\/Auth\/VerifyCodeRequest.php.html#8\">App\\Modules\\Auth\\VerifyCodeRequest<\/a>"],[25,10,"<a href=\"Modules\/Banking\/BankFacade.php.html#11\">App\\Modules\\Banking\\BankFacade<\/a>"],[0,1,"<a href=\"Modules\/Banking\/BankingController.php.html#8\">App\\Modules\\Banking\\BankingController<\/a>"],[2.941176470588235,6,"<a href=\"Modules\/Interest\/InterestCalculatorService.php.html#11\">App\\Modules\\Interest\\InterestCalculatorService<\/a>"],[0,2,"<a href=\"Modules\/Interest\/InterestController.php.html#15\">App\\Modules\\Interest\\InterestController<\/a>"],[100,2,"<a href=\"Modules\/Interest\/Strategies\/CompoundInterestStrategy.php.html#5\">App\\Modules\\Interest\\Strategies\\CompoundInterestStrategy<\/a>"],[100,1,"<a href=\"Modules\/Interest\/Strategies\/SimpleInterestStrategy.php.html#5\">App\\Modules\\Interest\\Strategies\\SimpleInterestStrategy<\/a>"],[0,1,"<a href=\"Modules\/Notification\/EmailNotifier.php.html#6\">App\\Modules\\Notification\\EmailNotifier<\/a>"],[0,1,"<a href=\"Modules\/Notification\/InAppNotifier.php.html#7\">App\\Modules\\Notification\\InAppNotifier<\/a>"],[0,1,"<a href=\"Modules\/Notification\/Notification.php.html#9\">App\\Modules\\Notification\\Notification<\/a>"],[0,3,"<a href=\"Modules\/Notification\/NotificationController.php.html#8\">App\\Modules\\Notification\\NotificationController<\/a>"],[20,4,"<a href=\"Modules\/Notification\/NotificationDispatcher.php.html#6\">App\\Modules\\Notification\\NotificationDispatcher<\/a>"],[0,1,"<a href=\"Modules\/Notification\/SMSNotifier.php.html#6\">App\\Modules\\Notification\\SMSNotifier<\/a>"],[7.142857142857142,4,"<a href=\"Modules\/Transaction\/Handlers\/AutoApprovalHandler.php.html#9\">App\\Modules\\Transaction\\Handlers\\AutoApprovalHandler<\/a>"],[28.57142857142857,4,"<a href=\"Modules\/Transaction\/Handlers\/BaseApprovalHandler.php.html#8\">App\\Modules\\Transaction\\Handlers\\BaseApprovalHandler<\/a>"],[8.333333333333332,4,"<a href=\"Modules\/Transaction\/Handlers\/ManagerApprovalHandler.php.html#7\">App\\Modules\\Transaction\\Handlers\\ManagerApprovalHandler<\/a>"],[7.142857142857142,5,"<a href=\"Modules\/Transaction\/Handlers\/TellerApprovalHandler.php.html#7\">App\\Modules\\Transaction\\Handlers\\TellerApprovalHandler<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Recurring\/DailyStrategy.php.html#5\">App\\Modules\\Transaction\\Recurring\\DailyStrategy<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Recurring\/MonthlyStrategy.php.html#5\">App\\Modules\\Transaction\\Recurring\\MonthlyStrategy<\/a>"],[0,8,"<a href=\"Modules\/Transaction\/Recurring\/RecurringController.php.html#9\">App\\Modules\\Transaction\\Recurring\\RecurringController<\/a>"],[0,3,"<a href=\"Modules\/Transaction\/Recurring\/RecurringRequest.php.html#8\">App\\Modules\\Transaction\\Recurring\\RecurringRequest<\/a>"],[0,5,"<a href=\"Modules\/Transaction\/Recurring\/RecurringStrategyFactory.php.html#5\">App\\Modules\\Transaction\\Recurring\\RecurringStrategyFactory<\/a>"],[0,5,"<a href=\"Modules\/Transaction\/Recurring\/ScheduledTransactionService.php.html#7\">App\\Modules\\Transaction\\Recurring\\ScheduledTransactionService<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Recurring\/WeeklyStrategy.php.html#5\">App\\Modules\\Transaction\\Recurring\\WeeklyStrategy<\/a>"],[0,6,"<a href=\"Modules\/Transaction\/Transaction.php.html#14\">App\\Modules\\Transaction\\Transaction<\/a>"],[9.230769230769232,17,"<a href=\"Modules\/Transaction\/TransactionController.php.html#10\">App\\Modules\\Transaction\\TransactionController<\/a>"],[2.34375,30,"<a href=\"Modules\/Transaction\/TransactionService.php.html#12\">App\\Modules\\Transaction\\TransactionService<\/a>"],[0,8,"<a href=\"Modules\/User\/UserController.php.html#9\">App\\Modules\\User\\UserController<\/a>"],[100,2,"<a href=\"Providers\/AppServiceProvider.php.html#7\">App\\Providers\\AppServiceProvider<\/a>"],[100,2,"<a href=\"Providers\/BankingServiceProvider.php.html#24\">App\\Providers\\BankingServiceProvider<\/a>"],[33.33333333333333,1,"<a href=\"Providers\/TransactionMacroServiceProvider.php.html#8\">App\\Providers\\TransactionMacroServiceProvider<\/a>"],[0,1,"<a href=\"Repositories\/AccountRepository.php.html#6\">App\\Repositories\\AccountRepository<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[66.66666666666666,3,"<a href=\"Http\/Middleware\/AdminMiddleware.php.html#10\">App\\Http\\Middleware\\AdminMiddleware::handle<\/a>"],[100,1,"<a href=\"Jobs\/ProcessRecurringTransactionsJob.php.html#20\">App\\Jobs\\ProcessRecurringTransactionsJob::__construct<\/a>"],[0,11,"<a href=\"Jobs\/ProcessRecurringTransactionsJob.php.html#25\">App\\Jobs\\ProcessRecurringTransactionsJob::handle<\/a>"],[0,4,"<a href=\"Jobs\/ProcessRecurringTransactionsJob.php.html#71\">App\\Jobs\\ProcessRecurringTransactionsJob::nextDate<\/a>"],[0,1,"<a href=\"Mail\/StaffInvitationMail.php.html#18\">App\\Mail\\StaffInvitationMail::__construct<\/a>"],[0,1,"<a href=\"Mail\/StaffInvitationMail.php.html#26\">App\\Mail\\StaffInvitationMail::envelope<\/a>"],[0,1,"<a href=\"Mail\/StaffInvitationMail.php.html#36\">App\\Mail\\StaffInvitationMail::content<\/a>"],[0,1,"<a href=\"Mail\/StaffInvitationMail.php.html#52\">App\\Mail\\StaffInvitationMail::attachments<\/a>"],[0,1,"<a href=\"Mail\/VerificationCodeMail.php.html#17\">App\\Mail\\VerificationCodeMail::__construct<\/a>"],[0,1,"<a href=\"Mail\/VerificationCodeMail.php.html#22\">App\\Mail\\VerificationCodeMail::envelope<\/a>"],[0,1,"<a href=\"Mail\/VerificationCodeMail.php.html#29\">App\\Mail\\VerificationCodeMail::content<\/a>"],[0,1,"<a href=\"Mail\/VerificationCodeMail.php.html#39\">App\\Mail\\VerificationCodeMail::attachments<\/a>"],[0,1,"<a href=\"Models\/AccountFeature.php.html#37\">App\\Models\\AccountFeature::accounts<\/a>"],[0,1,"<a href=\"Models\/AccountFeature.php.html#51\">App\\Models\\AccountFeature::activeAccounts<\/a>"],[0,1,"<a href=\"Models\/AccountGroup.php.html#31\">App\\Models\\AccountGroup::user<\/a>"],[0,1,"<a href=\"Models\/AccountGroup.php.html#36\">App\\Models\\AccountGroup::accounts<\/a>"],[0,1,"<a href=\"Models\/AccountGroup.php.html#41\">App\\Models\\AccountGroup::activeAccounts<\/a>"],[0,1,"<a href=\"Models\/AccountStatusChangeRequest.php.html#27\">App\\Models\\AccountStatusChangeRequest::account<\/a>"],[0,1,"<a href=\"Models\/AccountStatusChangeRequest.php.html#33\">App\\Models\\AccountStatusChangeRequest::approver<\/a>"],[0,1,"<a href=\"Models\/AccountStatusChangeRequest.php.html#37\">App\\Models\\AccountStatusChangeRequest::requester<\/a>"],[0,1,"<a href=\"Models\/AuditLog.php.html#41\">App\\Models\\AuditLog::user<\/a>"],[0,1,"<a href=\"Models\/AuditLog.php.html#46\">App\\Models\\AuditLog::model<\/a>"],[0,1,"<a href=\"Models\/GatewayTransaction.php.html#40\">App\\Models\\GatewayTransaction::transaction<\/a>"],[0,1,"<a href=\"Models\/GatewayTransaction.php.html#45\">App\\Models\\GatewayTransaction::gateway<\/a>"],[0,1,"<a href=\"Models\/InterestCalculation.php.html#50\">App\\Models\\InterestCalculation::account<\/a>"],[0,1,"<a href=\"Models\/InterestCalculation.php.html#55\">App\\Models\\InterestCalculation::applier<\/a>"],[0,1,"<a href=\"Models\/NotificationPreference.php.html#37\">App\\Models\\NotificationPreference::user<\/a>"],[0,1,"<a href=\"Models\/PaymentGateway.php.html#48\">App\\Models\\PaymentGateway::gatewayTransactions<\/a>"],[0,1,"<a href=\"Models\/TransactionApproval.php.html#33\">App\\Models\\TransactionApproval::transaction<\/a>"],[0,1,"<a href=\"Models\/TransactionApproval.php.html#38\">App\\Models\\TransactionApproval::approver<\/a>"],[0,1,"<a href=\"Models\/User.php.html#48\">App\\Models\\User::accounts<\/a>"],[0,1,"<a href=\"Models\/User.php.html#53\">App\\Models\\User::accountGroups<\/a>"],[0,1,"<a href=\"Models\/User.php.html#58\">App\\Models\\User::notifications<\/a>"],[0,1,"<a href=\"Models\/User.php.html#63\">App\\Models\\User::notificationPreference<\/a>"],[0,1,"<a href=\"Models\/User.php.html#68\">App\\Models\\User::transactionApprovals<\/a>"],[0,1,"<a href=\"Models\/User.php.html#73\">App\\Models\\User::approvedTransactions<\/a>"],[0,1,"<a href=\"Models\/User.php.html#78\">App\\Models\\User::auditLogs<\/a>"],[0,1,"<a href=\"Models\/User.php.html#82\">App\\Models\\User::approvedStatusChanges<\/a>"],[0,1,"<a href=\"Models\/User.php.html#86\">App\\Models\\User::requestedStatusChanges<\/a>"],[0,1,"<a href=\"Modules\/Account\/Account.php.html#48\">App\\Modules\\Account\\Account::user<\/a>"],[0,1,"<a href=\"Modules\/Account\/Account.php.html#53\">App\\Modules\\Account\\Account::parent<\/a>"],[0,1,"<a href=\"Modules\/Account\/Account.php.html#58\">App\\Modules\\Account\\Account::children<\/a>"],[0,1,"<a href=\"Modules\/Account\/Account.php.html#63\">App\\Modules\\Account\\Account::group<\/a>"],[0,1,"<a href=\"Modules\/Account\/Account.php.html#68\">App\\Modules\\Account\\Account::fromTransactions<\/a>"],[0,1,"<a href=\"Modules\/Account\/Account.php.html#73\">App\\Modules\\Account\\Account::toTransactions<\/a>"],[0,1,"<a href=\"Modules\/Account\/Account.php.html#77\">App\\Modules\\Account\\Account::transactions<\/a>"],[0,1,"<a href=\"Modules\/Account\/Account.php.html#82\">App\\Modules\\Account\\Account::features<\/a>"],[0,1,"<a href=\"Modules\/Account\/Account.php.html#96\">App\\Modules\\Account\\Account::activeFeatures<\/a>"],[0,1,"<a href=\"Modules\/Account\/Account.php.html#101\">App\\Modules\\Account\\Account::interestCalculations<\/a>"],[0,1,"<a href=\"Modules\/Account\/Account.php.html#105\">App\\Modules\\Account\\Account::statusChangeRequests<\/a>"],[0,1,"<a href=\"Modules\/Account\/Account.php.html#109\">App\\Modules\\Account\\Account::getState<\/a>"],[0,2,"<a href=\"Modules\/Account\/AccountCompositeService.php.html#10\">App\\Modules\\Account\\AccountCompositeService::getTotalBalance<\/a>"],[0,3,"<a href=\"Modules\/Account\/AccountCompositeService.php.html#25\">App\\Modules\\Account\\AccountCompositeService::loadTree<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountController.php.html#14\">App\\Modules\\Account\\AccountController::__construct<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountController.php.html#31\">App\\Modules\\Account\\AccountController::testSwagger<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountController.php.html#48\">App\\Modules\\Account\\AccountController::index<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountController.php.html#77\">App\\Modules\\Account\\AccountController::show<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountController.php.html#112\">App\\Modules\\Account\\AccountController::store<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountController.php.html#165\">App\\Modules\\Account\\AccountController::update<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountController.php.html#199\">App\\Modules\\Account\\AccountController::destroy<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountController.php.html#229\">App\\Modules\\Account\\AccountController::totalBalance<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountController.php.html#240\">App\\Modules\\Account\\AccountController::getCustomerAccountsByUserId<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountController.php.html#249\">App\\Modules\\Account\\AccountController::deactivateAccount<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountController.php.html#258\">App\\Modules\\Account\\AccountController::activateAccount<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountNumberGeneratorService.php.html#8\">App\\Modules\\Account\\AccountNumberGeneratorService::generate<\/a>"],[100,1,"<a href=\"Modules\/Account\/AccountOperationsService.php.html#9\">App\\Modules\\Account\\AccountOperationsService::__construct<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountOperationsService.php.html#13\">App\\Modules\\Account\\AccountOperationsService::canWithdraw<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountOperationsService.php.html#18\">App\\Modules\\Account\\AccountOperationsService::withdraw<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountOperationsService.php.html#23\">App\\Modules\\Account\\AccountOperationsService::deposit<\/a>"],[100,1,"<a href=\"Modules\/Account\/AccountService.php.html#16\">App\\Modules\\Account\\AccountService::__construct<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountService.php.html#26\">App\\Modules\\Account\\AccountService::getUserAccounts<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountService.php.html#31\">App\\Modules\\Account\\AccountService::getAccountById<\/a>"],[100,1,"<a href=\"Modules\/Account\/AccountService.php.html#36\">App\\Modules\\Account\\AccountService::createAccount<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountService.php.html#42\">App\\Modules\\Account\\AccountService::updateAccount<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountService.php.html#47\">App\\Modules\\Account\\AccountService::deleteAccount<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountService.php.html#52\">App\\Modules\\Account\\AccountService::getCustomerAccountsByUserId<\/a>"],[0,2,"<a href=\"Modules\/Account\/AccountService.php.html#62\">App\\Modules\\Account\\AccountService::closeAccount<\/a>"],[0,2,"<a href=\"Modules\/Account\/AccountService.php.html#81\">App\\Modules\\Account\\AccountService::activateAccount<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountStatusController.php.html#16\">App\\Modules\\Account\\AccountStatusController::__construct<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountStatusController.php.html#22\">App\\Modules\\Account\\AccountStatusController::requestChange<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountStatusController.php.html#36\">App\\Modules\\Account\\AccountStatusController::index<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountStatusController.php.html#46\">App\\Modules\\Account\\AccountStatusController::show<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountStatusController.php.html#52\">App\\Modules\\Account\\AccountStatusController::approve<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountStatusController.php.html#63\">App\\Modules\\Account\\AccountStatusController::reject<\/a>"],[0,2,"<a href=\"Modules\/Account\/AccountStatusController.php.html#74\">App\\Modules\\Account\\AccountStatusController::cancel<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountStatusController.php.html#88\">App\\Modules\\Account\\AccountStatusController::myRequests<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountStatusController.php.html#99\">App\\Modules\\Account\\AccountStatusController::accountRequests<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountStatusService.php.html#8\">App\\Modules\\Account\\AccountStatusService::requestStatusChange<\/a>"],[0,1,"<a href=\"Modules\/Account\/AccountStatusService.php.html#22\">App\\Modules\\Account\\AccountStatusService::approve<\/a>"],[0,6,"<a href=\"Modules\/Account\/AccountStrategyFactory.php.html#17\">App\\Modules\\Account\\AccountStrategyFactory::make<\/a>"],[100,2,"<a href=\"Modules\/Account\/Strategies\/BusinessStrategy.php.html#9\">App\\modules\\Account\\Strategies\\BusinessStrategy::canWithdraw<\/a>"],[0,1,"<a href=\"Modules\/Account\/Strategies\/BusinessStrategy.php.html#14\">App\\modules\\Account\\Strategies\\BusinessStrategy::withdraw<\/a>"],[100,1,"<a href=\"Modules\/Account\/Strategies\/BusinessStrategy.php.html#20\">App\\modules\\Account\\Strategies\\BusinessStrategy::deposit<\/a>"],[100,1,"<a href=\"Modules\/Account\/Strategies\/CheckingStrategy.php.html#9\">App\\modules\\Account\\Strategies\\CheckingStrategy::canWithdraw<\/a>"],[0,1,"<a href=\"Modules\/Account\/Strategies\/CheckingStrategy.php.html#14\">App\\modules\\Account\\Strategies\\CheckingStrategy::withdraw<\/a>"],[100,1,"<a href=\"Modules\/Account\/Strategies\/CheckingStrategy.php.html#20\">App\\modules\\Account\\Strategies\\CheckingStrategy::deposit<\/a>"],[100,1,"<a href=\"Modules\/Account\/Strategies\/LoanStrategy.php.html#9\">App\\modules\\Account\\Strategies\\LoanStrategy::canWithdraw<\/a>"],[100,1,"<a href=\"Modules\/Account\/Strategies\/LoanStrategy.php.html#14\">App\\modules\\Account\\Strategies\\LoanStrategy::withdraw<\/a>"],[100,1,"<a href=\"Modules\/Account\/Strategies\/LoanStrategy.php.html#19\">App\\modules\\Account\\Strategies\\LoanStrategy::deposit<\/a>"],[100,1,"<a href=\"Modules\/Account\/Strategies\/SavingsStrategy.php.html#9\">App\\modules\\Account\\Strategies\\SavingsStrategy::canWithdraw<\/a>"],[0,1,"<a href=\"Modules\/Account\/Strategies\/SavingsStrategy.php.html#14\">App\\modules\\Account\\Strategies\\SavingsStrategy::withdraw<\/a>"],[100,1,"<a href=\"Modules\/Account\/Strategies\/SavingsStrategy.php.html#20\">App\\modules\\Account\\Strategies\\SavingsStrategy::deposit<\/a>"],[0,6,"<a href=\"Modules\/Account\/states\/AccountStateFactory.php.html#7\">App\\Modules\\Account\\States\\AccountStateFactory::make<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/ActiveState.php.html#8\">App\\Modules\\Account\\States\\ActiveState::name<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/ActiveState.php.html#10\">App\\Modules\\Account\\States\\ActiveState::canWithdraw<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/ActiveState.php.html#11\">App\\Modules\\Account\\States\\ActiveState::canDeposit<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/ActiveState.php.html#12\">App\\Modules\\Account\\States\\ActiveState::canTransfer<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/ClosedState.php.html#8\">App\\Modules\\Account\\States\\ClosedState::name<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/ClosedState.php.html#10\">App\\Modules\\Account\\States\\ClosedState::canWithdraw<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/ClosedState.php.html#11\">App\\Modules\\Account\\States\\ClosedState::canDeposit<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/ClosedState.php.html#12\">App\\Modules\\Account\\States\\ClosedState::canTransfer<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/FrozenState.php.html#8\">App\\Modules\\Account\\States\\FrozenState::name<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/FrozenState.php.html#10\">App\\Modules\\Account\\States\\FrozenState::canWithdraw<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/FrozenState.php.html#11\">App\\Modules\\Account\\States\\FrozenState::canDeposit<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/FrozenState.php.html#12\">App\\Modules\\Account\\States\\FrozenState::canTransfer<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/SuspendedState.php.html#8\">App\\Modules\\Account\\States\\SuspendedState::name<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/SuspendedState.php.html#10\">App\\Modules\\Account\\States\\SuspendedState::canWithdraw<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/SuspendedState.php.html#11\">App\\Modules\\Account\\States\\SuspendedState::canDeposit<\/a>"],[0,1,"<a href=\"Modules\/Account\/states\/SuspendedState.php.html#12\">App\\Modules\\Account\\States\\SuspendedState::canTransfer<\/a>"],[0,5,"<a href=\"Modules\/Auth\/EmailVerificationService.php.html#31\">App\\Modules\\Auth\\EmailVerificationService::verifyCode<\/a>"],[0,2,"<a href=\"Modules\/Auth\/EmailVerificationService.php.html#73\">App\\Modules\\Auth\\EmailVerificationService::resendCode<\/a>"],[0,1,"<a href=\"Modules\/Auth\/InvitationController.php.html#18\">App\\Modules\\Auth\\InvitationController::store<\/a>"],[0,1,"<a href=\"Modules\/Auth\/InvitationController.php.html#42\">App\\Modules\\Auth\\InvitationController::accept<\/a>"],[20,4,"<a href=\"Modules\/Auth\/LoginController.php.html#38\">App\\Modules\\Auth\\LoginController::login<\/a>"],[0,3,"<a href=\"Modules\/Auth\/LoginController.php.html#85\">App\\Modules\\Auth\\LoginController::logout<\/a>"],[0,1,"<a href=\"Modules\/Auth\/RegisterController.php.html#9\">App\\Modules\\Auth\\RegisterController::__construct<\/a>"],[0,1,"<a href=\"Modules\/Auth\/RegisterController.php.html#37\">App\\Modules\\Auth\\RegisterController::register<\/a>"],[0,1,"<a href=\"Modules\/Auth\/RegisterRequest.php.html#9\">App\\Modules\\Auth\\RegisterRequest::authorize<\/a>"],[0,1,"<a href=\"Modules\/Auth\/RegisterRequest.php.html#14\">App\\Modules\\Auth\\RegisterRequest::rules<\/a>"],[0,1,"<a href=\"Modules\/Auth\/RegistrationService.php.html#11\">App\\Modules\\Auth\\RegistrationService::registerCustomer<\/a>"],[0,1,"<a href=\"Modules\/Auth\/ResendCodeRequest.php.html#10\">App\\Modules\\Auth\\ResendCodeRequest::authorize<\/a>"],[0,1,"<a href=\"Modules\/Auth\/ResendCodeRequest.php.html#15\">App\\Modules\\Auth\\ResendCodeRequest::rules<\/a>"],[0,1,"<a href=\"Modules\/Auth\/VerifyCodeController.php.html#10\">App\\Modules\\Auth\\VerifyCodeController::__construct<\/a>"],[0,3,"<a href=\"Modules\/Auth\/VerifyCodeController.php.html#15\">App\\Modules\\Auth\\VerifyCodeController::verify<\/a>"],[0,1,"<a href=\"Modules\/Auth\/VerifyCodeController.php.html#33\">App\\Modules\\Auth\\VerifyCodeController::resend<\/a>"],[0,1,"<a href=\"Modules\/Auth\/VerifyCodeRequest.php.html#10\">App\\Modules\\Auth\\VerifyCodeRequest::authorize<\/a>"],[0,1,"<a href=\"Modules\/Auth\/VerifyCodeRequest.php.html#15\">App\\Modules\\Auth\\VerifyCodeRequest::rules<\/a>"],[100,1,"<a href=\"Modules\/Banking\/BankFacade.php.html#17\">App\\Modules\\Banking\\BankFacade::__construct<\/a>"],[0,1,"<a href=\"Modules\/Banking\/BankFacade.php.html#27\">App\\Modules\\Banking\\BankFacade::transfer<\/a>"],[0,1,"<a href=\"Modules\/Banking\/BankFacade.php.html#32\">App\\Modules\\Banking\\BankFacade::customerTransaction<\/a>"],[0,1,"<a href=\"Modules\/Banking\/BankFacade.php.html#37\">App\\Modules\\Banking\\BankFacade::approveTransaction<\/a>"],[0,1,"<a href=\"Modules\/Banking\/BankFacade.php.html#42\">App\\Modules\\Banking\\BankFacade::rejectTransaction<\/a>"],[0,1,"<a href=\"Modules\/Banking\/BankFacade.php.html#47\">App\\Modules\\Banking\\BankFacade::getPendingCustomerTransactions<\/a>"],[0,1,"<a href=\"Modules\/Banking\/BankFacade.php.html#51\">App\\Modules\\Banking\\BankFacade::approveByManager<\/a>"],[0,1,"<a href=\"Modules\/Banking\/BankFacade.php.html#55\">App\\Modules\\Banking\\BankFacade::rejectByManager<\/a>"],[0,1,"<a href=\"Modules\/Banking\/BankFacade.php.html#59\">App\\Modules\\Banking\\BankFacade::getTotalBalance<\/a>"],[0,1,"<a href=\"Modules\/Banking\/BankFacade.php.html#63\">App\\Modules\\Banking\\BankFacade::calculateInterest<\/a>"],[0,1,"<a href=\"Modules\/Banking\/BankingController.php.html#10\">App\\Modules\\Banking\\BankingController::summary<\/a>"],[100,1,"<a href=\"Modules\/Interest\/InterestCalculatorService.php.html#15\">App\\Modules\\Interest\\InterestCalculatorService::__construct<\/a>"],[0,2,"<a href=\"Modules\/Interest\/InterestCalculatorService.php.html#20\">App\\Modules\\Interest\\InterestCalculatorService::calculateForAccount<\/a>"],[0,3,"<a href=\"Modules\/Interest\/InterestCalculatorService.php.html#65\">App\\Modules\\Interest\\InterestCalculatorService::invalidateCacheForAccount<\/a>"],[0,1,"<a href=\"Modules\/Interest\/InterestController.php.html#19\">App\\Modules\\Interest\\InterestController::__construct<\/a>"],[0,1,"<a href=\"Modules\/Interest\/InterestController.php.html#80\">App\\Modules\\Interest\\InterestController::calculate<\/a>"],[100,1,"<a href=\"Modules\/Interest\/Strategies\/CompoundInterestStrategy.php.html#9\">App\\Modules\\Interest\\Strategies\\CompoundInterestStrategy::__construct<\/a>"],[100,1,"<a href=\"Modules\/Interest\/Strategies\/CompoundInterestStrategy.php.html#14\">App\\Modules\\Interest\\Strategies\\CompoundInterestStrategy::calculate<\/a>"],[100,1,"<a href=\"Modules\/Interest\/Strategies\/SimpleInterestStrategy.php.html#7\">App\\Modules\\Interest\\Strategies\\SimpleInterestStrategy::calculate<\/a>"],[0,1,"<a href=\"Modules\/Notification\/EmailNotifier.php.html#8\">App\\Modules\\Notification\\EmailNotifier::notify<\/a>"],[0,1,"<a href=\"Modules\/Notification\/InAppNotifier.php.html#9\">App\\Modules\\Notification\\InAppNotifier::notify<\/a>"],[0,1,"<a href=\"Modules\/Notification\/Notification.php.html#35\">App\\Modules\\Notification\\Notification::user<\/a>"],[0,1,"<a href=\"Modules\/Notification\/NotificationController.php.html#10\">App\\Modules\\Notification\\NotificationController::index<\/a>"],[0,1,"<a href=\"Modules\/Notification\/NotificationController.php.html#17\">App\\Modules\\Notification\\NotificationController::unread<\/a>"],[0,1,"<a href=\"Modules\/Notification\/NotificationController.php.html#24\">App\\Modules\\Notification\\NotificationController::markAsRead<\/a>"],[100,1,"<a href=\"Modules\/Notification\/NotificationDispatcher.php.html#11\">App\\Modules\\Notification\\NotificationDispatcher::register<\/a>"],[0,3,"<a href=\"Modules\/Notification\/NotificationDispatcher.php.html#16\">App\\Modules\\Notification\\NotificationDispatcher::dispatch<\/a>"],[0,1,"<a href=\"Modules\/Notification\/SMSNotifier.php.html#8\">App\\Modules\\Notification\\SMSNotifier::notify<\/a>"],[100,1,"<a href=\"Modules\/Transaction\/Handlers\/AutoApprovalHandler.php.html#13\">App\\Modules\\Transaction\\Handlers\\AutoApprovalHandler::__construct<\/a>"],[0,2,"<a href=\"Modules\/Transaction\/Handlers\/AutoApprovalHandler.php.html#18\">App\\Modules\\Transaction\\Handlers\\AutoApprovalHandler::canHandle<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Handlers\/AutoApprovalHandler.php.html#24\">App\\Modules\\Transaction\\Handlers\\AutoApprovalHandler::process<\/a>"],[100,1,"<a href=\"Modules\/Transaction\/Handlers\/BaseApprovalHandler.php.html#12\">App\\Modules\\Transaction\\Handlers\\BaseApprovalHandler::setNext<\/a>"],[0,3,"<a href=\"Modules\/Transaction\/Handlers\/BaseApprovalHandler.php.html#21\">App\\Modules\\Transaction\\Handlers\\BaseApprovalHandler::handle<\/a>"],[100,0,"<a href=\"Modules\/Transaction\/Handlers\/BaseApprovalHandler.php.html#35\">App\\Modules\\Transaction\\Handlers\\BaseApprovalHandler::canHandle<\/a>"],[100,0,"<a href=\"Modules\/Transaction\/Handlers\/BaseApprovalHandler.php.html#36\">App\\Modules\\Transaction\\Handlers\\BaseApprovalHandler::process<\/a>"],[100,1,"<a href=\"Modules\/Transaction\/Handlers\/ManagerApprovalHandler.php.html#11\">App\\Modules\\Transaction\\Handlers\\ManagerApprovalHandler::__construct<\/a>"],[0,2,"<a href=\"Modules\/Transaction\/Handlers\/ManagerApprovalHandler.php.html#16\">App\\Modules\\Transaction\\Handlers\\ManagerApprovalHandler::canHandle<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Handlers\/ManagerApprovalHandler.php.html#22\">App\\Modules\\Transaction\\Handlers\\ManagerApprovalHandler::process<\/a>"],[100,1,"<a href=\"Modules\/Transaction\/Handlers\/TellerApprovalHandler.php.html#11\">App\\Modules\\Transaction\\Handlers\\TellerApprovalHandler::__construct<\/a>"],[0,3,"<a href=\"Modules\/Transaction\/Handlers\/TellerApprovalHandler.php.html#16\">App\\Modules\\Transaction\\Handlers\\TellerApprovalHandler::canHandle<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Handlers\/TellerApprovalHandler.php.html#24\">App\\Modules\\Transaction\\Handlers\\TellerApprovalHandler::process<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Recurring\/DailyStrategy.php.html#7\">App\\Modules\\Transaction\\Recurring\\DailyStrategy::getNextRunDate<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Recurring\/MonthlyStrategy.php.html#7\">App\\Modules\\Transaction\\Recurring\\MonthlyStrategy::getNextRunDate<\/a>"],[0,2,"<a href=\"Modules\/Transaction\/Recurring\/RecurringController.php.html#12\">App\\Modules\\Transaction\\Recurring\\RecurringController::requestRecurring<\/a>"],[0,2,"<a href=\"Modules\/Transaction\/Recurring\/RecurringController.php.html#41\">App\\Modules\\Transaction\\Recurring\\RecurringController::listRequests<\/a>"],[0,2,"<a href=\"Modules\/Transaction\/Recurring\/RecurringController.php.html#53\">App\\Modules\\Transaction\\Recurring\\RecurringController::approve<\/a>"],[0,2,"<a href=\"Modules\/Transaction\/Recurring\/RecurringController.php.html#74\">App\\Modules\\Transaction\\Recurring\\RecurringController::reject<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Recurring\/RecurringRequest.php.html#21\">App\\Modules\\Transaction\\Recurring\\RecurringRequest::user<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Recurring\/RecurringRequest.php.html#26\">App\\Modules\\Transaction\\Recurring\\RecurringRequest::fromAccount<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Recurring\/RecurringRequest.php.html#31\">App\\Modules\\Transaction\\Recurring\\RecurringRequest::toAccount<\/a>"],[0,5,"<a href=\"Modules\/Transaction\/Recurring\/RecurringStrategyFactory.php.html#7\">App\\Modules\\Transaction\\Recurring\\RecurringStrategyFactory::make<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Recurring\/ScheduledTransactionService.php.html#9\">App\\Modules\\Transaction\\Recurring\\ScheduledTransactionService::createRecurring<\/a>"],[0,4,"<a href=\"Modules\/Transaction\/Recurring\/ScheduledTransactionService.php.html#24\">App\\Modules\\Transaction\\Recurring\\ScheduledTransactionService::nextDate<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Recurring\/WeeklyStrategy.php.html#7\">App\\Modules\\Transaction\\Recurring\\WeeklyStrategy::getNextRunDate<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Transaction.php.html#53\">App\\Modules\\Transaction\\Transaction::fromAccount<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Transaction.php.html#58\">App\\Modules\\Transaction\\Transaction::toAccount<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Transaction.php.html#63\">App\\Modules\\Transaction\\Transaction::approver<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Transaction.php.html#68\">App\\Modules\\Transaction\\Transaction::approvals<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Transaction.php.html#73\">App\\Modules\\Transaction\\Transaction::gatewayTransactions<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/Transaction.php.html#78\">App\\Modules\\Transaction\\Transaction::getRecurringStrategy<\/a>"],[100,1,"<a href=\"Modules\/Transaction\/TransactionController.php.html#14\">App\\Modules\\Transaction\\TransactionController::__construct<\/a>"],[55.55555555555556,1,"<a href=\"Modules\/Transaction\/TransactionController.php.html#43\">App\\Modules\\Transaction\\TransactionController::transfer<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/TransactionController.php.html#79\">App\\Modules\\Transaction\\TransactionController::history<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/TransactionController.php.html#120\">App\\Modules\\Transaction\\TransactionController::customerTransaction<\/a>"],[0,2,"<a href=\"Modules\/Transaction\/TransactionController.php.html#163\">App\\Modules\\Transaction\\TransactionController::approveCustomerTransaction<\/a>"],[0,2,"<a href=\"Modules\/Transaction\/TransactionController.php.html#205\">App\\Modules\\Transaction\\TransactionController::rejectCustomerTransaction<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/TransactionController.php.html#240\">App\\Modules\\Transaction\\TransactionController::approveByManager<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/TransactionController.php.html#272\">App\\Modules\\Transaction\\TransactionController::rejectByManager<\/a>"],[0,5,"<a href=\"Modules\/Transaction\/TransactionController.php.html#291\">App\\Modules\\Transaction\\TransactionController::customerRequests<\/a>"],[0,2,"<a href=\"Modules\/Transaction\/TransactionController.php.html#339\">App\\Modules\\Transaction\\TransactionController::allTransactions<\/a>"],[100,1,"<a href=\"Modules\/Transaction\/TransactionService.php.html#18\">App\\Modules\\Transaction\\TransactionService::__construct<\/a>"],[0,4,"<a href=\"Modules\/Transaction\/TransactionService.php.html#31\">App\\Modules\\Transaction\\TransactionService::transfer<\/a>"],[0,9,"<a href=\"Modules\/Transaction\/TransactionService.php.html#78\">App\\Modules\\Transaction\\TransactionService::customerTransaction<\/a>"],[0,5,"<a href=\"Modules\/Transaction\/TransactionService.php.html#133\">App\\Modules\\Transaction\\TransactionService::approveTransaction<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/TransactionService.php.html#161\">App\\Modules\\Transaction\\TransactionService::rejectTransaction<\/a>"],[0,1,"<a href=\"Modules\/Transaction\/TransactionService.php.html#175\">App\\Modules\\Transaction\\TransactionService::customerPendingTransactions<\/a>"],[0,6,"<a href=\"Modules\/Transaction\/TransactionService.php.html#181\">App\\Modules\\Transaction\\TransactionService::approveByManager<\/a>"],[0,3,"<a href=\"Modules\/Transaction\/TransactionService.php.html#227\">App\\Modules\\Transaction\\TransactionService::rejectByManager<\/a>"],[0,2,"<a href=\"Modules\/User\/UserController.php.html#12\">App\\Modules\\User\\UserController::myProfile<\/a>"],[0,4,"<a href=\"Modules\/User\/UserController.php.html#27\">App\\Modules\\User\\UserController::allCustomers<\/a>"],[0,2,"<a href=\"Modules\/User\/UserController.php.html#57\">App\\Modules\\User\\UserController::deleteEmployee<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#12\">App\\Providers\\AppServiceProvider::register<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#20\">App\\Providers\\AppServiceProvider::boot<\/a>"],[100,1,"<a href=\"Providers\/BankingServiceProvider.php.html#26\">App\\Providers\\BankingServiceProvider::register<\/a>"],[100,1,"<a href=\"Providers\/BankingServiceProvider.php.html#78\">App\\Providers\\BankingServiceProvider::boot<\/a>"],[33.33333333333333,1,"<a href=\"Providers\/TransactionMacroServiceProvider.php.html#10\">App\\Providers\\TransactionMacroServiceProvider::boot<\/a>"],[0,1,"<a href=\"Repositories\/AccountRepository.php.html#8\">App\\Repositories\\AccountRepository::create<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

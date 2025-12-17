@@ -56,13 +56,23 @@ class BankFacade
    {
     return $this->txService->rejectByManager($txn, $manager);
    }
+
+    /**
+     * تطبيق واضح لـ Composite Pattern على شجرة الحسابات:
+     * نحسب الرصيد الكلي لحساب أب وجميع حساباته الفرعية (children)
+     * عن طريق خدمة AccountCompositeService التي تتعامل مع الشجرة بالكامل.
+     */
     public function getTotalBalance(Account $account): float
-{
-    return $this->composite->getTotalBalance($account);
-}
-public function calculateInterest(Account $account, int $days)
-{
-    return $this->interestService->calculateForAccount($account, $days);
-}
+    {
+        // تحميل الشجرة كاملة لتحسين الأداء وتقليل عدد الاستعلامات
+        $this->composite->loadTree($account);
+
+        return $this->composite->getTotalBalance($account);
+    }
+
+    public function calculateInterest(Account $account, int $days, ?string $method = null)
+    {
+        return $this->interestService->calculateForAccount($account, $days, $method);
+    }
 }
 

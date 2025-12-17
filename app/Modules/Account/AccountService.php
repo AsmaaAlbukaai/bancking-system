@@ -3,18 +3,22 @@
 namespace App\Modules\Account;
 
 use App\Models\User;
-use App\Repositories\AccountRepository;
+use App\Modules\Account\Contracts\AccountRepositoryInterface;
 use App\Modules\Account\States\AccountStateFactory;
 use App\Modules\Account\AccountNumberGeneratorService;
 
 class AccountService
 {
-    protected AccountRepository $repo;
+    /**
+     * نعتمد على عقد مجرد بدلاً من تنفيذ محدد للـ Repository
+     * تطبيقاً لمبدأ Dependency Inversion.
+     */
+    protected AccountRepositoryInterface $repo;
     protected AccountNumberGeneratorService $numberGenerator;
     protected AccountStateFactory $stateFactory;
 
     public function __construct(
-        AccountRepository $repo,
+        AccountRepositoryInterface $repo,
         AccountNumberGeneratorService $generator,
         AccountStateFactory $stateFactory
     ) {
@@ -28,40 +32,44 @@ class AccountService
         return $user->accounts()->with('children')->get();
     }
 
-    public function getAccountById($id)
+    public function getAccountById(int $id): ?Account
     {
         return $this->repo->find($id);
     }
 
-    public function createAccount(array $data)
+    public function createAccount(array $data): Account
     {
         $data['account_number'] = $this->numberGenerator->generate();
         return $this->repo->create($data);
     }
 
-    public function updateAccount($id, array $data)
+    public function updateAccount(int $id, array $data): Account
     {
         return $this->repo->update($id, $data);
     }
 
-    public function deleteAccount($id)
+    public function deleteAccount(int $id): bool
     {
         return $this->repo->delete($id);
     }
 
-    public function getCustomerAccountsByUserId($userId)
+    public function getCustomerAccountsByUserId(int $userId): array
     {
         $user = User::where('role', 'customer')->findOrFail($userId);
 
         return [
             'user' => $user,
-            'accounts' => $user->accounts()->with('transactions')->latest()->get()
+            'accounts' => $user->accounts()->with('transactions')->latest()->get(),
         ];
     }
 
-    public function closeAccount($id, $reason = null)
+    public function closeAccount(int $id, ?string $reason = null): array
     {
         $acc = $this->repo->find($id);
+
+        if (! $acc) {
+            return ['error' => 'Account not found'];
+        }
 
         $state = $this->stateFactory->make($acc);
 
@@ -72,15 +80,19 @@ class AccountService
         $acc->update([
             'status' => 'closed',
             'closed_at' => now(),
-            'closure_reason' => $reason ?? 'Closed by admin'
+            'closure_reason' => $reason ?? 'Closed by admin',
         ]);
 
         return ['message' => 'Account closed successfully'];
     }
 
-    public function activateAccount($id)
+    public function activateAccount(int $id): array
     {
         $acc = $this->repo->find($id);
+
+        if (! $acc) {
+            return ['error' => 'Account not found'];
+        }
 
         $state = $this->stateFactory->make($acc);
 
@@ -91,9 +103,10 @@ class AccountService
         $acc->update([
             'status' => 'active',
             'closed_at' => null,
-            'closure_reason' => null
+            'closure_reason' => null,
         ]);
 
         return ['message' => 'Account activated successfully'];
     }
 }
+

@@ -88,6 +88,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/notifications/unread', [NotificationController::class, 'unread']);
     Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead']);
 
+    // Payment Gateways
+    Route::get('/payment-gateways', [\App\Modules\Payment\PaymentController::class, 'listGateways']);
+    Route::post('/accounts/{accountId}/deposit-gateway/{gatewayId}', [\App\Modules\Payment\PaymentController::class, 'depositViaGateway']);
+
     // Facade Summary
     Route::get('/banking/{accountId}/summary', [BankingController::class, 'summary']);
 });

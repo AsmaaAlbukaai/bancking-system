@@ -413,6 +413,144 @@
 							"response": []
 						},
 						{
+							"name": "Interest - Calculate",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{auth_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/interest/1/calculate?days=30&method=compound",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"interest",
+										"1",
+										"calculate"
+									],
+									"query": [
+										{
+											"key": "days",
+											"value": "30"
+										},
+										{
+											"key": "method",
+											"value": "compound",
+											"description": "simple | compound (optional, default depends on account type)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Payment Gateways",
+							"item": [
+								{
+									"name": "List Gateways",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{auth_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/api/payment-gateways",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"payment-gateways"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Deposit Via Gateway",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{auth_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"amount\": 1000,\n  \"currency\": \"USD\",\n  \"description\": \"Deposit via payment gateway\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/accounts/1/deposit-gateway/1",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"accounts",
+												"1",
+												"deposit-gateway",
+												"1"
+											]
+										},
+										"description": "Deposit money into an account using an external payment gateway. Uses Adapter Pattern to support multiple gateways."
+									},
+									"response": []
+								}
+							]
+						},
+						{
 							"name": "cancel/request-status-change",
 							"request": {
 								"auth": {

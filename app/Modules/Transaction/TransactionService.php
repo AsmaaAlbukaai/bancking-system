@@ -4,7 +4,7 @@ namespace App\Modules\Transaction;
 
 use App\Modules\Account\Account;
 use App\Modules\Account\AccountOperationsService;
-use App\Modules\Notification\NotificationDispatcher;
+use App\Modules\Notification\DomainEventNotifier;
 use App\Modules\Transaction\Handlers\BaseApprovalHandler;
 use Illuminate\Support\Facades\DB;
 use Exception;
@@ -12,12 +12,12 @@ use Exception;
 class TransactionService
 {
     protected BaseApprovalHandler $approvalChain;
-    protected NotificationDispatcher $notifier;
+    protected DomainEventNotifier $notifier;
     protected AccountOperationsService $ops;
 
     public function __construct(
         BaseApprovalHandler $approvalChain,
-        NotificationDispatcher $notifier,
+        DomainEventNotifier $notifier,
         AccountOperationsService $ops
     ) {
         $this->approvalChain = $approvalChain;
@@ -68,6 +68,7 @@ class TransactionService
                 'processed_at' => now(),
             ]);
 
+            // إشعار الموظف/المدير بأن هناك معاملة تتطلب الموافقة يمكن ربطه هنا لاحقاً
             return $txn;
         });
     }
@@ -120,6 +121,9 @@ class TransactionService
                 'status' => 'completed',
                 'processed_at' => now()
             ]);
+        } else {
+            // إشعار الموظفين (Tellers) بوجود طلب جديد يحتاج موافقة
+            $this->notifyStaffForTransactionRequest($txn, 'teller');
         }
 
         return $txn;
@@ -153,13 +157,24 @@ class TransactionService
         ]);
         $approval = $txn->approvals()->first(); // أو اختر حسب ترتيب الموافقة
         if ($approval) {
-        $approval->update([
-            'action' => 'approve',
-            'action_taken_at' => now(),
-            'approver_id' => $user->id,
-            'comments' => 'Approved by manager',
-        ]);
-    }
+            $approval->update([
+                'action' => 'approve',
+                'action_taken_at' => now(),
+                'approver_id' => $user->id,
+                'comments' => 'Approved by manager',
+            ]);
+        }
+
+        // إشعار العميل بأن العملية تمت الموافقة عليها
+        $customer = $txn->toAccount?->user ?? $txn->fromAccount?->user;
+        if ($customer) {
+            $this->notifier->transactionApprovedForCustomer(
+                $customer,
+                $txn->type,
+                (float) $txn->amount
+            );
+        }
+
         return $txn;
     }
 
@@ -193,6 +208,24 @@ class TransactionService
         return Transaction::where('metadata->is_customer_transaction', true)
             ->where('status', 'pending')
             ->get();
+    }
+
+    /**
+     * إشعار الموظفين/المديرين بوجود طلب معاملة جديد يحتاج موافقة
+     */
+    protected function notifyStaffForTransactionRequest(Transaction $txn, string $role): void
+    {
+        // جلب المستخدمين ذوي الدور المطلوب
+        $staffMembers = \App\Models\User::where('role', $role)->get();
+
+        foreach ($staffMembers as $staff) {
+            $this->notifier->transactionRequestCreatedForStaff(
+                $staff,
+                $role,
+                $txn->type,
+                (float) $txn->amount
+            );
+        }
     }
     public function approveByManager(Transaction $txn, $manager): Transaction
 {
@@ -238,6 +271,17 @@ class TransactionService
             'comments' => 'Approved by manager',
         ]);
     }
+
+    // 6) إشعار العميل بأن العملية تمت الموافقة عليها
+    $customer = $txn->toAccount?->user ?? $txn->fromAccount?->user;
+    if ($customer) {
+        $this->notifier->transactionApprovedForCustomer(
+            $customer,
+            $txn->type,
+            (float) $txn->amount
+        );
+    }
+
     return $txn;
 }
 public function rejectByManager(Transaction $txn, $manager): Transaction

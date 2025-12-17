@@ -1,36 +1,49 @@
 <?php
+
 namespace App\Repositories;
 
 use App\Modules\Account\Account;
+use App\Modules\Account\Contracts\AccountRepositoryInterface;
 
-class AccountRepository
+/**
+ * تنفيذ فعلي لعقد AccountRepositoryInterface باستخدام Eloquent
+ * هذه الطبقة مسؤولة فقط عن التعامل مع قاعدة البيانات،
+ * بينما تبقى قواعد العمل (Business Logic) في الخدمات.
+ */
+class AccountRepository implements AccountRepositoryInterface
 {
-    public function create(array $data)
+    public function create(array $data): Account
     {
         return Account::create($data);
     }
-    public function find($id)
-{
-    return \App\Modules\Account\Account::find($id);
-}
-    public function update($id, array $data)
-{
-    $account = $this->find($id); // أو getById()
-    if (!$account) {
-        throw new \Exception("Account not found");
+
+    public function find(int $id): ?Account
+    {
+        return Account::find($id);
     }
 
-    $account->update($data);
-
-    return $account;
-}
-    public function delete($id)
+    public function update(int $id, array $data): Account
     {
         $account = $this->find($id);
-        if (!$account) {
-            throw new \Exception("Account not found");
+
+        if (! $account) {
+            throw new \RuntimeException('Account not found');
         }
 
-        return $account->delete();
+        $account->update($data);
+
+        return $account;
+    }
+
+    public function delete(int $id): bool
+    {
+        $account = $this->find($id);
+
+        if (! $account) {
+            throw new \RuntimeException('Account not found');
+        }
+
+        return (bool) $account->delete();
     }
 }
+

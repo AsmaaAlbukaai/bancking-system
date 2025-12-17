@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/html/app/Modules/Transaction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../_css/bootstrap.min.css?v=11.0.11" rel="stylesheet" type="text/css">
+  <link href="../../_css/nv.d3.min.css?v=11.0.11" rel="stylesheet" type="text/css">
+  <link href="../../_css/style.css?v=11.0.11" rel="stylesheet" type="text/css">
+  <link href="../../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../../index.html">/var/www/html/app</a></li>
+         <li class="breadcrumb-item"><a href="../index.html">Modules</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Transaction</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Recurring/DailyStrategy.php.html#5">App\Modules\Transaction\Recurring\DailyStrategy</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/MonthlyStrategy.php.html#5">App\Modules\Transaction\Recurring\MonthlyStrategy</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/RecurringController.php.html#9">App\Modules\Transaction\Recurring\RecurringController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/RecurringRequest.php.html#8">App\Modules\Transaction\Recurring\RecurringRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/RecurringStrategyFactory.php.html#5">App\Modules\Transaction\Recurring\RecurringStrategyFactory</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/ScheduledTransactionService.php.html#7">App\Modules\Transaction\Recurring\ScheduledTransactionService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/WeeklyStrategy.php.html#5">App\Modules\Transaction\Recurring\WeeklyStrategy</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Transaction.php.html#14">App\Modules\Transaction\Transaction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionService.php.html#12">App\Modules\Transaction\TransactionService</a></td><td class="text-right">2%</td></tr>
+       <tr><td><a href="Handlers/AutoApprovalHandler.php.html#9">App\Modules\Transaction\Handlers\AutoApprovalHandler</a></td><td class="text-right">7%</td></tr>
+       <tr><td><a href="Handlers/TellerApprovalHandler.php.html#7">App\Modules\Transaction\Handlers\TellerApprovalHandler</a></td><td class="text-right">7%</td></tr>
+       <tr><td><a href="Handlers/ManagerApprovalHandler.php.html#7">App\Modules\Transaction\Handlers\ManagerApprovalHandler</a></td><td class="text-right">8%</td></tr>
+       <tr><td><a href="TransactionController.php.html#10">App\Modules\Transaction\TransactionController</a></td><td class="text-right">9%</td></tr>
+       <tr><td><a href="Handlers/BaseApprovalHandler.php.html#8">App\Modules\Transaction\Handlers\BaseApprovalHandler</a></td><td class="text-right">28%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="TransactionService.php.html#12">App\Modules\Transaction\TransactionService</a></td><td class="text-right">868</td></tr>
+       <tr><td><a href="TransactionController.php.html#10">App\Modules\Transaction\TransactionController</a></td><td class="text-right">233</td></tr>
+       <tr><td><a href="Recurring/RecurringController.php.html#9">App\Modules\Transaction\Recurring\RecurringController</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Recurring/RecurringStrategyFactory.php.html#5">App\Modules\Transaction\Recurring\RecurringStrategyFactory</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Recurring/ScheduledTransactionService.php.html#7">App\Modules\Transaction\Recurring\ScheduledTransactionService</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Handlers/TellerApprovalHandler.php.html#7">App\Modules\Transaction\Handlers\TellerApprovalHandler</a></td><td class="text-right">25</td></tr>
+       <tr><td><a href="Handlers/AutoApprovalHandler.php.html#9">App\Modules\Transaction\Handlers\AutoApprovalHandler</a></td><td class="text-right">16</td></tr>
+       <tr><td><a href="Handlers/ManagerApprovalHandler.php.html#7">App\Modules\Transaction\Handlers\ManagerApprovalHandler</a></td><td class="text-right">16</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Handlers/AutoApprovalHandler.php.html#18"><abbr title="App\Modules\Transaction\Handlers\AutoApprovalHandler::canHandle">canHandle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Handlers/AutoApprovalHandler.php.html#24"><abbr title="App\Modules\Transaction\Handlers\AutoApprovalHandler::process">process</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Handlers/BaseApprovalHandler.php.html#21"><abbr title="App\Modules\Transaction\Handlers\BaseApprovalHandler::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Handlers/ManagerApprovalHandler.php.html#16"><abbr title="App\Modules\Transaction\Handlers\ManagerApprovalHandler::canHandle">canHandle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Handlers/ManagerApprovalHandler.php.html#22"><abbr title="App\Modules\Transaction\Handlers\ManagerApprovalHandler::process">process</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Handlers/TellerApprovalHandler.php.html#16"><abbr title="App\Modules\Transaction\Handlers\TellerApprovalHandler::canHandle">canHandle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Handlers/TellerApprovalHandler.php.html#24"><abbr title="App\Modules\Transaction\Handlers\TellerApprovalHandler::process">process</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/DailyStrategy.php.html#7"><abbr title="App\Modules\Transaction\Recurring\DailyStrategy::getNextRunDate">getNextRunDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/MonthlyStrategy.php.html#7"><abbr title="App\Modules\Transaction\Recurring\MonthlyStrategy::getNextRunDate">getNextRunDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/RecurringController.php.html#12"><abbr title="App\Modules\Transaction\Recurring\RecurringController::requestRecurring">requestRecurring</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/RecurringController.php.html#41"><abbr title="App\Modules\Transaction\Recurring\RecurringController::listRequests">listRequests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/RecurringController.php.html#53"><abbr title="App\Modules\Transaction\Recurring\RecurringController::approve">approve</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/RecurringController.php.html#74"><abbr title="App\Modules\Transaction\Recurring\RecurringController::reject">reject</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/RecurringRequest.php.html#21"><abbr title="App\Modules\Transaction\Recurring\RecurringRequest::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/RecurringRequest.php.html#26"><abbr title="App\Modules\Transaction\Recurring\RecurringRequest::fromAccount">fromAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/RecurringRequest.php.html#31"><abbr title="App\Modules\Transaction\Recurring\RecurringRequest::toAccount">toAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/RecurringStrategyFactory.php.html#7"><abbr title="App\Modules\Transaction\Recurring\RecurringStrategyFactory::make">make</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/ScheduledTransactionService.php.html#9"><abbr title="App\Modules\Transaction\Recurring\ScheduledTransactionService::createRecurring">createRecurring</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/ScheduledTransactionService.php.html#24"><abbr title="App\Modules\Transaction\Recurring\ScheduledTransactionService::nextDate">nextDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Recurring/WeeklyStrategy.php.html#7"><abbr title="App\Modules\Transaction\Recurring\WeeklyStrategy::getNextRunDate">getNextRunDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Transaction.php.html#53"><abbr title="App\Modules\Transaction\Transaction::fromAccount">fromAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Transaction.php.html#58"><abbr title="App\Modules\Transaction\Transaction::toAccount">toAccount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Transaction.php.html#63"><abbr title="App\Modules\Transaction\Transaction::approver">approver</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Transaction.php.html#68"><abbr title="App\Modules\Transaction\Transaction::approvals">approvals</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Transaction.php.html#73"><abbr title="App\Modules\Transaction\Transaction::gatewayTransactions">gatewayTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Transaction.php.html#78"><abbr title="App\Modules\Transaction\Transaction::getRecurringStrategy">getRecurringStrategy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionController.php.html#79"><abbr title="App\Modules\Transaction\TransactionController::history">history</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionController.php.html#120"><abbr title="App\Modules\Transaction\TransactionController::customerTransaction">customerTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionController.php.html#163"><abbr title="App\Modules\Transaction\TransactionController::approveCustomerTransaction">approveCustomerTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionController.php.html#205"><abbr title="App\Modules\Transaction\TransactionController::rejectCustomerTransaction">rejectCustomerTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionController.php.html#240"><abbr title="App\Modules\Transaction\TransactionController::approveByManager">approveByManager</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionController.php.html#272"><abbr title="App\Modules\Transaction\TransactionController::rejectByManager">rejectByManager</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionController.php.html#291"><abbr title="App\Modules\Transaction\TransactionController::customerRequests">customerRequests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionController.php.html#339"><abbr title="App\Modules\Transaction\TransactionController::allTransactions">allTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionService.php.html#31"><abbr title="App\Modules\Transaction\TransactionService::transfer">transfer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionService.php.html#78"><abbr title="App\Modules\Transaction\TransactionService::customerTransaction">customerTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionService.php.html#133"><abbr title="App\Modules\Transaction\TransactionService::approveTransaction">approveTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionService.php.html#161"><abbr title="App\Modules\Transaction\TransactionService::rejectTransaction">rejectTransaction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionService.php.html#175"><abbr title="App\Modules\Transaction\TransactionService::customerPendingTransactions">customerPendingTransactions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionService.php.html#181"><abbr title="App\Modules\Transaction\TransactionService::approveByManager">approveByManager</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionService.php.html#227"><abbr title="App\Modules\Transaction\TransactionService::rejectByManager">rejectByManager</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="TransactionController.php.html#43"><abbr title="App\Modules\Transaction\TransactionController::transfer">transfer</abbr></a></td><td class="text-right">55%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="TransactionService.php.html#78"><abbr title="App\Modules\Transaction\TransactionService::customerTransaction">customerTransaction</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="TransactionService.php.html#181"><abbr title="App\Modules\Transaction\TransactionService::approveByManager">approveByManager</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Recurring/RecurringStrategyFactory.php.html#7"><abbr title="App\Modules\Transaction\Recurring\RecurringStrategyFactory::make">make</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="TransactionController.php.html#291"><abbr title="App\Modules\Transaction\TransactionController::customerRequests">customerRequests</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="TransactionService.php.html#133"><abbr title="App\Modules\Transaction\TransactionService::approveTransaction">approveTransaction</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Recurring/ScheduledTransactionService.php.html#24"><abbr title="App\Modules\Transaction\Recurring\ScheduledTransactionService::nextDate">nextDate</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="TransactionService.php.html#31"><abbr title="App\Modules\Transaction\TransactionService::transfer">transfer</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Handlers/BaseApprovalHandler.php.html#21"><abbr title="App\Modules\Transaction\Handlers\BaseApprovalHandler::handle">handle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Handlers/TellerApprovalHandler.php.html#16"><abbr title="App\Modules\Transaction\Handlers\TellerApprovalHandler::canHandle">canHandle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="TransactionService.php.html#227"><abbr title="App\Modules\Transaction\TransactionService::rejectByManager">rejectByManager</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Handlers/AutoApprovalHandler.php.html#18"><abbr title="App\Modules\Transaction\Handlers\AutoApprovalHandler::canHandle">canHandle</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Handlers/ManagerApprovalHandler.php.html#16"><abbr title="App\Modules\Transaction\Handlers\ManagerApprovalHandler::canHandle">canHandle</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Recurring/RecurringController.php.html#12"><abbr title="App\Modules\Transaction\Recurring\RecurringController::requestRecurring">requestRecurring</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Recurring/RecurringController.php.html#41"><abbr title="App\Modules\Transaction\Recurring\RecurringController::listRequests">listRequests</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Recurring/RecurringController.php.html#53"><abbr title="App\Modules\Transaction\Recurring\RecurringController::approve">approve</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Recurring/RecurringController.php.html#74"><abbr title="App\Modules\Transaction\Recurring\RecurringController::reject">reject</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="TransactionController.php.html#163"><abbr title="App\Modules\Transaction\TransactionController::approveCustomerTransaction">approveCustomerTransaction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="TransactionController.php.html#205"><abbr title="App\Modules\Transaction\TransactionController::rejectCustomerTransaction">rejectCustomerTransaction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="TransactionController.php.html#339"><abbr title="App\Modules\Transaction\TransactionController::allTransactions">allTransactions</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 11.0.11</a> using <a href="https://www.php.net/" target="_top">PHP 8.2.29</a> and <a href="https://phpunit.de/">PHPUnit 11.5.45</a> at Wed Dec 17 21:04:13 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../_js/jquery.min.js?v=11.0.11" type="text/javascript"></script>
+  <script src="../../_js/d3.min.js?v=11.0.11" type="text/javascript"></script>
+  <script src="../../_js/nv.d3.min.js?v=11.0.11" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([8,5,0,1,0,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([41,0,0,0,0,0,1,0,0,0,0,8], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[7.142857142857142,4,"<a href=\"Handlers\/AutoApprovalHandler.php.html#9\">App\\Modules\\Transaction\\Handlers\\AutoApprovalHandler<\/a>"],[28.57142857142857,4,"<a href=\"Handlers\/BaseApprovalHandler.php.html#8\">App\\Modules\\Transaction\\Handlers\\BaseApprovalHandler<\/a>"],[8.333333333333332,4,"<a href=\"Handlers\/ManagerApprovalHandler.php.html#7\">App\\Modules\\Transaction\\Handlers\\ManagerApprovalHandler<\/a>"],[7.142857142857142,5,"<a href=\"Handlers\/TellerApprovalHandler.php.html#7\">App\\Modules\\Transaction\\Handlers\\TellerApprovalHandler<\/a>"],[0,1,"<a href=\"Recurring\/DailyStrategy.php.html#5\">App\\Modules\\Transaction\\Recurring\\DailyStrategy<\/a>"],[0,1,"<a href=\"Recurring\/MonthlyStrategy.php.html#5\">App\\Modules\\Transaction\\Recurring\\MonthlyStrategy<\/a>"],[0,8,"<a href=\"Recurring\/RecurringController.php.html#9\">App\\Modules\\Transaction\\Recurring\\RecurringController<\/a>"],[0,3,"<a href=\"Recurring\/RecurringRequest.php.html#8\">App\\Modules\\Transaction\\Recurring\\RecurringRequest<\/a>"],[0,5,"<a href=\"Recurring\/RecurringStrategyFactory.php.html#5\">App\\Modules\\Transaction\\Recurring\\RecurringStrategyFactory<\/a>"],[0,5,"<a href=\"Recurring\/ScheduledTransactionService.php.html#7\">App\\Modules\\Transaction\\Recurring\\ScheduledTransactionService<\/a>"],[0,1,"<a href=\"Recurring\/WeeklyStrategy.php.html#5\">App\\Modules\\Transaction\\Recurring\\WeeklyStrategy<\/a>"],[0,6,"<a href=\"Transaction.php.html#14\">App\\Modules\\Transaction\\Transaction<\/a>"],[9.230769230769232,17,"<a href=\"TransactionController.php.html#10\">App\\Modules\\Transaction\\TransactionController<\/a>"],[2.34375,30,"<a href=\"TransactionService.php.html#12\">App\\Modules\\Transaction\\TransactionService<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Handlers\/AutoApprovalHandler.php.html#13\">App\\Modules\\Transaction\\Handlers\\AutoApprovalHandler::__construct<\/a>"],[0,2,"<a href=\"Handlers\/AutoApprovalHandler.php.html#18\">App\\Modules\\Transaction\\Handlers\\AutoApprovalHandler::canHandle<\/a>"],[0,1,"<a href=\"Handlers\/AutoApprovalHandler.php.html#24\">App\\Modules\\Transaction\\Handlers\\AutoApprovalHandler::process<\/a>"],[100,1,"<a href=\"Handlers\/BaseApprovalHandler.php.html#12\">App\\Modules\\Transaction\\Handlers\\BaseApprovalHandler::setNext<\/a>"],[0,3,"<a href=\"Handlers\/BaseApprovalHandler.php.html#21\">App\\Modules\\Transaction\\Handlers\\BaseApprovalHandler::handle<\/a>"],[100,0,"<a href=\"Handlers\/BaseApprovalHandler.php.html#35\">App\\Modules\\Transaction\\Handlers\\BaseApprovalHandler::canHandle<\/a>"],[100,0,"<a href=\"Handlers\/BaseApprovalHandler.php.html#36\">App\\Modules\\Transaction\\Handlers\\BaseApprovalHandler::process<\/a>"],[100,1,"<a href=\"Handlers\/ManagerApprovalHandler.php.html#11\">App\\Modules\\Transaction\\Handlers\\ManagerApprovalHandler::__construct<\/a>"],[0,2,"<a href=\"Handlers\/ManagerApprovalHandler.php.html#16\">App\\Modules\\Transaction\\Handlers\\ManagerApprovalHandler::canHandle<\/a>"],[0,1,"<a href=\"Handlers\/ManagerApprovalHandler.php.html#22\">App\\Modules\\Transaction\\Handlers\\ManagerApprovalHandler::process<\/a>"],[100,1,"<a href=\"Handlers\/TellerApprovalHandler.php.html#11\">App\\Modules\\Transaction\\Handlers\\TellerApprovalHandler::__construct<\/a>"],[0,3,"<a href=\"Handlers\/TellerApprovalHandler.php.html#16\">App\\Modules\\Transaction\\Handlers\\TellerApprovalHandler::canHandle<\/a>"],[0,1,"<a href=\"Handlers\/TellerApprovalHandler.php.html#24\">App\\Modules\\Transaction\\Handlers\\TellerApprovalHandler::process<\/a>"],[0,1,"<a href=\"Recurring\/DailyStrategy.php.html#7\">App\\Modules\\Transaction\\Recurring\\DailyStrategy::getNextRunDate<\/a>"],[0,1,"<a href=\"Recurring\/MonthlyStrategy.php.html#7\">App\\Modules\\Transaction\\Recurring\\MonthlyStrategy::getNextRunDate<\/a>"],[0,2,"<a href=\"Recurring\/RecurringController.php.html#12\">App\\Modules\\Transaction\\Recurring\\RecurringController::requestRecurring<\/a>"],[0,2,"<a href=\"Recurring\/RecurringController.php.html#41\">App\\Modules\\Transaction\\Recurring\\RecurringController::listRequests<\/a>"],[0,2,"<a href=\"Recurring\/RecurringController.php.html#53\">App\\Modules\\Transaction\\Recurring\\RecurringController::approve<\/a>"],[0,2,"<a href=\"Recurring\/RecurringController.php.html#74\">App\\Modules\\Transaction\\Recurring\\RecurringController::reject<\/a>"],[0,1,"<a href=\"Recurring\/RecurringRequest.php.html#21\">App\\Modules\\Transaction\\Recurring\\RecurringRequest::user<\/a>"],[0,1,"<a href=\"Recurring\/RecurringRequest.php.html#26\">App\\Modules\\Transaction\\Recurring\\RecurringRequest::fromAccount<\/a>"],[0,1,"<a href=\"Recurring\/RecurringRequest.php.html#31\">App\\Modules\\Transaction\\Recurring\\RecurringRequest::toAccount<\/a>"],[0,5,"<a href=\"Recurring\/RecurringStrategyFactory.php.html#7\">App\\Modules\\Transaction\\Recurring\\RecurringStrategyFactory::make<\/a>"],[0,1,"<a href=\"Recurring\/ScheduledTransactionService.php.html#9\">App\\Modules\\Transaction\\Recurring\\ScheduledTransactionService::createRecurring<\/a>"],[0,4,"<a href=\"Recurring\/ScheduledTransactionService.php.html#24\">App\\Modules\\Transaction\\Recurring\\ScheduledTransactionService::nextDate<\/a>"],[0,1,"<a href=\"Recurring\/WeeklyStrategy.php.html#7\">App\\Modules\\Transaction\\Recurring\\WeeklyStrategy::getNextRunDate<\/a>"],[0,1,"<a href=\"Transaction.php.html#53\">App\\Modules\\Transaction\\Transaction::fromAccount<\/a>"],[0,1,"<a href=\"Transaction.php.html#58\">App\\Modules\\Transaction\\Transaction::toAccount<\/a>"],[0,1,"<a href=\"Transaction.php.html#63\">App\\Modules\\Transaction\\Transaction::approver<\/a>"],[0,1,"<a href=\"Transaction.php.html#68\">App\\Modules\\Transaction\\Transaction::approvals<\/a>"],[0,1,"<a href=\"Transaction.php.html#73\">App\\Modules\\Transaction\\Transaction::gatewayTransactions<\/a>"],[0,1,"<a href=\"Transaction.php.html#78\">App\\Modules\\Transaction\\Transaction::getRecurringStrategy<\/a>"],[100,1,"<a href=\"TransactionController.php.html#14\">App\\Modules\\Transaction\\TransactionController::__construct<\/a>"],[55.55555555555556,1,"<a href=\"TransactionController.php.html#43\">App\\Modules\\Transaction\\TransactionController::transfer<\/a>"],[0,1,"<a href=\"TransactionController.php.html#79\">App\\Modules\\Transaction\\TransactionController::history<\/a>"],[0,1,"<a href=\"TransactionController.php.html#120\">App\\Modules\\Transaction\\TransactionController::customerTransaction<\/a>"],[0,2,"<a href=\"TransactionController.php.html#163\">App\\Modules\\Transaction\\TransactionController::approveCustomerTransaction<\/a>"],[0,2,"<a href=\"TransactionController.php.html#205\">App\\Modules\\Transaction\\TransactionController::rejectCustomerTransaction<\/a>"],[0,1,"<a href=\"TransactionController.php.html#240\">App\\Modules\\Transaction\\TransactionController::approveByManager<\/a>"],[0,1,"<a href=\"TransactionController.php.html#272\">App\\Modules\\Transaction\\TransactionController::rejectByManager<\/a>"],[0,5,"<a href=\"TransactionController.php.html#291\">App\\Modules\\Transaction\\TransactionController::customerRequests<\/a>"],[0,2,"<a href=\"TransactionController.php.html#339\">App\\Modules\\Transaction\\TransactionController::allTransactions<\/a>"],[100,1,"<a href=\"TransactionService.php.html#18\">App\\Modules\\Transaction\\TransactionService::__construct<\/a>"],[0,4,"<a href=\"TransactionService.php.html#31\">App\\Modules\\Transaction\\TransactionService::transfer<\/a>"],[0,9,"<a href=\"TransactionService.php.html#78\">App\\Modules\\Transaction\\TransactionService::customerTransaction<\/a>"],[0,5,"<a href=\"TransactionService.php.html#133\">App\\Modules\\Transaction\\TransactionService::approveTransaction<\/a>"],[0,1,"<a href=\"TransactionService.php.html#161\">App\\Modules\\Transaction\\TransactionService::rejectTransaction<\/a>"],[0,1,"<a href=\"TransactionService.php.html#175\">App\\Modules\\Transaction\\TransactionService::customerPendingTransactions<\/a>"],[0,6,"<a href=\"TransactionService.php.html#181\">App\\Modules\\Transaction\\TransactionService::approveByManager<\/a>"],[0,3,"<a href=\"TransactionService.php.html#227\">App\\Modules\\Transaction\\TransactionService::rejectByManager<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

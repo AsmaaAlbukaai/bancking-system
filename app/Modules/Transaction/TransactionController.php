@@ -302,19 +302,21 @@ public function customerRequests(Request $request)
      **********************************/
 
     if ($user->role === 'teller') {
-        // 🔹 الطلبات التي تحتاج موافقة Teller
-        $query->where('status', 'pending');
+        $query->whereHas('approvals', function($q) {
+            $q->where('level', 'teller')->where('action','review'); // لم يتم اتخاذ إجراء بعد
+        });
     }
 
     if ($user->role === 'manager') {
-        // 🔹 الطلبات التي تحتاج موافقة Manager
-        $query->where('status', 'pending');
+        $query->whereHas('approvals', function($q) {
+            $q->where('level', 'manager')->where('action','review');// لم يتم اتخاذ إجراء بعد
+        });
     }
+
 
     /**********************************
      *  فلترة إضافية حسب الطلب
      **********************************/
-
     if ($request->has('status')) {
         $query->where('status', $request->status);
     }

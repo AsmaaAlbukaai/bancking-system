@@ -5,6 +5,7 @@ namespace App\Modules\Interest;
 use App\Http\Controllers\Controller;
 use App\Modules\Account\Account;
 use App\Modules\Banking\BankFacade;
+use Illuminate\Http\Request;
 
 /**
  * @OA\Tag(
@@ -77,10 +78,13 @@ class InterestController extends Controller
      *     }
      * )
      */
-    public function calculate($accountId)
+    public function calculate(Request $request, $accountId)
     {
+        $days = (int) $request->input('days', 30);
+        $method = $request->input('method'); // optional: simple|compound
+
         $acc = Account::findOrFail($accountId);
-        $calc = $this->bank->calculateInterest($acc, 30);
+        $calc = $this->bank->calculateInterest($acc, $days, $method);
 
         return response()->json($calc);
     }

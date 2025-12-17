@@ -44,11 +44,14 @@ class AccountController extends Controller
      * )
      */
 
-    // جلب جميع حسابات المستخدم
+    // جلب جميع حسابات المستخدم (تمرير المنطق إلى AccountService)
     public function index(Request $request)
     {
         $user = $request->user();
-        return response()->json($user->accounts()->with('children')->get());
+
+        return response()->json(
+            $this->service->getUserAccounts($user)
+        );
     }
 
     // جلب حساب واحد
@@ -76,7 +79,15 @@ class AccountController extends Controller
 
     public function show($id)
     {
-        $acc = Account::with(['children', 'group'])->findOrFail($id);
+        $acc = $this->service->getAccountById((int) $id);
+
+        if (! $acc) {
+            return response()->json(['message' => 'Account not found'], 404);
+        }
+
+        // تحميل العلاقات المرتبطة عند الحاجة
+        $acc->load(['children', 'group']);
+
         return response()->json($acc);
     }
 
@@ -198,8 +209,11 @@ class AccountController extends Controller
 
     public function destroy($id)
     {
-        $acc = Account::findOrFail($id);
-        $acc->delete();
+        $deleted = $this->service->deleteAccount((int) $id);
+
+        if (! $deleted) {
+            return response()->json(['message' => 'Account not found'], 404);
+        }
 
         return response()->json(['message' => 'Account deleted']);
     }

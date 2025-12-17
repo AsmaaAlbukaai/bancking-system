@@ -9,11 +9,13 @@ class ScheduledTransactionService
     public function createRecurring(array $data): Transaction
     {
         return Transaction::create([
+            'reference'        => 'TRX-' . time() . '-' . rand(100,999),
             'from_account_id' => $data['from_account_id'],
             'to_account_id' => $data['to_account_id'],
             'amount' => $data['amount'],
             'type' => $data['type'],
-            'status' => 'scheduled',
+            'status' => 'completed',
+            'net_amount'  => $data['amount'],
             'is_recurring' => true,
             'recurring_frequency' => $data['frequency'],
             'next_recurring_at' => $this->nextDate($data['frequency']),

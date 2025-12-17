@@ -12,6 +12,9 @@ use App\Modules\Transaction\TransactionController;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Modules\Account\AccountStatusController;
+use App\Modules\Recommendations\RecommendationController;
+use App\Modules\Reports\ReportsController;
+use App\Modules\Support\SupportController;
 use App\Modules\Transaction\Recurring\RecurringController;
 use App\Modules\User\UserController;
 
@@ -44,14 +47,15 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // دعوات الموظفين والمديرين (فقط للأدمن)
     Route::middleware('isAdmin')->group(function () {
-        Route::post('/invitations', [InvitationController::class, 'store'])->name('api.invitations.store');
-        Route::get('/transactions/all', [TransactionController::class, 'allTransactions']);
+    Route::post('/invitations', [InvitationController::class, 'store'])->name('api.invitations.store');
+    Route::get('/transactions/all', [TransactionController::class, 'allTransactions']);
         // إغلاق/تفعيل حساب
-        Route::post('/accounts/deactivate/{id}', [AccountController::class, 'deactivateAccount']);
-        Route::post('/accounts/activate/{id}',   [AccountController::class, 'activateAccount']);
+    Route::post('/accounts/deactivate/{id}', [AccountController::class, 'deactivateAccount']);
+    Route::post('/accounts/activate/{id}',   [AccountController::class, 'activateAccount']);
 
+    Route::get('/financial', [ReportsController::class, 'financialReport']);
     // حذف موظف
-        Route::delete('/employees/{id}', [UserController::class, 'deleteEmployee']);
+    Route::delete('/employees/{id}', [UserController::class, 'deleteEmployee']);
     });
 
     // Accounts
@@ -68,9 +72,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user/profile', [UserController::class, 'myProfile']);
 
     // (admin, manager, teller) مشاهدة العملاء
-    Route::get('/users/customers', [UserController::class, 'allCustomers']);
-
-
+    Route::get('/customers', [UserController::class, 'getAllCustomers']);
+    Route::get('/employees', [UserController::class, 'getAllEmployees']);
+    Route::get('/tellers', [UserController::class, 'getAllTellers']);
     // Transactions
     Route::post('/transactions/transfer', [TransactionController::class, 'transfer']);
 
@@ -83,6 +87,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/notifications', [NotificationController::class, 'index']);
     Route::get('/notifications/unread', [NotificationController::class, 'unread']);
     Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead']);
+
+    // Payment Gateways
+    Route::get('/payment-gateways', [\App\Modules\Payment\PaymentController::class, 'listGateways']);
+    Route::post('/accounts/{accountId}/deposit-gateway/{gatewayId}', [\App\Modules\Payment\PaymentController::class, 'depositViaGateway']);
 
     // Facade Summary
     Route::get('/banking/{accountId}/summary', [BankingController::class, 'summary']);
@@ -118,7 +126,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/transactions/approve/manager/{id}',  [TransactionController::class, 'approveByManager']);
 
-    Route::post('/transactions/reject/manager/{id}', [TransactionController::class, 'rejectByManager']);
+    Route::post('transactions/reject/manager/{id}', [TransactionController::class, 'rejectByManager']);
 
     Route::get('customer-transactions/requests', [TransactionController::class, 'customerRequests']);
 
@@ -129,6 +137,23 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('requests',  [RecurringController::class, 'listRequests']);   // teller/manager/admin
     Route::post('/approve/{id}', [RecurringController::class, 'approve']);    // teller
     Route::post('/reject/{id}', [RecurringController::class, 'reject']);      // teller
+    
+    
+    Route::post('ticket', [SupportController::class, 'createTicket']);
 
+    Route::post('/ticket/reply/{id}', [SupportController::class, 'reply']);
+
+    Route::post('/ticket/close/{id}', [SupportController::class, 'closeTicket']);
+      // المدير يشوف الشكاوي
+    Route::get('/manager/complaints', [SupportController::class, 'managerComplaints']);
+
+    // الصراف يشوف الاستفسارات
+    Route::get('/teller/inquiries', [SupportController::class, 'tellerInquiries']);
+
+    // المستخدم يشوف تذاكره الخاصة
+    Route::get('/my-tickets', [SupportController::class, 'userTickets']);
+
+    Route::get('/recommendations', [RecommendationController::class, 'getMyRecommendations']);
+    Route::get('/staff', [ReportsController::class, 'staffReport']);
 });
 

@@ -24,35 +24,64 @@ class UserController extends Controller
     }
 
 
-    public function allCustomers()
+   // ⬇ تابع 1 — جلب كل العملاء
+    public function getAllCustomers()
 {
     $user = auth()->user();
 
-    // 🔹 منع العملاء من الوصول لهذا التابع
-    if ($user->role === 'customer') {
+    // Admin + Manager + Teller مسموح لهم
+    if (!in_array($user->role, ['admin', 'manager', 'teller'])) {
         return response()->json(['error' => 'Unauthorized'], 403);
     }
 
-    // 🔹 admin → يرى الجميع
-    if ($user->role === 'admin') {
-       $users = User::where('role', '!=', 'admin')   // 
-            ->withCount('accounts')
-            ->latest()
-            ->get();
+    $customers = User::where('role', 'customer')
+        ->withCount('accounts')
+        ->latest()
+        ->get();
 
-        return response()->json($users);
-    }
-
-    // 🔹 manager و teller → يرون العملاء فقط
-    if (in_array($user->role, ['manager', 'teller'])) {
-        $customers = User::where('role', 'customer')
-            ->withCount('accounts')
-            ->latest()
-            ->get();
-
-        return response()->json($customers);
-    }
+    return response()->json($customers);
 }
+
+
+
+// ⬇ تابع 2 — جلب كل الموظفين (مدير + صراف + أي دور غير العميل)
+    public function getAllEmployees()
+{
+    $user = auth()->user();
+
+    // فقط الـ Admin يسمح له
+    if ($user->role !== 'admin') {
+        return response()->json(['error' => 'Unauthorized'], 403);
+    }
+
+    $employees = User::whereIn('role', ['manager', 'teller'])
+        ->withCount('accounts')
+        ->latest()
+        ->get();
+
+    return response()->json($employees);
+}
+
+
+
+// ⬇ تابع 3 — جلب كل الصرافين فقط (tellers)
+    public function getAllTellers()
+{
+    $user = auth()->user();
+
+    // فقط الـ Manager يسمح له
+    if ($user->role !== 'manager') {
+        return response()->json(['error' => 'Unauthorized'], 403);
+    }
+
+    $tellers = User::where('role', 'teller')
+        ->withCount('accounts')
+        ->latest()
+        ->get();
+
+    return response()->json($tellers);
+}
+
 
     public function deleteEmployee($userId)
 {

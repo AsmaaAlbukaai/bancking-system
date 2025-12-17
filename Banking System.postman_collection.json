@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "30a4c773-c588-4491-80ff-23f8902ae9f5",
+		"_postman_id": "a789c5e5-5621-4541-b02c-6a6d9a362e79",
 		"name": "Banking System",
 		"description": "Organized API collection for Banking System (Customer, Admin, Staff)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -13,6 +13,97 @@
 				{
 					"name": "Accounts & Transactions",
 					"item": [
+						{
+							"name": "Payment Gateways",
+							"item": [
+								{
+									"name": "List Gateways",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{auth_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/api/payment-gateways",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"payment-gateways"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Deposit Via Gateway",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{auth_token}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"amount\": 1000,\n  \"currency\": \"USD\",\n  \"description\": \"Deposit via payment gateway\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/api/accounts/1/deposit-gateway/1",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"api",
+												"accounts",
+												"1",
+												"deposit-gateway",
+												"1"
+											]
+										},
+										"description": "Deposit money into an account using an external payment gateway. Uses Adapter Pattern to support multiple gateways."
+									},
+									"response": []
+								}
+							]
+						},
 						{
 							"name": "Accounts - List",
 							"request": {
@@ -61,7 +152,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"value": "2|HS05rONSfVBrINfkQ73lPJRsDUfSEMdJc1CzDXaA9b52e25e",
 											"type": "string"
 										}
 									]
@@ -81,7 +172,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"account_name\": \"second Account\",\n  \"type\":\"savings\",\n  \"balance\": 1000\n}",
+									"raw": "{\n  \"account_name\": \"main Account\",\n  \"type\":\"savings\",\n  \"balance\": 1000000\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -261,7 +352,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"value": "11|oY3h6EgxNg8YZqXn0PEi2RY1rmhCrPYRtCKPeAs342beb2b2",
 											"type": "string"
 										}
 									]
@@ -274,14 +365,14 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/api/account/1",
+									"raw": "{{base_url}}/api/account/2",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"api",
 										"account",
-										"1"
+										"2"
 									]
 								}
 							},
@@ -295,7 +386,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"value": "11|oY3h6EgxNg8YZqXn0PEi2RY1rmhCrPYRtCKPeAs342beb2b2",
 											"type": "string"
 										}
 									]
@@ -309,7 +400,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"from_account_id\": 2,\n  \"to_account_id\": 4,\n  \"amount\": 100\n}",
+									"raw": "{\n  \"from_account_id\": 4,\n  \"to_account_id\": 3,\n  \"amount\": 100\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -338,7 +429,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"value": "11|oY3h6EgxNg8YZqXn0PEi2RY1rmhCrPYRtCKPeAs342beb2b2",
 											"type": "string"
 										}
 									]
@@ -434,7 +525,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8000/api/accounts/cancel/2",
+									"raw": "http://localhost:8000/api/accounts/cancel/3",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -444,7 +535,7 @@
 										"api",
 										"accounts",
 										"cancel",
-										"2"
+										"3"
 									]
 								}
 							},
@@ -495,7 +586,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"value": "11|oY3h6EgxNg8YZqXn0PEi2RY1rmhCrPYRtCKPeAs342beb2b2",
 											"type": "string"
 										}
 									]
@@ -509,7 +600,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8000/api/accounts/status-change-requests/2",
+									"raw": "http://localhost:8000/api/accounts/status-change-requests/3",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -519,7 +610,7 @@
 										"api",
 										"accounts",
 										"status-change-requests",
-										"2"
+										"3"
 									]
 								}
 							},
@@ -612,6 +703,98 @@
 										"api",
 										"transaction",
 										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "requestRecurring",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "11|oY3h6EgxNg8YZqXn0PEi2RY1rmhCrPYRtCKPeAs342beb2b2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"type\": \"transfer\",\r\n  \"from_account_id\": 3,\r\n  \"to_account_id\": 4,\r\n  \"amount\": 50,\r\n  \"frequency\": \"monthly\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/request",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"request"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Interest - Calculate",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "17|yHKc2h0Dx8SEG4JTB3Pp0PuFFBD1NEArFhcRZFfO4ff471bf",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/interest/4/calculate?days=30&method=compound",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"interest",
+										"4",
+										"calculate"
+									],
+									"query": [
+										{
+											"key": "days",
+											"value": "30"
+										},
+										{
+											"key": "method",
+											"value": "compound",
+											"description": "simple | compound (optional, default depends on account type)"
+										}
 									]
 								}
 							},
@@ -762,6 +945,166 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Tickets",
+					"item": [
+						{
+							"name": "create-ticket",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "11|oY3h6EgxNg8YZqXn0PEi2RY1rmhCrPYRtCKPeAs342beb2b2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"type\": \"inquiry\",//complaint\r\n  \"subject\": \"استفسار حول رصيد الحساب\",\r\n  \"message\": \"لماذا لم يتم تحديث رصيدي بعد الإيداع؟\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/ticket",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"ticket"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "my-tickets",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|KXtegJUHD7ptlqmmUqAHUJM4U98SG5iHQ65LHbtZ3b7d6f29",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/my-tickets",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"my-tickets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "close-ticket",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "2|S4QZPUsR65QDo0Ti1SsNLZeJ60tEtJbrSmRbrMReb853e20a",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/ticket/close/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"ticket",
+										"close",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "recommendations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "11|oY3h6EgxNg8YZqXn0PEi2RY1rmhCrPYRtCKPeAs342beb2b2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/recommendations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"recommendations"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -828,7 +1171,7 @@
 					"response": []
 				},
 				{
-					"name": "users",
+					"name": "customers",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -865,7 +1208,7 @@
 					"response": []
 				},
 				{
-					"name": "transactions/all",
+					"name": "employees",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -873,6 +1216,42 @@
 								{
 									"key": "token",
 									"value": "2|EuyOKq6NK5PC7O6A9K1A38vq9en5SKsG5CFLFu4y165c80a9",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transactions/all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "12|ZzFxkX33s6Np3xAkgRBmbRJGN46PO6lvVT9G4b3Qdd9e4504",
 									"type": "string"
 								}
 							]
@@ -909,7 +1288,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "10|JVekhyLRczY02rF9iRi9GYFpwzbaNfb6rAdYpDm7727ccc1f",
+									"value": "12|ZzFxkX33s6Np3xAkgRBmbRJGN46PO6lvVT9G4b3Qdd9e4504",
 									"type": "string"
 								}
 							]
@@ -984,7 +1363,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|EuyOKq6NK5PC7O6A9K1A38vq9en5SKsG5CFLFu4y165c80a9",
+									"value": "12|ZzFxkX33s6Np3xAkgRBmbRJGN46PO6lvVT9G4b3Qdd9e4504",
 									"type": "string"
 								}
 							]
@@ -1051,6 +1430,42 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "financialReport",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "12|ZzFxkX33s6Np3xAkgRBmbRJGN46PO6lvVT9G4b3Qdd9e4504",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/financial",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"financial"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -1068,7 +1483,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"value": "14|Vo3kuQfbBT37qYtvfEcO64PfWzPkv8zLhY4aOmrP92a20107",
 											"type": "string"
 										}
 									]
@@ -1082,7 +1497,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8000/api/status-change-requests/approve/1\n",
+									"raw": "http://localhost:8000/api/status-change-requests/approve/3",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1092,7 +1507,7 @@
 										"api",
 										"status-change-requests",
 										"approve",
-										"1\n"
+										"3"
 									]
 								}
 							},
@@ -1139,6 +1554,16 @@
 						{
 							"name": "get-All-status-change-requests",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "14|Vo3kuQfbBT37qYtvfEcO64PfWzPkv8zLhY4aOmrP92a20107",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [
 									{
@@ -1174,7 +1599,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8000/api/status-change-requests/2\n",
+									"raw": "http://localhost:8000/api/status-change-requests/3",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1183,7 +1608,7 @@
 									"path": [
 										"api",
 										"status-change-requests",
-										"2\n"
+										"3"
 									]
 								}
 							},
@@ -1197,7 +1622,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"value": "14|Vo3kuQfbBT37qYtvfEcO64PfWzPkv8zLhY4aOmrP92a20107",
 											"type": "string"
 										}
 									]
@@ -1211,7 +1636,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8000/api/status-change-requests/reject/1\n",
+									"raw": "http://localhost:8000/api/transactions/approve/28",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1219,9 +1644,9 @@
 									"port": "8000",
 									"path": [
 										"api",
-										"status-change-requests",
-										"reject",
-										"1\n"
+										"transactions",
+										"approve",
+										"28"
 									]
 								}
 							},
@@ -1264,6 +1689,164 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "approve/Request-Recurring'",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "14|Vo3kuQfbBT37qYtvfEcO64PfWzPkv8zLhY4aOmrP92a20107",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/approve/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"approve",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reject/Request-Recurring'",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/reject/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"reject",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "inquiries",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/teller/inquiries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"teller",
+										"inquiries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reply-inquiry",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "14|Vo3kuQfbBT37qYtvfEcO64PfWzPkv8zLhY4aOmrP92a20107",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"message\": \"تم تحديث رصيدك بنجاح. يرجى التحقق الآن.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/ticket/reply/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"ticket",
+										"reply",
+										"1"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -1278,7 +1861,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "10|JVekhyLRczY02rF9iRi9GYFpwzbaNfb6rAdYpDm7727ccc1f",
+											"value": "13|QLVKM00HbPTniBiWKA7oTtdCMzr3uOonQlnXpn1y028300ce",
 											"type": "string"
 										}
 									]
@@ -1292,7 +1875,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8000/api/transactions/approve/manager/9",
+									"raw": "http://localhost:8000/api/transactions/approve/manager/29",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1303,7 +1886,7 @@
 										"transactions",
 										"approve",
 										"manager",
-										"9"
+										"29"
 									]
 								}
 							},
@@ -1317,7 +1900,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "9|T2Caegr5ryGftNxZ9rs5zxrRRndmWPF7jP2YVMc0bece6957",
+											"value": "13|QLVKM00HbPTniBiWKA7oTtdCMzr3uOonQlnXpn1y028300ce",
 											"type": "string"
 										}
 									]
@@ -1326,13 +1909,21 @@
 								"header": [
 									{
 										"key": "Accept",
-										"value": "aplplication/json",
-										"type": "text"
+										"value": "application/json"
 									}
 								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
 								"url": {
-									"raw": "POST http://localhost:8000/api/transactions/reject/manager/1",
-									"protocol": "POST http",
+									"raw": "http://localhost:8000/api/transactions/reject/manager/29",
+									"protocol": "http",
 									"host": [
 										"localhost"
 									],
@@ -1342,7 +1933,163 @@
 										"transactions",
 										"reject",
 										"manager",
+										"29"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "complaints",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "13|QLVKM00HbPTniBiWKA7oTtdCMzr3uOonQlnXpn1y028300ce",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/manager/complaints",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"manager",
+										"complaints"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reply-complaint",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"message\": \"تم تحديث رصيدك بنجاح. يرجى التحقق الآن.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/ticket/reply/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"ticket",
+										"reply",
 										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "staffReport",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "13|QLVKM00HbPTniBiWKA7oTtdCMzr3uOonQlnXpn1y028300ce",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/staff",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"staff"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tellers",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "10|JVekhyLRczY02rF9iRi9GYFpwzbaNfb6rAdYpDm7727ccc1f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/tellers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tellers"
 									]
 								}
 							},
@@ -1391,13 +2138,18 @@
 						"method": "POST",
 						"header": [
 							{
-								"key": "Content-Type",
+								"key": "Accept",
 								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"email\": \"employee1@example.com\",\n  \"password\": \"Password123\"\n}"
+							"raw": "{\n  \"email\": \"manager@gmail.com\",\n  \"password\": \"Password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "{{base_url}}/api/login",
@@ -1420,7 +2172,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "10|JVekhyLRczY02rF9iRi9GYFpwzbaNfb6rAdYpDm7727ccc1f",
+									"value": "14|Vo3kuQfbBT37qYtvfEcO64PfWzPkv8zLhY4aOmrP92a20107",
 									"type": "string"
 								}
 							]
@@ -1471,7 +2223,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8000/api/users/customers",
+							"raw": "http://localhost:8000/api/customers",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1479,7 +2231,6 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"users",
 								"customers"
 							]
 						}
@@ -1519,6 +2270,42 @@
 								"customers",
 								"accounts",
 								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listRequests-Recurring",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "13|QLVKM00HbPTniBiWKA7oTtdCMzr3uOonQlnXpn1y028300ce",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/requests",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"requests"
 							]
 						}
 					},

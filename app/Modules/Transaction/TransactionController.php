@@ -293,7 +293,6 @@ public function customerRequests(Request $request)
     $user = auth()->user();
 
     $query = Transaction::query()
-        ->where('metadata->is_customer_transaction', true)
         ->with(['fromAccount', 'toAccount', 'approvals'])
         ->latest();
 

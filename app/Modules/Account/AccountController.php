@@ -240,13 +240,22 @@ class AccountController extends Controller
      * )
      */
 
-  public function totalBalance($id)
-    {
-        $account = $this->service->getAccountById($id);
-        $total = $this->bank->getTotalBalance($account);
+ public function totalBalance($id)
+{
+    $account = $this->service->getAccountById($id);
 
-        return response()->json(['total_balance' => $total]);
+    if (! $account) {
+        return response()->json(['error' => 'Account not found'], 404);
     }
+
+    $total = $this->bank->getTotalBalance($account);
+
+    return response()->json([
+        'account_id' => $account->id,
+        'total_balance' => $total
+    ]);
+}
+
 
     /**
      * 🔹 جلب حسابات عميل محدد عبر user_id
@@ -274,4 +283,17 @@ class AccountController extends Controller
         $result = $this->service->activateAccount($accountId);
         return response()->json($result);
     }
+    public function tree($id)
+{
+    $account = $this->service->getAccountById((int)$id);
+
+    if (! $account) {
+        return response()->json(['error' => 'Account not found'], 404);
+    }
+
+    $tree = $this->bank->getAccountTree($account);
+
+    return response()->json($tree);
+}
+
 }

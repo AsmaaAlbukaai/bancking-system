@@ -54,22 +54,32 @@ class PaymentService
             // ✅ 3) تنفيذ التأكيد (capture)
             $gatewayTxn = $this->adapter->capture($gatewayTxn);
 
-            // ✅ 4) تنفيذ الإيداع بالحساب
-            $this->ops->deposit($account, $amount);
+            $autoApproved = app(\App\Modules\Transaction\Handlers\BaseApprovalHandler::class)
+            ->handle($transaction);
 
-            // ✅ 5) تحديث Transaction بعد النجاح
+        if ($autoApproved) {
+            // ✅ موافقة تلقائية → نفذ الإيداع فورًا
+            $this->ops->deposit($account, $transaction->net_amount);
+
             $transaction->update([
                 'status' => 'completed',
+                'processed_at' => now(),
+                'approved_at' => now(),
+            ]); }
+            else{
+            // ✅ 5) تحديث Transaction بعد النجاح
+            $transaction->update([
+                'status' => 'pending',
                 'processed_at' => now(),
                 'metadata' => array_merge(
                     $transaction->metadata ?? [],
                     [
-                        'gateway_transaction_id' => $gatewayTxn->id,
+                       'transaction_id' => $transaction->id,
                         'gateway_reference' => $gatewayTxn->gateway_reference,
                     ]
                 ),
             ]);
-
+        }
             return $gatewayTxn;
         });
     }

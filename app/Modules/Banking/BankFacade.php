@@ -69,7 +69,10 @@ class BankFacade
 
         return $this->composite->getTotalBalance($account);
     }
-
+    public function getAccountTree(Account $account, int $depth = 5): Account
+   {
+    return $this->composite->loadTree($account, $depth);
+    }
     public function calculateInterest(Account $account, int $days, ?string $method = null)
     {
         return $this->interestService->calculateForAccount($account, $days, $method);

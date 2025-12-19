@@ -55,15 +55,6 @@ class TransactionService
 
             $approved = $this->approvalChain->handle($txn);
 
-            if (!$approved) {
-                return $txn;
-            }
-
-      
-
-              // 🔹 نفذ سلسلة الموافقات
-        $approved = $this->approvalChain->handle($txn);
-
         // 🔹 إذا تمت الموافقة تلقائيًا → نفذ العملية المالية
         if ($approved) {
 
@@ -82,7 +73,7 @@ class TransactionService
             $this->notifyStaffForTransactionRequest($txn, 'teller'||'manager');
         }
 
-        return $txn;
+          return $txn;
     });
     }
 
@@ -122,11 +113,13 @@ class TransactionService
         // 🔹 إذا تمت الموافقة تلقائيًا → نفذ العملية المالية
         if ($approved) {
 
-            if ($type === 'transfer') {
+            if ($type === 'withdrawal') {
                 $this->ops->withdraw($acc, $amount);
-                $this->ops->deposit($acc, $amount);
+                
             }
-
+            if($type==='deposit'){
+            $this->ops->deposit($acc, $amount);
+            }
             $txn->update([
                 'status' => 'completed',
                 'processed_at' => now()

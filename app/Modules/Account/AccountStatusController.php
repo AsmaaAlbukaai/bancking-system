@@ -37,6 +37,7 @@ class AccountStatusController extends Controller
     {
         return AccountStatusChangeRequest::with('account','approver') 
         ->where('approval_level', 'teller')
+        ->where('status','pending')
         ->with('account')
         ->latest()
         ->get();

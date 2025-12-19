@@ -77,5 +77,31 @@ class BankFacade
     {
         return $this->interestService->calculateForAccount($account, $days, $method);
     }
+    /**
+ * 🔹 سحب مبلغ من حساب
+ */
+     public function withdraw(Account $account, float $amount, array $meta = [])
+{
+    return $this->txService->customerTransaction(
+        $account,
+        $amount,
+        'withdrawal',
+        $meta
+    );
+}
+
+/**
+ * 🔹 إيداع مبلغ في حساب
+ */
+    public function deposit(Account $account, float $amount, array $meta = [])
+{
+    return $this->txService->customerTransaction(
+        $account,
+        $amount,
+        'deposit',
+        $meta
+    );
+}
+
 }
 

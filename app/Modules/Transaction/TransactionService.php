@@ -55,22 +55,26 @@ class TransactionService
 
             $approved = $this->approvalChain->handle($txn);
 
-            if (!$approved) {
-                return $txn;
-            }
+        // 🔹 إذا تمت الموافقة تلقائيًا → نفذ العملية المالية
+        if ($approved) {
 
             // تنفيذ العملية
             $this->ops->withdraw($from, $amount);
             $this->ops->deposit($to, $amount);
+            
 
             $txn->update([
                 'status' => 'completed',
-                'processed_at' => now(),
+                'processed_at' => now()
             ]);
+        } 
+        else {
+            // إشعار الموظفين (Tellers) بوجود طلب جديد يحتاج موافقة
+            $this->notifyStaffForTransactionRequest($txn, 'teller'||'manager');
+        }
 
-            // إشعار الموظف/المدير بأن هناك معاملة تتطلب الموافقة يمكن ربطه هنا لاحقاً
-            return $txn;
-        });
+          return $txn;
+    });
     }
 
     /**
@@ -111,19 +115,18 @@ class TransactionService
 
             if ($type === 'withdrawal') {
                 $this->ops->withdraw($acc, $amount);
+                
             }
-
-            if ($type === 'deposit') {
-                $this->ops->deposit($acc, $amount);
+            if($type==='deposit'){
+            $this->ops->deposit($acc, $amount);
             }
-
             $txn->update([
                 'status' => 'completed',
                 'processed_at' => now()
             ]);
         } else {
             // إشعار الموظفين (Tellers) بوجود طلب جديد يحتاج موافقة
-            $this->notifyStaffForTransactionRequest($txn, 'teller');
+            $this->notifyStaffForTransactionRequest($txn, 'teller'||'manager');
         }
 
         return $txn;
@@ -148,7 +151,10 @@ class TransactionService
         if ($txn->type === 'deposit') {
             $this->ops->deposit($txn->toAccount, $txn->amount);
         }
-
+        if ($txn->type === 'transfer') {
+        $this->ops->withdraw($txn->fromAccount, $txn->amount);
+        $this->ops->deposit($txn->toAccount, $txn->amount);
+    }
         $txn->update([
             'status' => 'completed',
             'approved_by' => $user->id,
@@ -205,8 +211,7 @@ class TransactionService
      */
     public function customerPendingTransactions()
     {
-        return Transaction::where('metadata->is_customer_transaction', true)
-            ->where('status', 'pending')
+        return Transaction::where('status', 'pending')
             ->get();
     }
 

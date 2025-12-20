@@ -69,10 +69,39 @@ class BankFacade
 
         return $this->composite->getTotalBalance($account);
     }
-
+    public function getAccountTree(Account $account, int $depth = 5): Account
+   {
+    return $this->composite->loadTree($account, $depth);
+    }
     public function calculateInterest(Account $account, int $days, ?string $method = null)
     {
         return $this->interestService->calculateForAccount($account, $days, $method);
     }
+    /**
+ * 🔹 سحب مبلغ من حساب
+ */
+     public function withdraw(Account $account, float $amount, array $meta = [])
+{
+    return $this->txService->customerTransaction(
+        $account,
+        $amount,
+        'withdrawal',
+        $meta
+    );
+}
+
+/**
+ * 🔹 إيداع مبلغ في حساب
+ */
+    public function deposit(Account $account, float $amount, array $meta = [])
+{
+    return $this->txService->customerTransaction(
+        $account,
+        $amount,
+        'deposit',
+        $meta
+    );
+}
+
 }
 

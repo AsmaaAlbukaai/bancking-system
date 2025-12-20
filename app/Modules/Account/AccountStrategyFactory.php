@@ -3,14 +3,12 @@
 namespace App\Modules\Account;
 
 use App\Modules\Account\Account;
-use App\Modules\Account\strategies\
-{
-    AccountStrategy,
-    SavingsStrategy,
-    CheckingStrategy,
-    LoanStrategy,
-    BusinessStrategy
-};
+
+use App\Modules\Account\Strategies\AccountStrategy;
+use App\modules\Account\Strategies\BusinessStrategy;
+use App\modules\Account\Strategies\CheckingStrategy;
+use App\modules\Account\Strategies\LoanStrategy;
+use App\modules\Account\Strategies\SavingsStrategy;
 
 class AccountStrategyFactory
 {

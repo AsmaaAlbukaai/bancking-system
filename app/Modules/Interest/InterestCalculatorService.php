@@ -10,11 +10,17 @@ use Illuminate\Support\Facades\Cache;
 
 class InterestCalculatorService
 {
+
     protected InterestStrategyFactory $factory;
 
-    public function __construct(InterestStrategyFactory $factory)
-    {
+    public function __construct(
+
+        InterestStrategyFactory $factory
+    ) {
+
+
         $this->factory = $factory;
+
     }
 
     /**

@@ -105,6 +105,54 @@
 							]
 						},
 						{
+							"name": "Accounts - Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "19|NzOVeNbvcdVA5S4UgoDv3cQtf4PnKvyc7ApsHMGU2f5dfbc8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"type\": \"savings\",\n  \"account_name\": \"Son Account\",\n  \"balance\": 200,\n  \"parent_account_id\": 6\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Accounts - List",
 							"request": {
 								"auth": {
@@ -145,48 +193,77 @@
 							"response": []
 						},
 						{
-							"name": "Accounts - Create",
+							"name": "Accounts-Tree",
 							"request": {
 								"auth": {
 									"type": "bearer",
 									"bearer": [
 										{
 											"key": "token",
-											"value": "2|HS05rONSfVBrINfkQ73lPJRsDUfSEMdJc1CzDXaA9b52e25e",
+											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
 											"type": "string"
 										}
 									]
 								},
-								"method": "POST",
+								"method": "GET",
 								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									},
 									{
 										"key": "Authorization",
 										"value": "Bearer {{auth_token}}",
 										"type": "text",
 										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"account_name\": \"main Account\",\n  \"type\":\"savings\",\n  \"balance\": 1000000\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
-									"raw": "{{base_url}}/api/create",
+									"raw": "{{base_url}}/api/accounts/6/tree",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"api",
-										"create"
+										"accounts",
+										"6",
+										"tree"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-account-total-balance",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/account/total-balance/6",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"account",
+										"total-balance",
+										"6"
 									]
 								}
 							},
@@ -304,41 +381,6 @@
 										"api",
 										"user",
 										"profile"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "get-account-total-balance",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "7|paftqlPytyFStJEOPXHCyZCH9jwoLnE2byx8CT1ea1395a92",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/api/account/total-balance/2",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"account",
-										"total-balance",
-										"2"
 									]
 								}
 							},
@@ -795,6 +837,86 @@
 											"value": "compound",
 											"description": "simple | compound (optional, default depends on account type)"
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "notifications",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/notifications",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "notifications Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "6|0DgHcP6SqKIVSCATTocwFSWKP5SZ8T7rNIOlaaMK20b119c1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/notifications",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"notifications"
 									]
 								}
 							},
@@ -2306,6 +2428,42 @@
 							"path": [
 								"api",
 								"requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notifications",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "18|Wz5aKYcAsnTURc0Rpr90zEbSZXDajSl3sGZzkOJHc97ed3c1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/notifications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"notifications"
 							]
 						}
 					},

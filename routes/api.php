@@ -65,6 +65,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/update-account/{id}', [AccountController::class, 'update']);
     Route::delete('/account/{id}', [AccountController::class, 'destroy']);
     Route::get('/account/total-balance/{id}', [AccountController::class, 'totalBalance']);
+    Route::get('/accounts/{id}/tree', [AccountController::class, 'tree']);
 
 
 

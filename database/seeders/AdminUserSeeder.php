@@ -15,11 +15,11 @@ class AdminUserSeeder extends Seeder
     public function run(): void
     {
         User::firstOrCreate(
-            ['email' => 'admin@bank.local'], // غيّر هذا الإيميل لما تريد
+            ['email' => 'admin@bank.local'], 
             [
                 'name' => 'System Admin',
                 'phone' => '0000000000',
-                'password' => Hash::make('Admin@12345'), // غيّر الباسورد لو حاب
+                'password' => Hash::make('Admin@12345'), 
                 'role' => 'admin',
                 'email_verified_at' => now(),
             ]

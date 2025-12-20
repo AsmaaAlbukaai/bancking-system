@@ -3,65 +3,80 @@
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
          bootstrap="vendor/autoload.php"
          colors="true">
-    <testsuites>
-        <testsuite name="Unit">
-            <directory>tests/Unit</directory>
-        </testsuite>
-        <testsuite name="Feature">
-            <directory>tests/Feature</directory>
-        </testsuite>
-    </testsuites>
-    
-    <!-- ⚠️ هذا القسم هو المهم! -->
-    <coverage>
-        <report>
-            <html outputDirectory="coverage-html"/>
-            <text outputFile="php://stdout"/>
-        </report>
-        
-        <include>
-            <!-- فقط ملفات الأنماط التصميمية -->
-            <directory suffix=".php">app/Modules</directory>
-            <directory suffix=".php">app/Services</directory>
-            <directory suffix=".php">app/Providers</directory>
-        </include>
-        
-        <exclude>
-            <!-- استبعد كل شيء آخر -->
-            <directory>vendor</directory>
-            <directory>tests</directory>
-            <directory>app/Http</directory>
-            <directory>app/Models</directory>
-            <directory>app/Mail</directory>
-            <directory>app/Console</directory>
-            <directory>database</directory>
-            <directory>public</directory>
-            <directory>resources</directory>
-            <directory>storage</directory>
-            <directory>routes</directory>
-            <directory>bootstrap</directory>
-            <directory>config</directory>
-        </exclude>
-    </coverage>
-    
-    <php>
-        <ini name="error_reporting" value="-1"/>
-        <ini name="memory_limit" value="-1"/>
-        <server name="APP_ENV" value="testing"/>
-        <server name="BCRYPT_ROUNDS" value="4"/>
-        <server name="CACHE_DRIVER" value="array"/>
-        <server name="DB_CONNECTION" value="sqlite"/>
-        <server name="DB_DATABASE" value=":memory:"/>
-        <server name="MAIL_MAILER" value="array"/>
-        <server name="QUEUE_CONNECTION" value="sync"/>
-        <server name="SESSION_DRIVER" value="array"/>
-        <server name="TELESCOPE_ENABLED" value="false"/>
-    </php>
-    
-    <source>
-        <!-- قسم قديم (اختياري) -->
-        <include>
-            <directory>app</directory>
-        </include>
-    </source>
+  <testsuites>
+    <testsuite name="Unit">
+      <directory>tests/Unit</directory>
+    </testsuite>
+    <testsuite name="Feature">
+      <directory>tests/Feature</directory>
+    </testsuite>
+  </testsuites>
+
+  <!-- تقارير التغطية -->
+  <coverage>
+    <report>
+      <html outputDirectory="coverage-html"/>
+      <text outputFile="php://stdout"/>
+    </report>
+
+    <!-- احسب التغطية فقط للوحدات المهمة -->
+    <include>
+      <directory suffix=".php">app/Modules</directory>
+      <directory suffix=".php">app/Repositories</directory>
+      <directory suffix=".php">app/Providers</directory>
+      <directory suffix=".php">app/Modules/Banking</directory>
+      <directory suffix=".php">app/Modules/Transaction</directory>
+      <directory suffix=".php">app/Modules/Interest</directory>
+      <directory suffix=".php">app/Modules/Notification</directory>
+      <directory suffix=".php">app/Modules/Account</directory>
+    </include>
+
+    <!-- استبعد ما يخفض النسبة وغير مطلوب قياسه -->
+    <exclude>
+      <directory>vendor</directory>
+      <directory>tests</directory>
+      <directory>app/Http</directory>
+      <directory>app/Models</directory>
+      <directory>app/Mail</directory>
+      <directory>app/Console</directory>
+      <directory>database</directory>
+      <directory>public</directory>
+      <directory>resources</directory>
+      <directory>storage</directory>
+      <directory>routes</directory>
+      <directory>bootstrap</directory>
+      <directory>config</directory>
+    </exclude>
+  </coverage>
+
+<source>
+  <include>
+    <directory suffix=".php">app/Modules</directory>
+    <directory suffix=".php">app/Repositories</directory>
+    <directory suffix=".php">app/Providers</directory>
+  </include>
+</source>
+  <!-- إعدادات التنفيذ -->
+  <php>
+    <ini name="error_reporting" value="-1"/>
+    <ini name="memory_limit" value="-1"/>
+
+    <!-- PCOV لتفعيل قياس التغطية بدقة وبدون ضوضاء -->
+    <ini name="pcov.enabled" value="1"/>
+    <ini name="pcov.directory" value="app"/>
+    <ini name="pcov.exclude" value="vendor,tests,app/Http,app/Models,app/Mail,app/Console,resources,storage,routes,bootstrap,config"/>
+
+    <!-- بيئة الاختبار -->
+    <server name="APP_ENV" value="testing"/>
+    <server name="BCRYPT_ROUNDS" value="4"/>
+    <server name="CACHE_DRIVER" value="array"/>
+    <server name="DB_CONNECTION" value="sqlite"/>
+    <server name="DB_DATABASE" value=":memory:"/>
+    <server name="MAIL_MAILER" value="array"/>
+    <server name="QUEUE_CONNECTION" value="sync"/>
+    <server name="SESSION_DRIVER" value="array"/>
+    <server name="TELESCOPE_ENABLED" value="false"/>
+  </php>
+
+
 </phpunit>

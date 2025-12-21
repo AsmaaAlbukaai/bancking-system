@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Modules\Notification;
+
 use Illuminate\Support\Facades\Log;
 
 class NotificationDispatcher
 {
-    /** @var NotifierInterface[] */
     protected array $notifiers = [];
 
     public function register(NotifierInterface $notifier): void
@@ -19,7 +19,7 @@ class NotificationDispatcher
             try {
                 $notifier->notify($user, $title, $message, $data);
             } catch (\Throwable $e) {
-                Log::error("Notifier failed: " . $e->getMessage());
+                Log::error('Notification failed: '.$e->getMessage());
             }
         }
     }

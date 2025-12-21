@@ -107,6 +107,10 @@ class User extends Authenticatable implements MustVerifyEmail
         // استبدل 'handled_by' بالعمود الذي يربط المستخدم بالعمليات في جدول Transactions
         return $this->hasMany(Transaction::class, 'approved_by');
     }
+    public function unreadNotifications()
+    {
+        return $this->notifications()->whereNull('read_at');
+    }
 }
 
 

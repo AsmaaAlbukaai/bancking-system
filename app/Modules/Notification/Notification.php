@@ -31,10 +31,13 @@ class Notification extends Model
         'read_at' => 'datetime'
     ];
 
-    // Relationships
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    public function markAsRead(): void
+    {
+        $this->update(['read_at' => now()]);
+    }
 }

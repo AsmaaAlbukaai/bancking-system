@@ -2,20 +2,18 @@
 
 namespace App\Modules\Notification;
 
-use App\Modules\Notification\Notification ;
-
 class InAppNotifier implements NotifierInterface
 {
     public function notify($user, string $title, string $message, array $data = []): void
     {
         Notification::create([
             'user_id' => $user->id,
-            'type' => 'system',
-            'title' => $title,
+            'title'   => $title,
             'message' => $message,
-            'data' => $data,
+            'data'    => $data,
+            'type'    => 'transaction_approved',
             'channel' => 'in_app',
-            'status' => 'sent',
+            'status'  => 'sent',
             'sent_at' => now()
         ]);
     }

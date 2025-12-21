@@ -127,5 +127,5 @@ return [
     App\Modules\Support\SupportModuleServiceProvider::class,
     App\Modules\Recommendations\RecommendationModuleServiceProvider::class,
     App\Modules\Reports\ReportsModuleServiceProvider::class,
-
+    App\Providers\NotificationServiceProvider::class,
 ];

@@ -70,7 +70,11 @@ class TransactionService
         } 
         else {
             // إشعار الموظفين (Tellers) بوجود طلب جديد يحتاج موافقة
-            $this->notifyStaffForTransactionRequest($txn, 'teller'||'manager');
+             if ($txn->amount <= 1000) {
+            $this->notifyStaffForTransactionRequest($txn, 'teller');}
+             if ($txn->amount > 1000) {
+            $this->notifyStaffForTransactionRequest($txn, 'manager');
+    }
         }
 
           return $txn;
@@ -124,11 +128,16 @@ class TransactionService
                 'status' => 'completed',
                 'processed_at' => now()
             ]);
-        } else {
-            // إشعار الموظفين (Tellers) بوجود طلب جديد يحتاج موافقة
-            $this->notifyStaffForTransactionRequest($txn, 'teller'||'manager');
+        } 
+        else {
+            // إشعار الموظفين  بوجود طلب جديد يحتاج موافقة
+            if ($txn->amount <= 1000) {
+            $this->notifyStaffForTransactionRequest($txn, 'teller');}
+             if ($txn->amount > 1000) {
+            $this->notifyStaffForTransactionRequest($txn, 'manager');
+    }
+        
         }
-
         return $txn;
     });
 }
@@ -185,7 +194,7 @@ class TransactionService
     }
 
     /**
-     * ❌ رفض المعاملة
+     *  رفض المعاملة
      */
     public function rejectTransaction(Transaction $txn, $user): Transaction
     {
@@ -207,7 +216,7 @@ class TransactionService
     }
 
     /**
-     * 🟡 كل معاملات العملاء التي تنتظر موافقة Teller
+     *  كل معاملات العملاء التي تنتظر موافقة Teller
      */
     public function customerPendingTransactions()
     {
@@ -277,9 +286,11 @@ class TransactionService
         ]);
     }
 
-    // 6) إشعار العميل بأن العملية تمت الموافقة عليها
+      // إيجاد العميل المرتبط بالمعاملة
     $customer = $txn->toAccount?->user ?? $txn->fromAccount?->user;
+
     if ($customer) {
+        // إرسال إشعار الموافقة
         $this->notifier->transactionApprovedForCustomer(
             $customer,
             $txn->type,

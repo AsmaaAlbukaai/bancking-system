@@ -22,15 +22,23 @@ class AccountCompositeService
     /**
      * جلب شجرة الحسابات (يمكن تحسين الأداء بإستخدام eager loading)
      */
-    public function loadTree(Account $account, $depth = 5): Account
-    {
-        // مثال بسيط: preload children up to depth
-        $account->load('children');
-        if ($depth > 0) {
-            foreach ($account->children as $child) {
-                $this->loadTree($child, $depth - 1);
-            }
-        }
+    public function loadTree(Account $account, int $depth = 5): Account
+{
+    if ($depth <= 0) {
         return $account;
     }
+
+     $account->load([
+        'children' => function ($q) use ($depth) {
+            $q->with('children');
+        }
+    ]);
+
+    foreach ($account->children as $child) {
+        $this->loadTree($child, $depth - 1);
+    }
+
+    return $account;
+}
+
 }

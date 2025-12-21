@@ -197,5 +197,7 @@ docker-compose up -d --build
 php artisan key:generate
 php artisan migrate --seed
 php artisan l5-swagger:generate
---
--Enjoy building on a clean, extensible Laravel architecture.
+
+---
+
+## Enjoy building on a clean, extensible Laravel architecture

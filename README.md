@@ -1,66 +1,201 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Advanced Banking System — README
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Author:** ME  
+**Last updated:** 2025-12-21  
+**Language:** English
 
-## About Laravel
+A modular, extensible banking system built with Laravel. The project demonstrates effective application of both behavioral and structural design patterns to meet real-world banking requirements while keeping the architecture flexible, maintainable, and testable.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Table of Contents
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Overview  
+- Non-Functional Requirements (NFRs)  
+- Design Patterns Applied (with code references)  
+- Architecture Overview  
+- Installation & Local Setup  
+- Docker Usage  
+- API Documentation (Swagger/OpenAPI)  
+- Testing & Code Coverage (PHPUnit + PCOV)  
+- Load Testing (JMeter)  
+- Project Workflow & Task Management (Jira)  
+- Contributing & Code Style  
+- Folder Map  
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Overview
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+This repository implements core banking operations (accounts, transactions, interest calculation, payments, notifications, reports, customer support) following SOLID principles and well-chosen design patterns. The system is divided into cohesive Laravel modules that encapsulate domain behavior and isolate infrastructure concerns.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Key highlights
 
-## Laravel Sponsors
+- Clean separation of concerns via Services / Controllers / Repositories  
+- Runtime-extensible strategies for account behavior and interest calculation  
+- Robust transaction workflow with multi-level approvals  
+- Adapter-based external payment integration  
+- High test coverage with unit and feature tests  
+- Ready-to-run Docker environment and JMeter load plans  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## Non-Functional Requirements (NFRs)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Each NFR below includes a short “How we satisfy it” mapping to code and mechanisms.
 
-## Contributing
+### Extensibility
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Goal:** Add new account types, interest methods, gateways, or approval steps with minimal changes.
 
-## Code of Conduct
+**How:**  
+- Strategy pattern for account operations and interest calculation  
+- Factories for strategy/state selection  
+- Adapter for payment gateways  
+- Chain-of-responsibility for approvals  
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**References:**
+- Account strategies: `app/Modules/Account/Strategies/*`
+- Interest strategies: `app/Modules/Interest/Strategies/*`
+- Payment adapters: `app/Modules/Payment/Gateways/*`
+- Approval chain: `app/Modules/Transaction/Handlers/*`
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Maintainability
 
-## License
+**Goal:** Easy to understand, change, and debug.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**How:**  
+- Clear module boundaries  
+- Facade hides complexity  
+- Repositories abstract persistence  
+- Consistent naming and testing  
+
+**References:**
+- Facade: `app/Modules/Banking/BankFacade.php`
+- Repository:  
+  - Interface: `app/Modules/Account/Contracts/AccountRepositoryInterface.php`  
+  - Implementation: `app/Repositories/AccountRepository.php`
+
+---
+
+### Performance
+
+**Goal:** Efficient operations at scale.
+
+**How:**  
+- Composite pattern for aggregated balances  
+- Background jobs for recurring tasks  
+- Caching in interest calculations  
+
+**References:**
+- Composite: `app/Modules/Account/AccountCompositeService.php`
+- Jobs: `app/Jobs/ProcessRecurringTransactionsJob.php`
+- Caching: `app/Modules/Interest/InterestCalculatorService.php`
+
+---
+
+### Security
+
+**Goal:** Protect financial operations and APIs.
+
+**How:**  
+- Authentication via Laravel Sanctum  
+- Role-based authorization  
+- Input validation  
+- Rule-based approvals  
+
+**References:**
+- Middleware: `app/Http/Middleware/AdminMiddleware.php`
+- Controllers validation: `AccountController`, `TransactionController`
+
+---
+
+### Testability
+
+**Goal:** Independent, repeatable tests with high coverage.
+
+**How:**  
+- Contracts + dependency injection  
+- Mocks for external services  
+- SQLite in-memory testing  
+- PCOV for coverage  
+
+**References:**
+- Tests: `tests/Unit/*`, `tests/Feature/*`
+- PHPUnit config: `phpunit.xml`
+
+---
+
+## Design Patterns Applied (with code references)
+
+### Behavioral Patterns
+
+**Strategy (Account behavior)**  
+- Interface: `AccountStrategy.php`  
+- Implementations: `SavingsStrategy.php`, `CheckingStrategy.php`  
+- Factory: `AccountStrategyFactory.php`
+
+**Strategy (Interest calculation)**  
+- Interface: `InterestStrategyInterface.php`  
+- Implementations: `SimpleInterestStrategy.php`, `CompoundInterestStrategy.php`  
+- Factory: `InterestStrategyFactory.php`
+
+**Chain of Responsibility (Transaction approvals)**  
+- Base: `BaseApprovalHandler.php`  
+- Handlers: `AutoApprovalHandler.php`, `TellerApprovalHandler.php`, `ManagerApprovalHandler.php`
+
+**Observer-like (Notifications)**  
+- Dispatcher: `NotificationDispatcher.php`  
+- Notifiers: `EmailNotifier.php`, `SMSNotifier.php`, `InAppNotifier.php`
+
+---
+
+### Structural Patterns
+
+**State (Account lifecycle)**  
+- States: `ActiveState.php`, `FrozenState.php`, `ClosedState.php`  
+- Factory: `AccountStateFactory.php`
+
+**Composite (Account trees)**  
+- `AccountCompositeService.php`
+
+**Adapter (Payment gateways)**  
+- Interface: `PaymentGatewayAdapterInterface.php`  
+- Implementations: `StripeGatewayAdapter.php`, `DummyGatewayAdapter.php`
+
+**Facade**  
+- `app/Modules/Banking/BankFacade.php`
+
+**Repository**  
+- Interface + Implementation separation
+
+---
+
+## Architecture Overview
+
+- Controllers: `app/Modules/*/*Controller.php`
+- Services encapsulate business logic
+- Facade orchestrates complex flows
+- Strategies and factories enable runtime behavior changes
+- Handlers manage approval workflows
+- Repositories isolate persistence
+
+---
+
+## Installation & Local Setup
+
+**Requirements:** PHP 8.2+, Composer, Node.js, MySQL/SQLite, Docker (optional)
+
+```bash
+git clone <repo-url>
+cd banking-system
+composer install
+cp .env.example .env
+docker-compose up -d --build
+php artisan key:generate
+php artisan migrate --seed
+php artisan l5-swagger:generate
+--
+-Enjoy building on a clean, extensible Laravel architecture.

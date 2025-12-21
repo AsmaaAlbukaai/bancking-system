@@ -47,13 +47,13 @@ class InterestCalculatorService
         $principal = (float) $account->balance;
         $rate = (float) $account->interest_rate;
 
-        // تحديد طريقة الحساب (الجديد من الإصدار الأول)
+        // تحديد طريقة الحساب 
         $method = $method ?? 'simple'; // default
         $strategy = $this->factory->make($method, $account);
 
         $interestAmount = $strategy->calculate($principal, $rate, $days);
 
-        // الضرائب (مثال 5%) - جديد من الإصدار الأول
+        // الضرائب (مثال 5%) 
         $taxRate = 0.05;
         $taxAmount = $interestAmount * $taxRate;
         $netInterest = $interestAmount - $taxAmount;
@@ -63,16 +63,16 @@ class InterestCalculatorService
             'account_id'          => $account->id,
             'principal'           => $principal,
             'interest_rate'       => $rate,
-            'calculation_method'  => $method, // ✔ enum صحيح (من الإصدار الأول)
-            'period'              => "{$days} days", // ✔ string (من الإصدار الأول)
+            'calculation_method'  => $method, 
+            'period'              => "{$days} days", 
             'days'                => $days,
             'interest_amount'     => $interestAmount,
-            'tax_amount'          => $taxAmount, // جديد من الإصدار الأول
-            'net_interest'        => $netInterest, // جديد من الإصدار الأول
+            'tax_amount'          => $taxAmount, 
+            'net_interest'        => $netInterest, 
             'total_amount'        => $principal + $netInterest, // معدل من الإصدار الأول
             'calculation_date'    => now(),
-            'applicable_from'     => now(), // جديد من الإصدار الأول
-            'applicable_to'       => now()->addDays($days), // جديد من الإصدار الأول
+            'applicable_from'     => now(), 
+            'applicable_to'       => now()->addDays($days), 
             'is_applied'          => false,
         ]);
 
